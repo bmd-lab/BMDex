@@ -12,3 +12,7 @@ Primary focus areas include:
 - onboarding and knowledge transfer between group members
 
 The repository is intended to evolve collaboratively while maintaining scientific rigor, reproducibility, and clear documentation standards.
+
+BMDex complements the public `tutorials` repository by serving as the private operational and methodological knowledge base of the BMD Lab.
+
+While the tutorials repository focuses on educational and onboarding material, BMDex focuses on validated workflows, reusable computational tools, workflow standardization, and long-term institutional computational knowledge.
