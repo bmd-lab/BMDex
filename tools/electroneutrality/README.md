@@ -1,56 +1,32 @@
 # Electroneutrality Matching Tools
 
-This module contains utilities for generating chemically charge-balanced compositions from combinations of oxidation states.
+Reusable utilities and examples for generating chemically charge-balanced
+candidate compositions from oxidation-state assignments.
 
-The original motivation was to support:
-- compositional screening
-- candidate compound generation
-- oxidation-state enumeration
-- chemically plausible formula generation
+Canonical metadata:
+- `bmdex.yaml`
 
-The workflow is based on matching combinations of positive and negative oxidation states that sum to zero.
+Canonical dataset:
+- `datasets/oxidation_states/representative_84/`
 
-## Origins
+Provenance:
+- `ORIGIN.md`
 
-This module derives from the earlier:
-- `electroneutral_match`
-repository developed within the BMD Lab.
+Dependencies:
+- Python
+- PyYAML
 
-The original implementation explored combinations of oxidation states associated with known elements and identified electroneutral compositions.
+## Scope
 
-## Purpose in BMDex
+The tool logic matches combinations of positive and negative oxidation states
+whose weighted sum is zero. Typical uses include composition generation,
+candidate formula screening, and oxidation-state constrained enumeration.
 
-Within BMDex, this module is intended to become:
-- a reusable compositional reasoning utility
-- a bridge between oxidation-state logic and pymatgen workflows
-- a standardized internal tool for chemically plausible composition generation
+Electroneutrality is a necessary but insufficient condition for chemical
+realizability. Generated formulas still require structural, thermodynamic, and
+electronic validation where relevant.
 
-## Planned Future Directions
+## Layout
 
-Potential future integration includes:
-- pymatgen Composition objects
-- oxidation-state decorators
-- prototype structure generation
-- automated compositional filtering
-- integration with structure prediction workflows
-
-## Validation Philosophy
-
-Generated compositions should not automatically be treated as chemically realizable materials.
-
-Electroneutrality is a necessary but insufficient condition for stability or synthesizability.
-
-Further:
-- structural
-- thermodynamic
-- and electronic
-validation may be required.
-
-## Repository Organization
-
-- `oxidation_states/`
-    curated oxidation-state datasets
-- `examples/`
-    example composition generation workflows
-- `validation/`
-    sanity checks and tests
+- `examples/`: lightweight executable examples.
+- `oxidation_states/`: compatibility pointer to canonical datasets.

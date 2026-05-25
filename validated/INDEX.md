@@ -1,15 +1,18 @@
-# Validated Workflows Index
+# Validated Content Index
 
-## VASP
+Validation status is canonical in each object's `bmdex.yaml` sidecar.
 
-- Si bulk relaxation
+## Examples
+
+- `example.vasp.si_bulk_relax`: `examples/vasp/si_bulk_relax/`
+
+## Datasets
+
+- `dataset.oxidation_states.representative_84`: `datasets/oxidation_states/representative_84/`
+
+## Legacy Entries Pending Sidecars
+
 - Static calculation template
-
-## Structure Generation
-
 - MoS2 slab generation
-
-## Electroneutrality
-
 - Binary oxide generation
 - Ternary oxide generation

@@ -1,6 +1,8 @@
-# Validated Content
+# Validated Status Index
 
-This section contains workflows, templates, and tools that have been tested and are considered stable for regular group use.
+Validation status is now recorded in canonical `bmdex.yaml` sidecars. This
+directory is retained as a status-oriented index and compatibility layer during
+incremental migration.
 
 Validated content should:
 - contain sufficient documentation

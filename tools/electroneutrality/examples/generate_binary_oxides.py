@@ -10,42 +10,10 @@ Examples:
     Fe2O3
 """
 
-from collections import Counter
 from functools import reduce
 from math import gcd
 
-
-OXIDATION_STATES = {
-    "Li": [1],
-    "Na": [1],
-    "K": [1],
-    "Mg": [2],
-    "Ca": [2],
-    "Sr": [2],
-    "Ba": [2],
-    "Al": [3],
-    "Sc": [3],
-    "Y": [3],
-    "Ti": [4],
-    "Zr": [4],
-    "Hf": [4],
-    "V": [5],
-    "Nb": [5],
-    "Ta": [5],
-    "Cr": [3],
-    "Mn": [2],
-    "Fe": [2, 3],
-    "Co": [2],
-    "Ni": [2],
-    "Cu": [1, 2],
-    "Zn": [2],
-    "Ga": [3],
-    "Ge": [4],
-    "Sn": [2, 4],
-    "Pb": [2],
-    "Bi": [3],
-    "O": [-2],
-}
+from _datasets import load_representative_84
 
 
 def reduce_formula(counts):
@@ -97,9 +65,11 @@ def neutral_formula(cation, cation_charge):
 
 def generate_binary_oxides():
 
+    oxidation_states = load_representative_84()
+
     formulas = set()
 
-    for element, charges in OXIDATION_STATES.items():
+    for element, charges in oxidation_states.items():
 
         if element == "O":
             continue

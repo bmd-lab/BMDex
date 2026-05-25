@@ -23,9 +23,13 @@ tools/electroneutrality/
 ```
 
 Includes:
-- oxidation-state datasets
 - formula generation
 - electroneutral composition matching
+
+Canonical dataset:
+```text
+datasets/oxidation_states/representative_84/
+```
 
 Associated publication:
 - J. Phys. Chem. Lett. 2020

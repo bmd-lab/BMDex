@@ -1,0 +1,43 @@
+id: tool.electroneutrality.matching
+type: tool
+status: experimental
+validation_level: example_only
+title: Electroneutrality Matching Tools
+domain:
+  - electroneutrality
+  - composition_generation
+  - materials_discovery
+description: >
+  Utilities and examples for generating charge-balanced candidate
+  compositions from oxidation-state assignments.
+dependencies:
+  - python
+  - pyyaml
+inputs:
+  - oxidation_state_dataset
+outputs:
+  - candidate_formulas
+uses:
+  datasets:
+    - dataset.oxidation_states.representative_84
+related:
+  methods: []
+  workflows: []
+provenance:
+  origin_file: ORIGIN.md
+  source_repository: https://github.com/bmd-lab/electroneutral_match
+  publication:
+    title: Data-Mining Element Charges in Inorganic Materials
+    doi: 10.1021/acs.jpclett.0c02072
+validation:
+  - Example scripts generate binary and ternary oxide candidate formulas.
+limitations:
+  - Electroneutrality is necessary but insufficient for chemical realizability.
+  - Current examples are lightweight scripts, not a full validated screening workflow.
+  - Generated formulas require downstream scientific validation.
+maintainers:
+  - bmd-lab
+notes: >
+  The oxidation-state data is canonical in
+  datasets/oxidation_states/representative_84/. Tool prose should reference
+  that dataset rather than duplicate dataset provenance.

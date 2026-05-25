@@ -1,65 +1,33 @@
 # Silicon Bulk Relaxation Example
 
-This example demonstrates a minimal bulk silicon structural relaxation workflow using VASP.
+This example is a minimal VASP structural relaxation for diamond-cubic silicon.
+It is intended as a small, readable reference calculation for onboarding,
+workflow checks, and comparison against future VASP examples.
 
-The purpose of this example is to provide:
-- a validated reference calculation
-- a canonical file structure
-- a minimal reproducible workflow
-- an onboarding example for new group members
+The canonical runnable inputs and metadata live in:
+- `examples/vasp/si_bulk_relax/`
 
-## Scientific Context
+## Workflow Type
 
-System:
-- bulk crystalline silicon
-- diamond cubic structure
-
-Calculation type:
-- structural relaxation
-
-Typical goals:
-- lattice optimization
-- energy minimization
-- workflow validation
-- benchmarking and testing
-
-## Included Files
-
-| File | Purpose |
-|---|---|
-| POSCAR | Initial silicon structure |
-| INCAR | Relaxation settings |
-| KPOINTS | k-point sampling |
-| POTCAR.spec | Pseudopotential specification |
-| submit.sbatch | Example SLURM submission script |
-
-## Expected Workflow
-
-1. Prepare input files
-2. Submit calculation to cluster
-3. Monitor convergence
-4. Verify successful relaxation
-5. Inspect final structure and energy
+Bulk structural relaxation:
+- optimize ionic positions and lattice degrees of freedom
+- use conservative relaxation settings
+- generate a relaxed structure suitable for basic sanity checks or follow-on
+  static calculations
 
 ## Expected Outputs
 
-Typical outputs include:
-- relaxed structure
+A successful run should produce standard VASP relaxation outputs, including:
+- `CONTCAR`
+- `OUTCAR`
+- `vasprun.xml`
 - final total energy
-- OUTCAR
-- vasprun.xml
-- CONTCAR
+- relaxed lattice parameters
 
-## Validation Checks
+## Validation Expectations
 
-Successful calculations should:
-- converge electronically
-- converge ionically
-- produce reasonable Si-Si bond lengths
-- preserve expected crystal symmetry
-
-## Notes
-
-This example is intentionally minimal and conservative.
-
-It should function as a stable reference workflow and onboarding example rather than a highly optimized production workflow.
+After completion, check that the calculation:
+- converged electronically
+- converged ionically
+- preserved the expected silicon crystal symmetry
+- produced physically reasonable Si-Si bond lengths
