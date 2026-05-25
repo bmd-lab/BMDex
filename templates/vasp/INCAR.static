@@ -1,0 +1,14 @@
+SYSTEM = Generic static calculation
+
+ENCUT = 520
+EDIFF = 1E-6
+
+IBRION = -1
+NSW = 0
+
+ISMEAR = -5
+
+PREC = Accurate
+
+LWAVE = .FALSE.
+LCHARG = .FALSE.
