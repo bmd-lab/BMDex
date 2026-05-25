@@ -7,7 +7,7 @@ The goal of this repository is to preserve and standardize computational knowled
 ## What Belongs in BMDex
 
 Examples of useful contributions include:
-- validated computational workflows
+- reproducible computational workflows
 - reusable VASP input templates
 - pymatgen utilities and transformations
 - HPC workflow guidance
@@ -33,15 +33,20 @@ When possible:
 - prefer reusable methods over one-off scripts
 - keep examples minimal and executable
 
-## Experimental vs Validated Content
+## Status and Maturity
 
 Exploratory or untested approaches should be clearly labeled as experimental.
 
-Validated workflows should:
+Production-ready workflows should:
 - contain sufficient documentation
 - include expected inputs and outputs
 - describe known limitations or failure modes
 - avoid undocumented dependencies
+
+Do not create new top-level lifecycle buckets such as `incoming/`,
+`validated/`, or `deprecated/`. Place content in its canonical section
+(`tools/`, `examples/`, `datasets/`, `methods/`, and so on) and record status
+in local metadata and documentation.
 
 ## Documentation Expectations
 

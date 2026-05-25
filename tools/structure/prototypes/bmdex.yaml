@@ -1,5 +1,5 @@
-id: dataset.structure_prototypes.mp_unique_frameworks_2025
-type: dataset
+id: tool.structure.prototypes.mp_unique_frameworks_2025
+type: tool_data
 status: experimental
 validation_level: external_source_import
 title: Materials Project Unique Structure Prototypes 2025
@@ -53,5 +53,5 @@ planned_integrations:
 maintainers:
   - bmd-lab
 notes: >
-  This sidecar integrates the external source into the BMDex metadata ontology
-  without migrating or duplicating the raw CIF collection.
+  This sidecar integrates the external source into the structure-tools section
+  of BMDex without migrating or duplicating the raw CIF collection.

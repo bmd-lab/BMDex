@@ -6,7 +6,8 @@ BMDex serves as the lab’s shared computational knowledge base and institutiona
 
 Primary focus areas include:
 - VASP-based density functional theory (DFT)
-- pymatgen workflows and structure manipulation
+- atomic structure workflows and structure manipulation
+- chemical formula and composition screening
 - HPC workflow standardization
 - reusable computational methods and templates
 - onboarding and knowledge transfer between group members
@@ -15,4 +16,35 @@ The repository is intended to evolve collaboratively while maintaining scientifi
 
 BMDex complements the public `tutorials` repository by serving as the private operational and methodological knowledge base of the BMD Lab.
 
-While the tutorials repository focuses on educational and onboarding material, BMDex focuses on validated workflows, reusable computational tools, workflow standardization, and long-term institutional computational knowledge.
+While the tutorials repository focuses on educational and onboarding material, BMDex focuses on reusable computational tools, workflow standardization, operational guidance, and long-term institutional computational knowledge.
+
+## Repository Layout
+
+BMDex is organized by content type rather than lifecycle bucket.
+
+- `tools/` reusable computational primitives and utilities
+- `methods/` methodological standards, conventions, and design guidance
+- `templates/` reusable starting points for calculations and job submission
+- `examples/` minimal runnable reference workflows
+- `datasets/` curated scientific datasets used by tools and workflows
+- `hpc/` cluster-specific operational guidance
+- `experimental/` exploratory content that is not yet ready to be treated as standard lab practice
+- `decisions/` repository-level design decisions and institutional reasoning
+- `schemas/` canonical sidecar schema templates
+
+Validation state, provenance, and limitations belong in each object's
+`bmdex.yaml` sidecar, not in separate top-level status directories.
+
+## Topic Grouping
+
+Within those top-level sections, BMDex should group material by materials
+science topic rather than by software package name.
+
+- atomic structure: structure generation, orientations, supercells, slabs, and prototype references
+- chemical formula and composition: oxidation-state data and electroneutral composition generation
+- DFT methods and workflows: VASP inputs, submission templates, and executable calculation examples
+- HPC operations: cluster-specific execution and troubleshooting guidance
+
+Software frameworks such as `pymatgen` should appear inside method notes or
+tool documentation where relevant, but should not generally define repository
+layout on their own.

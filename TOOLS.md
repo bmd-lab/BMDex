@@ -14,17 +14,23 @@ Includes:
 - supercell construction
 - orientation handling
 - vacuum manipulation
+- structure prototype references
 
-## Electroneutrality Tools
+## Composition Utilities
 
 Location:
 ```text
-tools/electroneutrality/
+tools/composition/
 ```
 
 Includes:
 - formula generation
 - electroneutral composition matching
+
+Primary tool:
+```text
+tools/composition/electroneutrality/
+```
 
 Canonical dataset:
 ```text

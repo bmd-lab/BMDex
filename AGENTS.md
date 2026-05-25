@@ -8,7 +8,8 @@ BMDex complements the public `tutorials` repository:
 
 Primary focus areas:
 - VASP-based density functional theory (DFT)
-- pymatgen workflows and structure manipulation
+- atomic structure workflows and structure manipulation
+- chemical formula and composition screening
 - reproducible computational materials science
 - HPC workflow standardization
 - reusable computational infrastructure

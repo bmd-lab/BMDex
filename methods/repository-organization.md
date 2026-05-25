@@ -5,7 +5,8 @@ This document describes the organizational structure and design philosophy of BM
 The goal of the repository structure is to:
 - preserve institutional computational knowledge
 - separate reusable infrastructure from project-specific workflows
-- distinguish validated methods from exploratory work
+- distinguish canonical content from exploratory work through metadata and documentation
+- group content by scientific topic where practical
 - maintain long-term maintainability as the repository evolves
 
 ## Core Philosophy
@@ -25,12 +26,17 @@ The repository prioritizes:
 
 ## Organizational Structure
 
+Top-level sections describe content type. Within those sections, subdirectories
+should usually follow materials-science topics such as structure, composition,
+or DFT workflow domain rather than software package names alone.
+
 ### `tools/`
 
 Reusable computational primitives and utilities.
 
 Examples:
 - structure manipulation
+- composition screening
 - slab generation
 - supercell generation
 - electroneutral composition generation
@@ -48,23 +54,14 @@ Scientific conventions, methodological standards, and workflow philosophy.
 Examples:
 - VASP input standards
 - convergence philosophy
-- pymatgen usage conventions
+- structure-manipulation conventions
+- composition-screening conventions
 - repository design philosophy
 
 Methods explain:
 - why workflows exist
 - what assumptions are used
 - and how standards should be interpreted.
-
-### `validated/`
-
-Stable workflows and tools considered suitable for regular group use.
-
-Validated content should:
-- contain sufficient documentation
-- be reproducible
-- specify assumptions explicitly
-- avoid undocumented dependencies
 
 ### `experimental/`
 
@@ -76,6 +73,21 @@ Experimental content may:
 - rely on unstable assumptions
 
 Experimental content should not automatically be treated as production-ready.
+
+### Lifecycle Metadata
+
+BMDex does not use separate top-level lifecycle buckets such as `incoming/`,
+`validated/`, or `deprecated/`.
+
+Instead, lifecycle state should be recorded in canonical `bmdex.yaml` sidecars
+and described locally in the relevant README files. Physical placement in the
+repository should answer "what kind of thing is this?" rather than "what is its
+current status?"
+
+Software package names may still appear inside canonical sections when they are
+the clearest way to describe a method, but they should not create redundant
+top-level buckets when the underlying topic already has a better scientific
+home.
 
 ### `templates/`
 
@@ -135,7 +147,9 @@ Examples:
 
 ### Validated Examples
 
-Concrete trusted workflows used for onboarding and operational reference.
+Concrete trusted workflows used for onboarding and operational reference. These
+live in their canonical content directories, with validation state recorded in
+metadata rather than through a separate top-level folder.
 
 Examples:
 - Si bulk relaxation

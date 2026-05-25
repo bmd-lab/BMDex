@@ -21,7 +21,8 @@ The initial focus of BMDex is intentionally narrow and centered on the group’s
 
 Primary focus areas:
 - VASP-based density functional theory (DFT)
-- pymatgen workflows and structure manipulation
+- atomic structure workflows and structure manipulation
+- chemical formula and composition screening
 - reproducible HPC workflows
 - reusable templates and examples
 - onboarding resources for new students
@@ -74,10 +75,13 @@ The repository is initially organized into:
 - templates
 - examples
 - decisions
-- validated workflows
-- experimental workflows
+- tools
+- datasets
+- experimental content
 
-This structure is expected to evolve as the repository matures.
+This structure is expected to evolve as the repository matures. Topic-oriented
+grouping inside those sections is preferred over software-specific top-level
+buckets.
 
 ## Future Development
 
