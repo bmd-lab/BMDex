@@ -50,5 +50,5 @@ related:
 maintainers:
   - bmd-lab
 notes: >
-  This example was migrated from validated/vasp/si_bulk_relax/ so object type
-  and validation status can be represented separately.
+  This onboarding example keeps its README, metadata, and runnable VASP input
+  files together so new students can inspect the full workflow in one place.

@@ -4,7 +4,7 @@ Validation status is canonical in each object's `bmdex.yaml` sidecar.
 
 ## Examples
 
-- `example.vasp.si_bulk_relax`: `examples/vasp/si_bulk_relax/`
+- `example.vasp.si_bulk_relax`: `examples/si_bulk_relax/`
 
 ## Datasets
 

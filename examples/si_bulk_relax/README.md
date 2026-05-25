@@ -4,8 +4,19 @@ This example is a minimal VASP structural relaxation for diamond-cubic silicon.
 It is intended as a small, readable reference calculation for onboarding,
 workflow checks, and comparison against future VASP examples.
 
-The canonical runnable inputs and metadata live in:
-- `examples/vasp/si_bulk_relax/`
+The runnable inputs and metadata are kept in this directory so new students
+can inspect the full example in one place.
+
+## Included Files
+
+| File | Purpose |
+|---|---|
+| `POSCAR` | Initial silicon structure |
+| `INCAR` | Relaxation settings |
+| `KPOINTS` | Brillouin-zone sampling |
+| `POTCAR.spec` | Pseudopotential specification |
+| `submit.sbatch` | Example SLURM submission script |
+| `bmdex.yaml` | Structured metadata for curation |
 
 ## Workflow Type
 
