@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# VASP outputs
+WAVECAR
+CHGCAR
+CHG
+LOCPOT
+OUTCAR
+vasprun.xml
+vasprun.xml.gz
+EIGENVAL
+DOSCAR
+XDATCAR
+IBZKPT
+OSZICAR
+PCDAT
+REPORT
+
+# Archives
+*.tar.gz
+*.zip
