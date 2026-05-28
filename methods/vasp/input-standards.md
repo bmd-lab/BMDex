@@ -14,7 +14,7 @@ The goal is to maintain:
 
 - Prefer conservative and validated settings over aggressive optimization.
 - Document all deviations from standard templates.
-- Separate exploratory workflows from validated production workflows.
+- Document lower-maturity workflows and distinguish them from validated production workflows.
 - Record pseudopotential functional explicitly.
 
 ## INCAR Standards

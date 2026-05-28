@@ -1,0 +1,27 @@
+schema_version: 1
+id: template.slurm.submit_python
+type: template
+status: experimental
+validation_level: documented
+title: SLURM Submission Template for Python Utilities
+domain:
+  - slurm
+  - hpc
+  - python
+description: >
+  Reference SLURM submission script for simple Python and pymatgen utilities on
+  TAU PowerSLURM.
+files:
+  template: submit_python.sbatch
+  documentation: submit_python.sbatch.md
+related:
+  hpc:
+    - hpc.tau_powerslurm.operational_standards
+validation:
+  - Documents standard Python job resource assumptions and environment activation points.
+  - Shell syntax is checked during repository validation.
+limitations:
+  - Environment activation must be edited for each user's installed environment.
+  - Resource requests are starting points and may not fit heavy post-processing jobs.
+maintainers:
+  - bmd-lab

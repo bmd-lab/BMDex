@@ -41,7 +41,7 @@ Distinguish clearly between:
 - reusable tools and primitives
 - higher-level scientific workflows
 - validated operational examples
-- experimental or exploratory content
+- lower-maturity but curated content recorded through metadata
 
 ## Contribution Guidance
 
@@ -76,4 +76,4 @@ Newcomer-facing workflows should:
 - minimize implicit knowledge
 - contain executable examples
 - prioritize clarity over abstraction
-- distinguish validated workflows from experimental workflows
+- distinguish validated workflows from lower-maturity workflows

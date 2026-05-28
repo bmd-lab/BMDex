@@ -1,0 +1,40 @@
+schema_version: 1
+id: hpc.tau_powerslurm.operational_standards
+type: hpc
+status: validated
+validation_level: documented
+title: TAU PowerSLURM Operational Standards
+domain:
+  - hpc
+  - slurm
+  - vasp
+description: >
+  Cluster-specific operational standards for BMD Lab VASP, Python, GPU, and
+  high-throughput workflows on TAU PowerSLURM.
+files:
+  documentation:
+    - README.md
+    - cluster-profile.md
+    - slurm-standards.md
+    - vasp-execution.md
+    - gpu-vasp.md
+    - python-environments.md
+    - high-throughput.md
+    - common_failures.md
+related:
+  hpc:
+    - hpc.tau_powerslurm.potcar_setup
+  templates:
+    - template.slurm.submit_vasp
+    - template.slurm.submit_python
+    - template.slurm.submit_vasp_gpu
+  tools:
+    - tool.hpc.power_operations
+validation:
+  - Distilled from existing BMD Lab tutorial workflows and cluster usage notes.
+  - Documents current partition, account, module, and filesystem conventions.
+limitations:
+  - Cluster policies, modules, and filesystem paths can change and require periodic revalidation.
+  - Resource tiers are starting points and do not replace workflow-specific benchmarking.
+maintainers:
+  - bmd-lab

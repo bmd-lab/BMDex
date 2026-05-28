@@ -5,7 +5,7 @@ This document describes the organizational structure and design philosophy of BM
 The goal of the repository structure is to:
 - preserve institutional computational knowledge
 - separate reusable infrastructure from project-specific workflows
-- distinguish canonical content from exploratory work through metadata and documentation
+- distinguish maturity and validation state through metadata and documentation
 - group content by scientific topic where practical
 - maintain long-term maintainability as the repository evolves
 
@@ -67,25 +67,17 @@ Repository-level design records live under `methods/repository-governance/`.
 They are treated as governance methods rather than as a separate top-level
 content type.
 
-### `experimental/`
-
-Exploratory or actively developing workflows.
-
-Experimental content may:
-- change substantially
-- contain incomplete validation
-- rely on unstable assumptions
-
-Experimental content should not automatically be treated as production-ready.
-
 ### Lifecycle Metadata
 
 BMDex does not use separate top-level lifecycle buckets such as `incoming/`,
-`validated/`, or `deprecated/`.
+`experimental/`, `validated/`, or `deprecated/`.
 
 Instead, lifecycle state should be recorded in canonical metadata sidecars and
 described locally in the relevant README files. Directory-backed objects use
 `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
+
+Scratch work, temporary notebooks, and speculative experiments should remain
+outside BMDex until they are useful enough to curate in a canonical section.
 
 Physical placement in the repository should answer "what kind of thing is
 this?" rather than "what is its current status?"

@@ -1,36 +1,43 @@
-# TAU PowerSLURM Notes
+# TAU PowerSLURM Operational Standards
 
-## Standard Modules
+This section records BMD Lab conventions for running computational materials
+science workflows on TAU PowerSLURM systems.
 
-Validated VASP workflows currently assume the cluster-provided Intel and VASP
-module stack documented in the local submission templates and troubleshooting
-notes. Module names should be rechecked when the cluster image changes.
+BMDex keeps this section operational rather than pedagogical. It should answer:
 
-## Recommended SLURM Defaults
+- which cluster resources and modules are standard
+- how VASP jobs are submitted and restarted
+- how Python and pymatgen utilities are run
+- which filesystem conventions preserve reproducibility
+- which recurring failure modes have already been debugged
 
-Use conservative defaults from `templates/slurm/submit_vasp.sbatch` as the
-starting point for onboarding and reference calculations.
+## Core Documents
 
-## VASP Execution
+- `cluster-profile.md`: partitions, accounts, modules, and filesystem paths
+- `slurm-standards.md`: canonical SLURM submission conventions
+- `vasp-execution.md`: CPU VASP execution and input expectations
+- `gpu-vasp.md`: GPU VASP and MIG/full-GPU resource conventions
+- `python-environments.md`: mamba and Python environment conventions
+- `high-throughput.md`: batch submission, status checks, and restart policy
+- `potcar-setup.md`: POTCAR policy and `PMG_VASP_PSP_DIR`
+- `common_failures.md`: known operational failures and debugging checks
 
-BMDex examples use `mpirun` with `vasp_std` unless a workflow documents a
-different execution model.
+## Related Repository Objects
 
-## Filesystem Conventions
+Templates:
 
-Pseudopotential lookup is standardized through `PMG_VASP_PSP_DIR` and the
-local POTCAR policy in `potcar-setup.md`.
+- `templates/slurm/submit_vasp.sbatch`
+- `templates/slurm/submit_vasp_gpu.sbatch`
+- `templates/slurm/submit_python.sbatch`
 
-## Common Failure Modes
+Operational tools:
 
-See `common_failures.md`.
+- `tools/hpc/submit_many_vasp.py`
+- `tools/hpc/vasp_status.py`
+- `tools/hpc/restart_relaxations.py`
+- `tools/hpc/check_power_environment.sh`
 
-## Debugging Tips
+## Operating Principle
 
-Start from a minimal reproducible calculation, inspect SLURM output, verify the
-module environment, confirm POTCAR setup, and then check VASP convergence.
-
-## Known Cluster Behaviors
-
-Cluster-specific behavior should be recorded here only after it has been
-observed by the group and is useful for future reproducibility or onboarding.
+Cluster guidance should stay close to real group workflows. Prefer short,
+direct standards and copyable scripts over hidden orchestration layers.

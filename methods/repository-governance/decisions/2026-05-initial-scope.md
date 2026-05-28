@@ -77,7 +77,6 @@ The repository is initially organized into:
 - tools
 - datasets
 - repository governance records under methods
-- experimental content
 
 This structure is expected to evolve as the repository matures. Topic-oriented
 grouping inside those sections is preferred over software-specific top-level

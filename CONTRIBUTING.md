@@ -35,7 +35,13 @@ When possible:
 
 ## Status and Maturity
 
-Exploratory or untested approaches should be clearly labeled as experimental.
+Content should be added to BMDex only when it is useful enough to curate in a
+canonical location. Scratch work, temporary notebooks, and speculative
+experiments should remain outside the repository until they are ready to become
+maintained lab knowledge.
+
+Lower-maturity but useful content may still be recorded with an appropriate
+metadata status and explicit limitations.
 
 Production-ready workflows should:
 - contain sufficient documentation
@@ -43,7 +49,7 @@ Production-ready workflows should:
 - describe known limitations or failure modes
 - avoid undocumented dependencies
 
-Do not create new top-level lifecycle buckets such as `incoming/`,
+Do not create top-level lifecycle buckets such as `incoming/`, `experimental/`,
 `validated/`, or `deprecated/`. Place content in its canonical section
 (`tools/`, `examples/`, `datasets/`, `methods/`, and so on) and record status
 in local metadata and documentation.
@@ -95,7 +101,7 @@ New contributors are encouraged to:
 - improve documentation
 - add examples
 - clarify existing workflows
-- submit experimental methods for discussion
 - propose reusable templates and utilities
 
-Incomplete contributions are acceptable if they are clearly labeled.
+Incomplete or speculative work should be kept outside BMDex until it is ready
+to be curated in a canonical section.

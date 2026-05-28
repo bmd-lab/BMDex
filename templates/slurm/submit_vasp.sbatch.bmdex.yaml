@@ -16,9 +16,11 @@ files:
   documentation: submit_vasp.sbatch.md
 related:
   hpc:
+    - hpc.tau_powerslurm.operational_standards
     - hpc.tau_powerslurm.potcar_setup
 validation:
   - Documents standard resource-request and mpirun execution assumptions.
+  - Uses cd "$SLURM_SUBMIT_DIR", ulimit, and the standard VASP output file convention.
   - Used by the canonical silicon bulk relaxation onboarding example.
 limitations:
   - Cluster module names, accounts, partitions, and resource policies may change.

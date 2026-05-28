@@ -28,12 +28,14 @@ BMDex is organized by content type rather than lifecycle bucket.
 - `examples/` minimal runnable reference workflows
 - `datasets/` curated scientific datasets used by tools and workflows
 - `hpc/` cluster-specific operational guidance
-- `experimental/` exploratory content that is not yet ready to be treated as standard lab practice
 - `schemas/` canonical metadata schema and validation contract
 
 Validation state, provenance, and limitations belong in each object's metadata
 sidecar, not in separate top-level status directories. Directory-backed
 objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
+Content should enter BMDex through its canonical section once it is useful
+enough to curate; scratch or exploratory work should remain outside the
+repository until then.
 Repository-level design decisions and institutional reasoning live under
 `methods/repository-governance/`.
 

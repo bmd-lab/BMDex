@@ -1,0 +1,33 @@
+schema_version: 1
+id: tool.structure.framework_matcher
+type: tool
+status: experimental
+validation_level: example_only
+title: Structure Comparison Utilities
+domain:
+  - structure_analysis
+  - structure_manipulation
+  - pymatgen
+description: >
+  Practical pymatgen-native utilities for comparing structures and checking
+  framework preservation.
+files:
+  scripts:
+    - compare_frameworks.py
+  documentation:
+    - README.md
+dependencies:
+  - pymatgen
+inputs:
+  - POSCAR_reference
+  - POSCAR_candidate
+outputs:
+  - terminal report
+validation:
+  - Python scripts compile successfully.
+  - Script behavior is documented in README.md.
+limitations:
+  - StructureMatcher tolerances are workflow-dependent and must be reviewed for each use case.
+  - Framework comparison ignores species identity by design when enabled.
+maintainers:
+  - bmd-lab
