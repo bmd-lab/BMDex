@@ -1,0 +1,13 @@
+Filename: mp-28171.cif  K3BrO  appeared: 2 times
+Space Group: Pm-3m no. 221
+Orientation Matrix:
+5.29	0.00	0.00
+-0.00	5.29	0.00
+0.00	0.00	5.29
+Atoms Locations:
+K	[0.  0.  0.5]
+K	[0.  0.5 0. ]
+K	[0.5 0.  0. ]
+Br	[0.5 0.5 0.5]
+O	[0. 0. 0.]
+

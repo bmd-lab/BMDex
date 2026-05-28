@@ -1,0 +1,26 @@
+schema_version: 1
+id: template.vasp.incar_relax
+type: template
+status: validated
+validation_level: documented
+title: VASP Relaxation INCAR Template
+domain:
+  - vasp
+  - dft
+  - structure_relaxation
+description: >
+  Conservative INCAR starting point for VASP structural relaxation calculations.
+files:
+  template: INCAR.relax
+  documentation: INCAR.relax.md
+related:
+  methods:
+    - method.vasp.input_standards
+validation:
+  - Documents conservative defaults for ionic and cell relaxation.
+  - Used by the canonical silicon bulk relaxation onboarding example.
+limitations:
+  - Not universally optimized for all chemistries, magnetic states, or target properties.
+  - Production workflows require documented convergence and parameter justification.
+maintainers:
+  - bmd-lab

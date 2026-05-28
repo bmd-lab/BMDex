@@ -58,6 +58,27 @@ Contributions should aim to document:
 - validation procedure
 - computational cost considerations when relevant
 
+## Metadata Expectations
+
+Canonical repository objects should include metadata sidecars. Directory-backed
+objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
+
+Sidecars should follow `schemas/bmdex.schema.yaml` and record:
+- stable object ID
+- object type
+- lifecycle status
+- validation level
+- provenance or origin when relevant
+- validation evidence
+- known limitations
+- maintainers
+
+Before review, run:
+
+```bash
+python3 tools/metadata/validate_bmdex_metadata.py
+```
+
 ## Repository Philosophy
 
 BMDex is intended to function as long-term institutional memory for the lab.

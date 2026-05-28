@@ -1,0 +1,26 @@
+schema_version: 1
+id: template.vasp.incar_static
+type: template
+status: validated
+validation_level: documented
+title: VASP Static INCAR Template
+domain:
+  - vasp
+  - dft
+  - static_calculation
+description: >
+  Conservative INCAR starting point for fixed-geometry VASP static calculations.
+files:
+  template: INCAR.static
+  documentation: INCAR.static.md
+related:
+  methods:
+    - method.vasp.input_standards
+validation:
+  - Documents fixed-geometry static calculation defaults.
+  - Records tighter electronic convergence relative to the relaxation template.
+limitations:
+  - Not a complete template for density of states, optical, magnetic, or charged workflows.
+  - Production workflows require documented k-point, ENCUT, and smearing validation.
+maintainers:
+  - bmd-lab

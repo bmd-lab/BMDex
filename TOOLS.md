@@ -14,7 +14,12 @@ Includes:
 - supercell construction
 - orientation handling
 - vacuum manipulation
-- structure prototype references
+- MSS-Auto layered-material structure screening
+
+Related structure prototype datasets:
+```text
+datasets/structure_prototypes/
+```
 
 ## Composition Utilities
 
@@ -40,17 +45,7 @@ datasets/oxidation_states/representative_84/
 Associated publication:
 - J. Phys. Chem. Lett. 2020
 
-## MSS-Auto
-
-Location:
+MSS-Auto location:
 ```text
-tools/mss_auto/
+tools/structure/mss_auto/
 ```
-
-Includes:
-- layered-material screening workflows
-- automated slab workflows
-- anisotropy-based screening infrastructure
-
-Associated publication:
-- Phys. Chem. Chem. Phys. 2024

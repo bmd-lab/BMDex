@@ -1,0 +1,69 @@
+schema_version: 1
+id: dataset.structure_prototypes.mp_unique_frameworks_2025
+type: dataset
+status: experimental
+validation_level: external_source_import
+title: Materials Project Unique Structure Prototypes 2025
+domain:
+  - structure_prototypes
+  - pymatgen
+  - materials_project
+description: >
+  Materials Project-derived CIF prototype collection grouped by anonymous
+  stoichiometry labels and summarized by unique framework representatives.
+files:
+  source_readme:
+    - SOURCE_README.md
+  summaries:
+    - all-prototypes-unfiltered.txt
+    - sorted-structures/*/unique_structures.txt
+  structures:
+    pattern: sorted-structures/**/*.cif
+  provenance_scripts:
+    - scripts/abundance_rank.py
+    - scripts/generate-frameworks-list.py
+    - scripts/get_abundant_prototypes.py
+counts:
+  source_materials_analyzed: 23160
+  prototype_groups: 174
+  cif_files: 5557
+  filtered_unique_entries: 699
+  unfiltered_entries: 2410
+origin:
+  repository: https://github.com/bmd-lab/structure-prototypes.git
+  commit: 3072b2e7b5dab54ed7a434d453838d8ce864d61a
+  thesis:
+    title: The Unique Structure Prototypes of All Materials
+    institution: Tel Aviv University
+    year: 2025
+  source_database: Materials Project
+method_summary:
+  - Structures were grouped by anonymous stoichiometry labels.
+  - Unique frameworks were identified from atomic geometries using pymatgen structure matching.
+  - Prototype summaries record representative CIF filename, formula, match count, space group, lattice matrix, and fractional coordinates.
+dependencies:
+  - pymatgen
+uses:
+  datasets:
+    - dataset.element_abundances.crust_abundance
+validation:
+  - External source repository and commit are recorded.
+  - Prototype counts and source-method summary are captured in this sidecar.
+  - CIF collection and generated prototype summaries are stored under datasets.
+  - Broader reuse still requires license and redistribution review.
+limitations:
+  - License and redistribution terms need explicit documentation before broader reuse.
+  - Derived from Materials Project structures and associated database assumptions.
+  - Provenance scripts are preserved from the source repository and may require path review before reuse.
+planned_integrations:
+  reusable_tools:
+    - tool.structure.prototype_loader
+    - tool.structure.framework_matcher
+  workflows:
+    - workflow.structure_prototypes.identify_unique_frameworks
+maintainers:
+  - bmd-lab
+notes: >
+  This sidecar describes the canonical in-repository structure prototype
+  dataset. Reusable loaders or framework matchers should live under tools and
+  reference this dataset rather than duplicate its content.

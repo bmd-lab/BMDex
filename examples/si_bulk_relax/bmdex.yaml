@@ -1,3 +1,4 @@
+schema_version: 1
 id: example.vasp.si_bulk_relax
 type: example
 status: validated

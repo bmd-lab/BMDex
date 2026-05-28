@@ -56,12 +56,16 @@ Examples:
 - convergence philosophy
 - structure-manipulation conventions
 - composition-screening conventions
-- repository design philosophy
+- repository design philosophy and governance decisions
 
 Methods explain:
 - why workflows exist
 - what assumptions are used
 - and how standards should be interpreted.
+
+Repository-level design records live under `methods/repository-governance/`.
+They are treated as governance methods rather than as a separate top-level
+content type.
 
 ### `experimental/`
 
@@ -79,10 +83,14 @@ Experimental content should not automatically be treated as production-ready.
 BMDex does not use separate top-level lifecycle buckets such as `incoming/`,
 `validated/`, or `deprecated/`.
 
-Instead, lifecycle state should be recorded in canonical `bmdex.yaml` sidecars
-and described locally in the relevant README files. Physical placement in the
-repository should answer "what kind of thing is this?" rather than "what is its
-current status?"
+Instead, lifecycle state should be recorded in canonical metadata sidecars and
+described locally in the relevant README files. Directory-backed objects use
+`bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
+
+Physical placement in the repository should answer "what kind of thing is
+this?" rather than "what is its current status?"
+
+Metadata sidecars should validate against `schemas/bmdex.schema.yaml`.
 
 Software package names may still appear inside canonical sections when they are
 the clearest way to describe a method, but they should not create redundant
@@ -113,16 +121,6 @@ Examples should prioritize:
 - maintainability
 over excessive optimization or abstraction.
 
-### `decisions/`
-
-Repository-level design decisions and institutional reasoning.
-
-These files preserve:
-- why standards were adopted
-- workflow evolution
-- organizational philosophy
-- important methodological decisions
-
 ## Workflow Hierarchy
 
 BMDex distinguishes between:
@@ -141,7 +139,7 @@ Examples:
 Higher-level orchestrated methodologies built from reusable primitives.
 
 Examples:
-- MSS-Auto
+- MSS-Auto under `tools/structure/mss_auto/`
 - layered-material screening workflows
 - high-throughput structure generation
 

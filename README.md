@@ -29,11 +29,19 @@ BMDex is organized by content type rather than lifecycle bucket.
 - `datasets/` curated scientific datasets used by tools and workflows
 - `hpc/` cluster-specific operational guidance
 - `experimental/` exploratory content that is not yet ready to be treated as standard lab practice
-- `decisions/` repository-level design decisions and institutional reasoning
-- `schemas/` canonical sidecar schema templates
+- `schemas/` canonical metadata schema and validation contract
 
-Validation state, provenance, and limitations belong in each object's
-`bmdex.yaml` sidecar, not in separate top-level status directories.
+Validation state, provenance, and limitations belong in each object's metadata
+sidecar, not in separate top-level status directories. Directory-backed
+objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
+Repository-level design decisions and institutional reasoning live under
+`methods/repository-governance/`.
+
+Metadata sidecars are validated against `schemas/bmdex.schema.yaml` with:
+
+```bash
+python3 tools/metadata/validate_bmdex_metadata.py
+```
 
 ## Topic Grouping
 

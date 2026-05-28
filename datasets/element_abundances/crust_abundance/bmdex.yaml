@@ -1,0 +1,34 @@
+schema_version: 1
+id: dataset.element_abundances.crust_abundance
+type: dataset
+status: experimental
+validation_level: external_source_import
+title: Crust Abundance Data
+domain:
+  - element_abundance
+  - compositional_reasoning
+  - materials_screening
+description: >
+  Excel workbook of element abundance data used by the structure-prototype
+  workflow for abundance-aware compound ranking.
+files:
+  workbook: element-abundances.xlsx
+format: xlsx
+origin:
+  repository: https://github.com/bmd-lab/structure-prototypes.git
+  commit: 3072b2e7b5dab54ed7a434d453838d8ce864d61a
+  source_context: Materials Project unique structure prototype workflow
+workbook:
+  sheets:
+    - crust abundance
+used_by:
+  datasets:
+    - dataset.structure_prototypes.mp_unique_frameworks_2025
+validation:
+  - Workbook opens as a Microsoft Excel 2007+ file.
+  - Workbook metadata contains a sheet named crust abundance.
+limitations:
+  - Original data source and units require explicit documentation before broad reuse.
+  - Preserved as supporting data from the structure-prototype source workflow.
+maintainers:
+  - bmd-lab

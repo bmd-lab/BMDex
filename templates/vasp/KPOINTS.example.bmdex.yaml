@@ -1,0 +1,27 @@
+schema_version: 1
+id: template.vasp.kpoints_example
+type: template
+status: validated
+validation_level: documented
+title: VASP KPOINTS Example Template
+domain:
+  - vasp
+  - dft
+  - kpoints
+description: >
+  Minimal automatic k-point mesh example used as a readable starting point for
+  periodic VASP calculations.
+files:
+  template: KPOINTS.example
+  documentation: KPOINTS.example.md
+related:
+  methods:
+    - method.vasp.input_standards
+validation:
+  - Documents k-point mesh philosophy and convergence expectations.
+  - Used by the canonical silicon bulk relaxation onboarding example.
+limitations:
+  - Example mesh is not a production convergence guarantee.
+  - Metallic, low-dimensional, and high-precision workflows may require different sampling.
+maintainers:
+  - bmd-lab

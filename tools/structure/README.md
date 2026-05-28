@@ -8,7 +8,11 @@ This section groups reusable structure infrastructure in one place, including:
 - `orientations/` crystallographic orientation utilities
 - `slabs/` slab-generation utilities
 - `supercells/` supercell-generation utilities
-- `prototypes/` structure-prototype data integration and related notes
+- `mss_auto/` layered-material structure screening and slab workflow tooling
 
 These entries are organized together because they support the same class of
 structure manipulation, analysis, and workflow preparation tasks.
+
+Structure prototype reference data lives under:
+
+- `datasets/structure_prototypes/`

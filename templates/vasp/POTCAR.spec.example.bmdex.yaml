@@ -1,0 +1,29 @@
+schema_version: 1
+id: template.vasp.potcar_spec
+type: template
+status: validated
+validation_level: documented
+title: VASP POTCAR.spec Template
+domain:
+  - vasp
+  - potcar
+  - reproducibility
+description: >
+  Template for recording required VASP pseudopotentials without storing
+  licensed POTCAR content in the repository.
+files:
+  template: POTCAR.spec.example
+  documentation: POTCAR.spec.example.md
+related:
+  methods:
+    - method.vasp.input_standards
+  hpc:
+    - hpc.tau_powerslurm.potcar_setup
+validation:
+  - Documents the BMDex policy of storing POTCAR specifications instead of POTCAR files.
+  - Uses the current group-standard PBE_64 functional convention.
+limitations:
+  - Actual POTCAR generation must occur in a licensed VASP environment.
+  - Species order must remain consistent with each workflow POSCAR.
+maintainers:
+  - bmd-lab
