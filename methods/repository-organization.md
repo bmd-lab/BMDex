@@ -106,7 +106,8 @@ outside BMDex until they are useful enough to curate in a canonical section.
 Physical placement in the repository should answer "what kind of thing is
 this?" rather than "what is its current status?"
 
-Metadata sidecars should validate against `schemas/bmdex.schema.yaml`.
+Metadata sidecars should validate with
+`tools/metadata/validate_bmdex_metadata.py`.
 
 Software package names may still appear inside canonical sections when they are
 the clearest way to describe a method, but they should not create redundant
