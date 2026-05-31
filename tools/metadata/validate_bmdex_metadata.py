@@ -3,9 +3,8 @@
 """
 Validate BMDex metadata sidecars.
 
-The validator checks the lightweight schema contract in
-schemas/bmdex.schema.yaml. It is intentionally repository-local and avoids
-assuming a packaging layout.
+The validator checks the lightweight BMDex sidecar contract. It is
+intentionally repository-local and avoids assuming a packaging layout.
 """
 
 from __future__ import annotations
@@ -31,6 +30,67 @@ ID_PREFIXES = {
     "template",
     "tool",
     "workflow",
+}
+
+
+METADATA_CONTRACT: dict[str, Any] = {
+    "schema_version": 1,
+    "required_fields": [
+        "schema_version",
+        "id",
+        "type",
+        "status",
+        "validation_level",
+        "title",
+        "domain",
+        "description",
+        "validation",
+        "limitations",
+        "maintainers",
+    ],
+    "allowed_values": {
+        "type": [
+            "dataset",
+            "example",
+            "hpc",
+            "method",
+            "template",
+            "tool",
+            "tool_data",
+            "workflow",
+        ],
+        "status": [
+            "draft",
+            "experimental",
+            "validated",
+            "deprecated",
+        ],
+        "validation_level": [
+            "documented",
+            "example_only",
+            "external_source_import",
+            "publication_backed",
+            "reference",
+            "validated_workflow",
+        ],
+    },
+    "required_list_fields": [
+        "domain",
+        "validation",
+        "limitations",
+        "maintainers",
+    ],
+    "reference_fields": [
+        "methods",
+        "templates",
+        "uses",
+        "used_by",
+        "related",
+    ],
+    "soft_reference_fields": [
+        "planned_integrations",
+    ],
+    "id_pattern": r"^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+$",
 }
 
 
@@ -147,8 +207,7 @@ def main() -> int:
     args = parser.parse_args()
 
     root = Path(args.root).resolve()
-    schema_path = root / "schemas" / "bmdex.schema.yaml"
-    schema = load_yaml(schema_path)
+    schema = METADATA_CONTRACT
     id_re = re.compile(schema["id_pattern"])
 
     sidecars = find_sidecars(root)

@@ -58,7 +58,6 @@ BMDex is organized by content type rather than lifecycle bucket.
 - `examples/` minimal runnable reference workflows
 - `datasets/` curated scientific datasets used by tools and workflows
 - `hpc/` cluster-specific operational guidance
-- `schemas/` canonical metadata schema and validation contract
 
 Validation state, provenance, and limitations belong in each object's metadata
 sidecar, not in separate top-level status directories. Directory-backed
@@ -69,7 +68,7 @@ repository until then.
 Repository-level design decisions and institutional reasoning live under
 `methods/repository-governance/`.
 
-Metadata sidecars are validated against `schemas/bmdex.schema.yaml` with:
+Metadata sidecars are validated with:
 
 ```bash
 python3 tools/metadata/validate_bmdex_metadata.py
