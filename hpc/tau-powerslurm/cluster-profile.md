@@ -4,6 +4,10 @@ This document records the current BMD Lab operating profile for TAU
 PowerSLURM. Recheck these values when the cluster image, module stack, account
 policy, or VASP installation changes.
 
+This document describes the cluster execution environment. BMDex itself may be
+edited elsewhere, but these assumptions should be checked from a cluster-side
+git checkout before running VASP or SLURM tools.
+
 ## Standard Accounts and Partitions
 
 | Use case | Partition | Account |

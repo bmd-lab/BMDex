@@ -8,6 +8,7 @@ clarifies how the lab uses a tool within a broader materials-science task.
 
 Current entries include:
 
+- `repository-access-model.md` staged access and execution model for tutorials, GitHub, cluster checkouts, and Codex
 - `vasp/` VASP input standards and calculation conventions
 - `structure-manipulation/` structure workflow philosophy
 - `repository-governance/` repository organization, metadata, and historical design records

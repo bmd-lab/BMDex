@@ -3,6 +3,10 @@
 This section records BMD Lab conventions for running computational materials
 science workflows on TAU PowerSLURM systems.
 
+BMDex is curated from a laptop or workstation checkout, then pulled onto the
+cluster when tools or templates need to be executed. Do not assume Codex is
+installed on the cluster.
+
 BMDex keeps this section operational rather than pedagogical. It should answer:
 
 - which cluster resources and modules are standard
@@ -41,3 +45,6 @@ Operational tools:
 
 Cluster guidance should stay close to real group workflows. Prefer short,
 direct standards and copyable scripts over hidden orchestration layers.
+
+Run cluster-facing tools from a cluster-side BMDex checkout, or copy them into a
+calculation folder when that is more convenient for the workflow.

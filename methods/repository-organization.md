@@ -24,6 +24,28 @@ The repository prioritizes:
 5. workflow standardization
 6. onboarding efficiency
 
+## Access and Execution Model
+
+BMDex is intended to sit behind the public tutorials repository and the private
+GitHub repository or website. Tutorials remain pedagogical. BMDex preserves the
+private operational layer.
+
+The expected workflow is:
+
+1. edit and curate BMDex from a laptop or workstation checkout
+2. push changes through version control
+3. pull BMDex onto the cluster
+4. run or copy tools from the cluster-side checkout inside the real scientific
+   software environment
+
+Codex may help curate BMDex from the local checkout, but Codex should not be a
+runtime dependency for cluster workflows.
+
+Students onboarding into BMDex are assumed to be materials scientists first.
+They may have little experience with Git, Codex, metadata schemas, or package
+architecture. Repository structure should therefore make the useful research
+action obvious before exposing the maintainability machinery behind it.
+
 ## Organizational Structure
 
 Top-level sections describe content type. Within those sections, subdirectories
@@ -46,6 +68,8 @@ Tools should:
 - remain reusable
 - avoid unnecessary project-specific assumptions
 - prioritize interoperability and maintainability
+- be directly runnable or easy to copy into calculation folders when practical
+- expose clear user settings before internal helper abstractions
 
 ### `methods/`
 
@@ -159,3 +183,4 @@ The repository should avoid:
 - duplication of reusable logic
 - undocumented workflow drift
 - silent methodological inconsistencies
+- making metadata, Git, or Codex knowledge a prerequisite for using curated tools

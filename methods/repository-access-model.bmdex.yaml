@@ -1,0 +1,26 @@
+schema_version: 1
+id: method.repository.access_model
+type: method
+status: validated
+validation_level: documented
+title: BMDex Repository Access Model
+domain:
+  - repository_governance
+  - onboarding
+  - hpc
+description: >
+  BMD Lab access model for using public tutorials, private GitHub access,
+  cluster-side BMDex checkouts, and Codex-assisted repository curation.
+files:
+  - repository-access-model.md
+related:
+  hpc:
+    - hpc.tau_powerslurm.operational_standards
+validation:
+  - Documents the intended separation between laptop/workstation curation and cluster-side execution.
+  - Records the staged onboarding path from public tutorials to private operational workflows.
+limitations:
+  - Access details may change with GitHub permissions, website deployment, or cluster policy.
+  - This method defines repository usage conventions, not account provisioning.
+maintainers:
+  - bmd-lab

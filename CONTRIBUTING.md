@@ -85,6 +85,10 @@ Before review, run:
 python3 tools/metadata/validate_bmdex_metadata.py
 ```
 
+New student contributors are not expected to understand the metadata system
+immediately. A useful script, template, example, or operational note can be
+reviewed first; maintainers can help add or repair metadata during curation.
+
 ## Repository Philosophy
 
 BMDex is intended to function as long-term institutional memory for the lab.
@@ -105,3 +109,24 @@ New contributors are encouraged to:
 
 Incomplete or speculative work should be kept outside BMDex until it is ready
 to be curated in a canonical section.
+
+For student contributors, a good first contribution is usually a practical
+workflow artifact:
+
+- a working script used in a real calculation folder
+- a corrected SLURM template
+- a documented failure mode and fix
+- a small VASP or pymatgen example that others can rerun
+
+Do not start by designing metadata, package structure, or broad abstractions
+unless the workflow need is already clear.
+
+## Access and Execution Model
+
+BMDex contributions are usually curated from a laptop or workstation checkout.
+Cluster execution should happen from a normal git checkout on the cluster after
+changes have been pushed and pulled.
+
+Do not require Codex on the cluster for ordinary tool usage. Tools and templates
+should remain usable by students who only have Git, SSH, and the scientific
+software stack available on the cluster.

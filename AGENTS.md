@@ -6,6 +6,22 @@ BMDex complements the public `tutorials` repository:
 - `tutorials` focuses on educational and onboarding material
 - BMDex focuses on operational workflows, reusable tools, computational standards, and institutional knowledge
 
+Intended access model:
+- public tutorials introduce concepts and basic workflows
+- the private GitHub repository or website is the first curated BMDex entry point
+- cluster execution uses a normal git checkout or pull of BMDex on the cluster
+- Codex is used from a laptop or workstation checkout for curation, review, and extension
+
+Do not assume Codex is installed on the cluster. Cluster-facing tools should be
+directly runnable or copyable from a cluster-side BMDex checkout.
+
+Student audience assumption:
+- most students are materials scientists, not software engineers
+- many have little or no initial experience with Git, Codex, metadata, schemas, or package design
+- they are primarily learning Python, VASP, pymatgen, SLURM, and computational materials science
+- student-facing workflows should expose concrete research actions before repository mechanics
+- metadata and ontology should support maintainers underneath, not dominate the first user experience
+
 Primary focus areas:
 - VASP-based density functional theory (DFT)
 - atomic structure workflows and structure manipulation
@@ -77,3 +93,4 @@ Newcomer-facing workflows should:
 - contain executable examples
 - prioritize clarity over abstraction
 - distinguish validated workflows from lower-maturity workflows
+- avoid requiring Git, Codex, or metadata knowledge for ordinary tool usage
