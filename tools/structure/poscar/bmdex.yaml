@@ -1,0 +1,32 @@
+schema_version: 1
+id: tool.structure.poscar
+type: tool
+status: experimental
+validation_level: example_only
+title: POSCAR Utilities
+domain:
+  - structure_manipulation
+  - vasp
+  - poscar
+description: >
+  Practical pymatgen-native utilities for cleaning and rewriting VASP POSCAR
+  and CONTCAR structure files.
+files:
+  scripts:
+    - sort_poscar_by_species.py
+  documentation:
+    - README.md
+dependencies:
+  - pymatgen
+inputs:
+  - POSCAR
+  - CONTCAR
+outputs:
+  - POSCAR_sorted.vasp
+validation:
+  - Python scripts compile successfully.
+  - Script behavior is documented in README.md.
+limitations:
+  - Species sorting changes site order and should be checked against POTCAR.spec.
+maintainers:
+  - bmd-lab

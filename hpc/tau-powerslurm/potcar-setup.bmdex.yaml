@@ -1,0 +1,28 @@
+schema_version: 1
+id: hpc.tau_powerslurm.potcar_setup
+type: hpc
+status: validated
+validation_level: documented
+title: TAU PowerSLURM POTCAR Setup and Policy
+domain:
+  - hpc
+  - vasp
+  - potcar
+description: >
+  Cluster-specific BMD Lab conventions for locating VASP pseudopotentials and
+  generating POTCAR files from repository-safe POTCAR.spec inputs.
+files:
+  - potcar-setup.md
+related:
+  methods:
+    - method.vasp.input_standards
+  templates:
+    - template.vasp.potcar_spec
+validation:
+  - Documents the current PMG_VASP_PSP_DIR path and PBE_64 pseudopotential convention.
+  - Referenced by the canonical silicon bulk relaxation onboarding example.
+limitations:
+  - Cluster paths and module environments may change and require periodic revalidation.
+  - Actual POTCAR files remain outside BMDex for licensing reasons.
+maintainers:
+  - bmd-lab

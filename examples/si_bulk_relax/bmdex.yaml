@@ -1,0 +1,55 @@
+schema_version: 1
+id: example.vasp.si_bulk_relax
+type: example
+status: validated
+validation_level: reference
+title: Silicon Bulk Relaxation
+domain:
+  - vasp
+  - dft
+  - onboarding
+description: >
+  Minimal bulk silicon structural relaxation example using VASP. This object
+  is the canonical runnable example; validation status is recorded here rather
+  than encoded by directory placement.
+files:
+  inputs:
+    - POSCAR
+    - INCAR
+    - KPOINTS
+    - POTCAR.spec
+    - submit.sbatch
+  expected_outputs:
+    - CONTCAR
+    - OUTCAR
+    - vasprun.xml
+methods:
+  - method.vasp.input_standards
+templates:
+  - template.vasp.incar_relax
+  - template.vasp.kpoints_example
+  - template.vasp.potcar_spec
+  - template.slurm.submit_vasp
+software:
+  - VASP
+  - SLURM
+cluster:
+  system: TAU PowerSLURM
+  partition: leeburton-pool
+  account: power-leeburton-users_v2
+validation:
+  - electronic_convergence
+  - ionic_convergence
+  - expected_silicon_crystal_symmetry
+  - physically_reasonable_si_si_bond_lengths
+limitations:
+  - Reference onboarding calculation, not a universally optimized production workflow.
+  - POTCAR must be generated locally from POTCAR.spec in a licensed VASP environment.
+related:
+  hpc:
+    - hpc.tau_powerslurm.potcar_setup
+maintainers:
+  - bmd-lab
+notes: >
+  This onboarding example keeps its README, metadata, and runnable VASP input
+  files together so new students can inspect the full workflow in one place.

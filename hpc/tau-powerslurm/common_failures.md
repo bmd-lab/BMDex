@@ -12,6 +12,22 @@ The goal is to:
 
 # SLURM Submission Issues
 
+## Job Runs From the Wrong Directory
+
+Typical symptoms:
+- VASP cannot find `INCAR`, `POSCAR`, `KPOINTS`, or `POTCAR`
+- output files appear in an unexpected directory
+
+Recommended convention:
+
+```bash
+cd "$SLURM_SUBMIT_DIR"
+```
+
+Add this before loading or running workflow-specific commands.
+
+---
+
 ## Job Remains Pending
 
 Typical causes:
@@ -47,6 +63,23 @@ power-leeburton-users_v2
 
 ---
 
+## Batch Script Submits Too Many Jobs
+
+Typical causes:
+- hardcoded username in `squeue` checks
+- queue count includes other users
+- no configurable maximum job count
+
+Recommended convention:
+
+```bash
+squeue -u "$USER"
+```
+
+Batch utilities should provide a dry-run mode and a configurable queue limit.
+
+---
+
 # Module Issues
 
 ## VASP Module Not Found
@@ -71,6 +104,19 @@ module load vasp/rocky8-intel-6.4.1
 ```
 
 Cluster module naming may change over time.
+
+---
+
+## Noninteractive Shell Does Not Load Expected Environment
+
+Typical symptoms:
+- `module` or `mamba` setup works interactively but fails inside SLURM
+- VASP or Python environments are unavailable in submitted jobs
+
+Recommended mitigation:
+- load required modules inside the SLURM script
+- avoid relying on interactive shell state
+- print key environment variables in debugging jobs
 
 ---
 
@@ -157,6 +203,50 @@ Typical symptoms:
 Common mitigation:
 - remove WAVECAR
 - restart cleanly
+
+---
+
+## Relaxation Reaches NSW Limit
+
+Typical symptoms:
+- `OUTCAR` contains normal completion text
+- `OSZICAR` reaches the `NSW` step limit
+- forces are not converged
+
+Recommended mitigation:
+- inspect energy and force trends
+- back up the existing `POSCAR`
+- copy `CONTCAR` to `POSCAR`
+- resubmit only after confirming the structure is physically reasonable
+
+Use `tools/hpc/vasp_status.py` and `tools/hpc/restart_relaxations.py` for a
+first-pass operational check.
+
+---
+
+# GPU Issues
+
+## Full GPU and MIG Resource Requests Are Confused
+
+Typical symptoms:
+- job remains pending unexpectedly
+- job runs with less GPU memory than expected
+- `CUDA_VISIBLE_DEVICES` does not match expectations
+
+Current full GPU request:
+
+```bash
+#SBATCH --gres=gpu:H100:1
+```
+
+Current MIG request:
+
+```bash
+#SBATCH --gres=gpu:1g.10gb:1
+```
+
+Use full GPU resources for large or untested VASP jobs unless the workflow has
+been checked on a MIG slice.
 
 ---
 

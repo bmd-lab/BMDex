@@ -1,0 +1,37 @@
+schema_version: 1
+id: tool.structure.supercells
+type: tool
+status: experimental
+validation_level: example_only
+title: Structure Supercell Utilities
+domain:
+  - structure_manipulation
+  - supercells
+  - vasp
+description: >
+  Practical pymatgen-native utilities for generating VASP-compatible supercells
+  from POSCAR or CONTCAR files.
+files:
+  scripts:
+    - make_supercell.py
+  helpers:
+    - supercell_builder.py
+  documentation:
+    - README.md
+dependencies:
+  - pymatgen
+inputs:
+  - POSCAR
+  - CONTCAR
+outputs:
+  - POSCAR_supercell.vasp
+validation:
+  - Scripts compile successfully with Python.
+  - Script behavior is documented in README.md.
+limitations:
+  - Default scaling matrix is a starting point and must be edited for each use case.
+  - Supercells for defects, phonons, or convergence studies require workflow-specific validation.
+maintainers:
+  - bmd-lab
+notes: >
+  The researcher-facing interface is the standalone make_supercell.py script.

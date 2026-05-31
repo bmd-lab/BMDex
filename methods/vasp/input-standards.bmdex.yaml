@@ -1,0 +1,34 @@
+schema_version: 1
+id: method.vasp.input_standards
+type: method
+status: validated
+validation_level: documented
+title: VASP Input Standards
+domain:
+  - vasp
+  - dft
+  - reproducibility
+description: >
+  BMD Lab conventions for VASP input construction, pseudopotential handling,
+  convergence expectations, and documentation of calculation assumptions.
+files:
+  - input-standards.md
+related:
+  hpc:
+    - hpc.tau_powerslurm.potcar_setup
+  templates:
+    - template.vasp.incar_relax
+    - template.vasp.incar_static
+    - template.vasp.kpoints_example
+    - template.vasp.potcar_spec
+validation:
+  - Describes current BMD Lab VASP input conventions.
+  - Referenced by the canonical silicon relaxation onboarding example.
+limitations:
+  - General standard, not a substitute for property-specific convergence testing.
+  - Cluster-specific execution details belong in HPC metadata and templates.
+maintainers:
+  - bmd-lab
+notes: >
+  This method object records lab-wide VASP input conventions. Individual
+  workflows should document any deviations.

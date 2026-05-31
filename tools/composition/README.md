@@ -1,0 +1,8 @@
+# Composition Tools
+
+Composition-focused utilities and supporting references for formula generation,
+oxidation-state reasoning, and chemically constrained candidate screening.
+
+Current entries include:
+
+- `electroneutrality/` charge-balance-based composition generation utilities

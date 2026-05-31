@@ -1,0 +1,37 @@
+schema_version: 1
+id: dataset.oxidation_states.representative_84
+type: dataset
+status: validated
+validation_level: publication_backed
+title: 84 Representative Oxidation States
+domain:
+  - electroneutrality
+  - inorganic_chemistry
+  - materials_discovery
+description: >
+  Curated representative oxidation-state set used for electroneutral
+  composition generation and chemically plausible formula screening.
+files:
+  - oxidation_states_84.yaml
+format: yaml
+origin:
+  repository: https://github.com/bmd-lab/electroneutral_match
+  publication:
+    title: Data-Mining Element Charges in Inorganic Materials
+    doi: 10.1021/acs.jpclett.0c02072
+validation:
+  - Derived from ICSD oxidation-state assignment statistics reported in the associated publication.
+  - Intended to recover the majority of commonly observed inorganic oxidation-state assignments.
+limitations:
+  - Representative rather than exhaustive.
+  - Does not guarantee thermodynamic stability.
+  - Does not guarantee synthesizability.
+  - Requires downstream structural, thermodynamic, or electronic validation where relevant.
+used_by:
+  tools:
+    - tool.electroneutrality.matching
+maintainers:
+  - bmd-lab
+notes: >
+  This sidecar is the canonical structured metadata record for the dataset.
+  Prose provenance is kept in README.md in the same directory.

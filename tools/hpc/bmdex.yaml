@@ -1,0 +1,38 @@
+schema_version: 1
+id: tool.hpc.power_operations
+type: tool
+status: experimental
+validation_level: example_only
+title: TAU PowerSLURM Operational Utilities
+domain:
+  - hpc
+  - slurm
+  - vasp
+description: >
+  Practical runnable utilities for BMD Lab TAU PowerSLURM workflows, including
+  VASP batch submission, status scanning, restart preparation, and environment
+  checks.
+files:
+  scripts:
+    - submit_many_vasp.py
+    - vasp_status.py
+    - restart_relaxations.py
+    - check_power_environment.sh
+  documentation:
+    - README.md
+related:
+  hpc:
+    - hpc.tau_powerslurm.operational_standards
+  templates:
+    - template.slurm.submit_vasp
+    - template.slurm.submit_python
+    - template.slurm.submit_vasp_gpu
+validation:
+  - Python scripts compile successfully.
+  - Shell script syntax is checked with bash -n.
+  - Tools are designed around tutorial-derived BMD Lab filesystem workflows.
+limitations:
+  - Scripts provide operational triage and do not replace scientific convergence review.
+  - Queue behavior and completion markers may need cluster-specific adjustment.
+maintainers:
+  - bmd-lab

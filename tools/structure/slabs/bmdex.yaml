@@ -1,0 +1,39 @@
+schema_version: 1
+id: tool.structure.slabs
+type: tool
+status: experimental
+validation_level: example_only
+title: Structure Slab Utilities
+domain:
+  - structure_manipulation
+  - slab_generation
+  - vasp
+description: >
+  Practical pymatgen-native utilities for generating VASP-compatible slab
+  structures from POSCAR or CONTCAR files.
+files:
+  scripts:
+    - generate_slabs.py
+  helpers:
+    - slab_generator.py
+  documentation:
+    - README.md
+dependencies:
+  - pymatgen
+inputs:
+  - POSCAR
+  - CONTCAR
+outputs:
+  - generated_slabs/POSCAR_*.vasp
+validation:
+  - Scripts compile successfully with Python.
+  - Script behavior is documented in README.md.
+limitations:
+  - Generated slabs require scientific review before production calculations.
+  - Oxidation-state settings are optional and must be edited for each chemistry.
+maintainers:
+  - bmd-lab
+notes: >
+  The researcher-facing interface is the standalone generate_slabs.py script.
+  Helper functions may support reuse but should not become the primary user
+  interface.

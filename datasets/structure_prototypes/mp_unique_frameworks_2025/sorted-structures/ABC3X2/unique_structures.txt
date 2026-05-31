@@ -1,0 +1,15 @@
+Filename: mp-1077905.cif  InCo3SnS2  appeared: 2 times
+Space Group: R-3m no. 166
+Orientation Matrix:
+4.97	0.00	2.85
+1.65	4.69	2.85
+0.00	0.00	5.73
+Atoms Locations:
+In	[0.5 0.5 0.5]
+Co	[0.5 0.5 0. ]
+Co	[0.  0.5 0.5]
+Co	[0.5 0.  0.5]
+Sn	[0. 0. 0.]
+S	[0.778557 0.778557 0.778557]
+S	[0.221443 0.221443 0.221443]
+

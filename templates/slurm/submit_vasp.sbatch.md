@@ -35,7 +35,7 @@ Cluster-specific module names may evolve over time and should be validated perio
 ## Execution Model
 
 ```bash
-mpirun -n $SLURM_NTASKS vasp_std
+mpirun -n $SLURM_NTASKS vasp_std > output
 ```
 
 is currently used as the standard execution approach.

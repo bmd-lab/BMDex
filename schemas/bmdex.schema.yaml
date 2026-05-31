@@ -1,0 +1,74 @@
+# Canonical metadata contract for BMDex sidecars.
+#
+# This file is intentionally compact. It defines the minimum shared object
+# model used across tools, workflows, datasets, methods, templates, examples,
+# and HPC guidance.
+
+schema_version: 1
+
+sidecar_patterns:
+  - bmdex.yaml
+  - "*.bmdex.yaml"
+
+required_fields:
+  - schema_version
+  - id
+  - type
+  - status
+  - validation_level
+  - title
+  - domain
+  - description
+  - validation
+  - limitations
+  - maintainers
+
+allowed_values:
+  type:
+    - dataset
+    - example
+    - hpc
+    - method
+    - template
+    - tool
+    - tool_data
+    - workflow
+  status:
+    - draft
+    - experimental
+    - validated
+    - deprecated
+  validation_level:
+    - documented
+    - example_only
+    - external_source_import
+    - publication_backed
+    - reference
+    - validated_workflow
+
+required_list_fields:
+  - domain
+  - validation
+  - limitations
+  - maintainers
+
+reference_fields:
+  - methods
+  - templates
+  - uses
+  - used_by
+  - related
+
+soft_reference_fields:
+  - planned_integrations
+
+id_pattern: "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$"
+
+field_notes:
+  id: Stable dotted identifier used for cross-references.
+  type: Object class, independent of validation state.
+  status: Lifecycle state; do not encode lifecycle by directory placement.
+  validation_level: Evidence class supporting the status.
+  domain: Scientific or operational domains used for discovery.
+  validation: Checks, evidence, or review basis.
+  limitations: Known scientific, operational, licensing, or reproducibility limits.

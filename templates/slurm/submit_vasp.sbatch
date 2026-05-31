@@ -7,11 +7,14 @@
 #SBATCH -p leeburton-pool
 #SBATCH -A power-leeburton-users_v2
 
-set -e -o pipefail
+set -euo pipefail
+
+cd "$SLURM_SUBMIT_DIR"
+ulimit -s 81920
 
 module load intel/rocky8-oneAPI-2023
 module load vasp/rocky8-intel-6.4.1
 
 export VASP_CMD="mpirun -n $SLURM_NTASKS vasp_std"
 
-$VASP_CMD
+$VASP_CMD > output
