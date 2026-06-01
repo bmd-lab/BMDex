@@ -62,7 +62,7 @@ Includes:
 
 Canonical operational standards:
 ```text
-hpc/tau-powerslurm/
+hpc/
 ```
 
 ## VASP Input Utilities
@@ -79,5 +79,5 @@ Includes:
 Related standards:
 ```text
 methods/vasp/input-standards.md
-hpc/tau-powerslurm/potcar-setup.md
+hpc/potcar-setup.md
 ```

@@ -1,5 +1,5 @@
 schema_version: 1
-id: hpc.tau_powerslurm.potcar_setup
+id: hpc.potcar_setup
 type: hpc
 status: validated
 validation_level: documented

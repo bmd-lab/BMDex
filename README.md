@@ -72,13 +72,10 @@ Examples include:
 * workflow conventions
 * repository guidance
 
-### `templates/`
-
-Reusable starting points for calculations and job submission.
-
 ### `hpc/`
 
-Cluster-specific operational knowledge and troubleshooting guidance.
+Cluster-specific operational knowledge, troubleshooting guidance, SLURM
+templates, and VASP input starting points.
 
 ## Typical Tasks
 

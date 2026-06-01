@@ -78,7 +78,7 @@ Cluster-side usage should look like normal research computing:
 ```bash
 git pull
 python3 tools/hpc/vasp_status.py --root my-screening-run
-cp templates/slurm/submit_vasp.sbatch my-calc/submit.sbatch
+cp hpc/templates/slurm/submit_vasp.sbatch my-calc/submit.sbatch
 ```
 
 ### Codex-Assisted Curation

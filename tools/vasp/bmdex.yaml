@@ -22,7 +22,7 @@ dependencies:
   - mp-api
 related:
   hpc:
-    - hpc.tau_powerslurm.potcar_setup
+    - hpc.potcar_setup
   methods:
     - method.vasp.input_standards
 validation:

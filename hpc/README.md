@@ -30,9 +30,13 @@ BMDex keeps this section operational rather than pedagogical. It should answer:
 
 Templates:
 
-- `templates/slurm/submit_vasp.sbatch`
-- `templates/slurm/submit_vasp_gpu.sbatch`
-- `templates/slurm/submit_python.sbatch`
+- `hpc/templates/slurm/submit_vasp.sbatch`
+- `hpc/templates/slurm/submit_vasp_gpu.sbatch`
+- `hpc/templates/slurm/submit_python.sbatch`
+- `hpc/templates/vasp/INCAR.relax`
+- `hpc/templates/vasp/INCAR.static`
+- `hpc/templates/vasp/KPOINTS.example`
+- `hpc/templates/vasp/POTCAR.spec.example`
 
 Operational tools:
 

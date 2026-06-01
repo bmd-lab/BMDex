@@ -114,19 +114,19 @@ the clearest way to describe a method, but they should not create redundant
 top-level buckets when the underlying topic already has a better scientific
 home.
 
-### `templates/`
+### `hpc/`
 
-Reusable starting points and reference configurations.
+Cluster-specific operational guidance, troubleshooting knowledge, and reusable
+starting files for calculations and job submission.
 
 Examples:
-- INCAR templates
+- TAU PowerSLURM standards
 - SLURM templates
-- KPOINTS templates
+- VASP INCAR, KPOINTS, and POTCAR.spec starting points
 
-Templates are intended to:
-- accelerate onboarding
-- improve consistency
-- preserve operational conventions
+Because BMD Lab currently uses one primary HPC system, cluster guidance and
+calculation templates live together under `hpc/` rather than separate top-level
+`hpc/` and `templates/` sections.
 
 ### `examples/`
 
