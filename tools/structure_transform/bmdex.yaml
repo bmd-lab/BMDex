@@ -15,6 +15,7 @@ description: >
 files:
   scripts:
     - generate_all_slabs.py
+    - auto_exfoliate.py
     - make_supercell.py
     - make_primitive.py
     - sort_poscar_by_species.py
@@ -23,8 +24,6 @@ files:
     - slab_generator.py
     - supercell_builder.py
     - orientation_utils.py
-  workflow_bundles:
-    - auto-exfoliate/
   documentation:
     - README.md
 dependencies:
@@ -35,6 +34,7 @@ inputs:
   - CIF
 outputs:
   - generated_slabs/POSCAR_*.vasp
+  - POSCAR_auto_exfoliated.vasp
   - POSCAR_supercell.vasp
   - POSCAR_primitive.vasp
   - POSCAR_sorted.vasp
@@ -42,13 +42,11 @@ outputs:
 validation:
   - Python scripts compile successfully.
   - Scripts are documented as direct researcher-facing utilities.
-related:
-  tools:
-    - tool.structure_transform.auto_exfoliate
 limitations:
   - Generated structures require scientific review before production calculations.
   - Symmetry, slab, and framework matching tolerances are workflow-dependent.
   - Oxidation-state settings and supercell matrices must be edited for each use case.
+  - Auto-exfoliation uses a geometric cleavage heuristic and does not prove exfoliation feasibility.
 maintainers:
   - bmd-lab
 notes: >

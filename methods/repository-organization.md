@@ -156,7 +156,7 @@ Examples:
 Higher-level orchestrated methodologies built from reusable primitives.
 
 Examples:
-- Auto-Exfoliate under `tools/structure_transform/auto-exfoliate/`
+- Auto-Exfoliate as `tools/structure_transform/auto_exfoliate.py`
 - layered-material screening workflows
 - high-throughput structure generation
 
