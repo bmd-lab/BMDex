@@ -15,7 +15,7 @@ files:
   - input-standards.md
 related:
   hpc:
-    - hpc.tau_powerslurm.potcar_setup
+    - hpc.vasp.potcar_setup
   templates:
     - template.vasp.incar_relax
     - template.vasp.incar_static

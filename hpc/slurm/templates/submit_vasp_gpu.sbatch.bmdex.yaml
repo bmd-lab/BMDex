@@ -17,7 +17,7 @@ files:
   documentation: submit_vasp_gpu.sbatch.md
 related:
   hpc:
-    - hpc.tau_powerslurm.operational_standards
+    - hpc.slurm.operational_standards
 validation:
   - Documents current GPU partition, account, module, and launch conventions.
   - Shell syntax is checked during repository validation.

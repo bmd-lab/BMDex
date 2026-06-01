@@ -61,7 +61,6 @@ Examples are intended to be:
 * minimal
 * reproducible
 * easy to adapt
-
 ### `methods/`
 
 Scientific standards, conventions, and methodological guidance.
@@ -78,8 +77,8 @@ Reusable starting points for calculations and job submission.
 
 ### `hpc/`
 
-Cluster-specific operational knowledge and troubleshooting guidance.
-
+Cluster-specific operational knowledge, troubleshooting guidance, SLURM
+templates, VASP input starting points, and runnable cluster examples.
 ## Typical Tasks
 
 Generate surface slabs:

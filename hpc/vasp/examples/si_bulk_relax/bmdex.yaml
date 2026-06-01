@@ -47,7 +47,9 @@ limitations:
   - POTCAR must be generated locally from POTCAR.spec in a licensed VASP environment.
 related:
   hpc:
-    - hpc.tau_powerslurm.potcar_setup
+    - hpc.vasp.resources
+    - hpc.slurm.operational_standards
+    - hpc.vasp.potcar_setup
 maintainers:
   - bmd-lab
 notes: >

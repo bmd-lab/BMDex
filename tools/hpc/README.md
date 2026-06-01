@@ -62,5 +62,5 @@ bash tools/hpc/check_power_environment.sh
 Cluster standards are documented in:
 
 ```text
-hpc/tau-powerslurm/
+hpc/
 ```

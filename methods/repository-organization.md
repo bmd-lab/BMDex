@@ -114,29 +114,21 @@ the clearest way to describe a method, but they should not create redundant
 top-level buckets when the underlying topic already has a better scientific
 home.
 
-### `templates/`
+### `hpc/`
 
-Reusable starting points and reference configurations.
+Cluster-specific operational guidance, troubleshooting knowledge, and reusable
+starting files for calculations and job submission.
 
 Examples:
-- INCAR templates
+- TAU PowerSLURM standards
 - SLURM templates
-- KPOINTS templates
+- VASP INCAR, KPOINTS, and POTCAR.spec starting points
+- runnable VASP/SLURM examples
 
-Templates are intended to:
-- accelerate onboarding
-- improve consistency
-- preserve operational conventions
-
-### `examples/`
-
-Minimal executable demonstrations and onboarding workflows.
-
-Examples should prioritize:
-- clarity
-- reproducibility
-- maintainability
-over excessive optimization or abstraction.
+Because BMD Lab currently uses one primary HPC system, cluster-facing content
+lives under `hpc/` rather than separate top-level `hpc/`, `templates/`, and
+`examples/` sections. Within `hpc/`, SLURM resources live under `hpc/slurm/`
+and VASP resources live under `hpc/vasp/`.
 
 ## Workflow Hierarchy
 
@@ -167,7 +159,7 @@ live in their canonical content directories, with validation state recorded in
 metadata rather than through a separate top-level folder.
 
 Examples:
-- Si bulk relaxation
+- Si bulk relaxation under `hpc/vasp/examples/si_bulk_relax/`
 - canonical slab-generation examples
 
 ## Long-Term Goals
