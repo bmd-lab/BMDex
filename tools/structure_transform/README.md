@@ -29,6 +29,27 @@ Edit the user settings at the top of the script to change the input file,
 Miller-index limit, slab thickness, vacuum thickness, centering behavior, or
 oxidation states.
 
+### `auto_exfoliate.py`
+
+Generate an exfoliated slab by searching for an open cleavage region and
+inserting vacuum along a selected lattice direction.
+
+```bash
+python3 tools/structure_transform/auto_exfoliate.py
+```
+
+Default behavior:
+
+- reads `CONTCAR`
+- builds a directional supercell if the cell is too short
+- searches candidate cleavage positions with a probe grid
+- inserts 15 Angstrom vacuum along the cleavage direction
+- writes `POSCAR_auto_exfoliated.vasp`
+
+Edit the user settings at the top of the script to change the input file,
+cleavage direction, minimum cell length, vacuum size, probe grid, or output
+filename.
+
 ### `make_supercell.py`
 
 Build a supercell from `CONTCAR` or `POSCAR`.
@@ -90,13 +111,6 @@ bundles:
 
 These helpers may be imported by other scripts, but the primary researcher
 interface should remain the runnable scripts above.
-
-## Auto-Exfoliate
-
-`auto-exfoliate/` is kept as a nested workflow bundle because it preserves
-imported provenance, examples, validation notes, and layered-material screening
-context. It builds on the same structure transformation utilities but is larger
-than a single copyable script.
 
 ## Design Philosophy
 

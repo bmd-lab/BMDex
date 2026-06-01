@@ -11,12 +11,12 @@ tools/structure_transform/
 
 Includes:
 - `generate_all_slabs.py`
+- `auto_exfoliate.py`
 - `make_supercell.py`
 - `make_primitive.py`
 - `sort_poscar_by_species.py`
 - `compare_frameworks.py`
 - lightweight helper modules for slabs, supercells, and orientations
-- `auto-exfoliate/` layered-material exfoliation screening workflow bundle
 
 Related structure prototype datasets:
 ```text
