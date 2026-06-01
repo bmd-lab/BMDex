@@ -38,6 +38,10 @@ Templates:
 - `hpc/templates/vasp/KPOINTS.example`
 - `hpc/templates/vasp/POTCAR.spec.example`
 
+Examples:
+
+- `hpc/examples/si_bulk_relax`
+
 Operational tools:
 
 - `tools/hpc/submit_many_vasp.py`

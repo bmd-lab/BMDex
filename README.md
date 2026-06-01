@@ -51,17 +51,6 @@ Examples include:
 * structure prototype datasets
 * element abundance datasets
 
-### `examples/`
-
-Runnable reference workflows and demonstrations.
-
-Examples are intended to be:
-
-* practical
-* minimal
-* reproducible
-* easy to adapt
-
 ### `methods/`
 
 Scientific standards, conventions, and methodological guidance.
@@ -75,7 +64,7 @@ Examples include:
 ### `hpc/`
 
 Cluster-specific operational knowledge, troubleshooting guidance, SLURM
-templates, and VASP input starting points.
+templates, VASP input starting points, and runnable cluster examples.
 
 ## Typical Tasks
 
