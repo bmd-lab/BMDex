@@ -1,6 +1,7 @@
-# MSS-Auto Validation
+# Auto-Exfoliate Validation
 
-This directory contains validation workflows and reference structures for MSS-Auto.
+This directory contains validation workflows and reference structures for
+Auto-Exfoliate.
 
 Validation goals include:
 - reproducible slab generation

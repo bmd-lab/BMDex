@@ -1,10 +1,12 @@
-# MSS-Auto
+# Auto-Exfoliate
 
 Canonical metadata:
 
 - `bmdex.yaml`
 
-MSS-Auto is a workflow for automated structure screening and slab-generation analysis within computational materials science workflows.
+Auto-Exfoliate is a workflow for automated structure screening, slab
+generation, and layered-material exfoliation analysis within computational
+materials science workflows.
 
 The workflow was originally developed to support:
 - identification of potentially exfoliable materials
@@ -25,7 +27,7 @@ The workflow explores relationships between:
 - layered behavior
 - and exfoliation likelihood.
 
-MSS-Auto combines:
+Auto-Exfoliate combines:
 - crystallographic analysis
 - structure manipulation
 - and automated workflow logic
@@ -33,15 +35,15 @@ to facilitate large-scale screening studies.
 
 ## Repository Role
 
-Within BMDex, MSS-Auto serves as:
+Within BMDex, Auto-Exfoliate serves as:
 - structure-focused screening workflow tooling
 - a bridge between crystallographic analysis and VASP workflows
 - an example of reusable workflow orchestration built on shared BMDex primitives
 
-MSS-Auto now lives under the structure-tool namespace:
+Auto-Exfoliate now lives under the structure-transform tool category:
 
 ```text
-tools/structure_transform/mss_auto/
+tools/structure_transform/auto-exfoliate/
 ```
 
 and builds on reusable structure primitives including:
@@ -58,7 +60,7 @@ Typical dependencies include:
 
 ## Notes
 
-MSS-Auto should be interpreted as:
+Auto-Exfoliate should be interpreted as:
 - a practical workflow framework
 - a screening methodology
 - and a reusable infrastructure example

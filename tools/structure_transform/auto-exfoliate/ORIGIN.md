@@ -1,6 +1,6 @@
 # Origin and Provenance
 
-This module derives from the original:
+Auto-Exfoliate derives from the original:
 
 - `mss_auto`
 repository developed within the BMD Lab:
@@ -49,5 +49,5 @@ The goal is to preserve:
 Within BMDex, the migrated content lives under:
 
 ```text
-tools/structure_transform/mss_auto/
+tools/structure_transform/auto-exfoliate/
 ```

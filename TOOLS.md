@@ -16,7 +16,7 @@ Includes:
 - `sort_poscar_by_species.py`
 - `compare_frameworks.py`
 - lightweight helper modules for slabs, supercells, and orientations
-- `mss_auto/` layered-material structure screening workflow bundle
+- `auto-exfoliate/` layered-material exfoliation screening workflow bundle
 
 Related structure prototype datasets:
 ```text

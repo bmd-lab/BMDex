@@ -156,7 +156,7 @@ Examples:
 Higher-level orchestrated methodologies built from reusable primitives.
 
 Examples:
-- MSS-Auto under `tools/structure_transform/mss_auto/`
+- Auto-Exfoliate under `tools/structure_transform/auto-exfoliate/`
 - layered-material screening workflows
 - high-throughput structure generation
 

@@ -91,12 +91,12 @@ bundles:
 These helpers may be imported by other scripts, but the primary researcher
 interface should remain the runnable scripts above.
 
-## MSS-Auto
+## Auto-Exfoliate
 
-`mss_auto/` is kept as a nested workflow bundle because it preserves imported
-provenance, examples, validation notes, and layered-material screening context.
-It builds on the same structure transformation utilities but is larger than a
-single copyable script.
+`auto-exfoliate/` is kept as a nested workflow bundle because it preserves
+imported provenance, examples, validation notes, and layered-material screening
+context. It builds on the same structure transformation utilities but is larger
+than a single copyable script.
 
 ## Design Philosophy
 

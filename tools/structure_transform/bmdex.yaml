@@ -23,6 +23,8 @@ files:
     - slab_generator.py
     - supercell_builder.py
     - orientation_utils.py
+  workflow_bundles:
+    - auto-exfoliate/
   documentation:
     - README.md
 dependencies:
@@ -40,6 +42,9 @@ outputs:
 validation:
   - Python scripts compile successfully.
   - Scripts are documented as direct researcher-facing utilities.
+related:
+  tools:
+    - tool.structure_transform.auto_exfoliate
 limitations:
   - Generated structures require scientific review before production calculations.
   - Symmetry, slab, and framework matching tolerances are workflow-dependent.

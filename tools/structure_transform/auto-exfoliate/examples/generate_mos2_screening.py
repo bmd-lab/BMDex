@@ -1,5 +1,5 @@
 """
-Example MSS-Auto screening workflow for MoS2.
+Example Auto-Exfoliate screening workflow for MoS2.
 
 This example demonstrates:
 - structure loading
