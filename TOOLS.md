@@ -2,22 +2,21 @@
 
 This document summarizes reusable computational tools available within BMDex.
 
-## Structure Utilities
+## Structure Transform Utilities
 
 Location:
 ```text
-tools/structure/
+tools/structure_transform/
 ```
 
 Includes:
-- slab generation
-- supercell construction
-- primitive-cell generation
-- POSCAR cleanup and species sorting
-- framework comparison
-- orientation handling
-- vacuum manipulation
-- MSS-Auto layered-material structure screening
+- `generate_all_slabs.py`
+- `make_supercell.py`
+- `make_primitive.py`
+- `sort_poscar_by_species.py`
+- `compare_frameworks.py`
+- lightweight helper modules for slabs, supercells, and orientations
+- `auto-exfoliate/` layered-material exfoliation screening workflow bundle
 
 Related structure prototype datasets:
 ```text
@@ -47,11 +46,6 @@ datasets/oxidation_states/representative_84/
 
 Associated publication:
 - J. Phys. Chem. Lett. 2020
-
-MSS-Auto location:
-```text
-tools/structure/mss_auto/
-```
 
 ## HPC Utilities
 

@@ -107,7 +107,7 @@ Physical placement in the repository should answer "what kind of thing is
 this?" rather than "what is its current status?"
 
 Metadata sidecars should validate with
-`tools/metadata/validate_bmdex_metadata.py`.
+`methods/repository-governance/metadata/validate_bmdex_metadata.py`.
 
 Software package names may still appear inside canonical sections when they are
 the clearest way to describe a method, but they should not create redundant
@@ -156,7 +156,7 @@ Examples:
 Higher-level orchestrated methodologies built from reusable primitives.
 
 Examples:
-- MSS-Auto under `tools/structure/mss_auto/`
+- Auto-Exfoliate under `tools/structure_transform/auto-exfoliate/`
 - layered-material screening workflows
 - high-throughput structure generation
 

@@ -42,7 +42,7 @@ For students, the first useful interaction with BMDex should usually be:
 
 ```bash
 cp templates/slurm/submit_vasp.sbatch my-calc/submit.sbatch
-python3 tools/structure/supercells/make_supercell.py
+python3 tools/structure_transform/make_supercell.py
 ```
 
 The metadata and validation layer supports maintainers underneath this
@@ -71,7 +71,7 @@ Repository-level design decisions and institutional reasoning live under
 Metadata sidecars are validated with:
 
 ```bash
-python3 tools/metadata/validate_bmdex_metadata.py
+python3 methods/repository-governance/metadata/validate_bmdex_metadata.py
 ```
 
 ## Topic Grouping

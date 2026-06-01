@@ -57,8 +57,8 @@ limitations:
   - Provenance scripts are preserved from the source repository and may require path review before reuse.
 planned_integrations:
   reusable_tools:
-    - tool.structure.prototype_loader
-    - tool.structure.framework_matcher
+    - tool.structure_transform.prototype_loader
+    - tool.structure_transform.utilities
   workflows:
     - workflow.structure_prototypes.identify_unique_frameworks
 maintainers:

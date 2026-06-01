@@ -2,7 +2,8 @@
 
 ## Purpose
 
-This workflow describes the MSS-Auto methodology for automated screening of potentially layered materials.
+This workflow describes the Auto-Exfoliate methodology for automated screening
+of potentially layered materials.
 
 The workflow combines:
 - crystallographic structure analysis

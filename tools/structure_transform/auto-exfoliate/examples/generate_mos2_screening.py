@@ -1,5 +1,5 @@
 """
-Example MSS-Auto screening workflow for MoS2.
+Example Auto-Exfoliate screening workflow for MoS2.
 
 This example demonstrates:
 - structure loading
@@ -11,8 +11,8 @@ using reusable BMDex structure utilities.
 
 from pymatgen.core import Structure
 
-from tools.structure.slabs.slab_generator import generate_slab
-from tools.structure.orientations.orientation_utils import (
+from tools.structure_transform.slab_generator import generate_slab
+from tools.structure_transform.orientation_utils import (
     describe_orientation
 )
 
