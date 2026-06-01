@@ -1,5 +1,5 @@
 schema_version: 1
-id: tool.structure.mss_auto
+id: tool.structure_transform.mss_auto
 type: tool
 status: experimental
 validation_level: example_only
@@ -42,9 +42,9 @@ origin:
     year: 2024
 uses:
   local_tools:
-    - tools/structure/slabs/
-    - tools/structure/supercells/
-    - tools/structure/orientations/
+    - tools/structure_transform/generate_all_slabs.py
+    - tools/structure_transform/make_supercell.py
+    - tools/structure_transform/orientation_utils.py
 validation:
   - Example MoS2 screening script demonstrates loading a structure and generating a slab.
   - Validation notes define expected checks for generated structures and vacuum spacing.
@@ -55,5 +55,5 @@ limitations:
 maintainers:
   - bmd-lab
 notes: >
-  MSS-Auto is kept under tools/structure because its reusable content is
-  structure analysis, orientation handling, and slab workflow tooling.
+  MSS-Auto is kept under tools/structure_transform because its reusable content
+  is structure analysis, orientation handling, and slab workflow tooling.

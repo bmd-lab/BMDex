@@ -49,5 +49,5 @@ The goal is to preserve:
 Within BMDex, the migrated content lives under:
 
 ```text
-tools/structure/mss_auto/
+tools/structure_transform/mss_auto/
 ```

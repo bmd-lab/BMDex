@@ -9,3 +9,4 @@ should be maintained. It is not a separate top-level content type.
 ## Entries
 
 - `decisions/2026-05-initial-scope.md`
+- `metadata/` lightweight sidecar validation and maintainer metadata guidance

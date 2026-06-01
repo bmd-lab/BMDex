@@ -41,7 +41,7 @@ Within BMDex, MSS-Auto serves as:
 MSS-Auto now lives under the structure-tool namespace:
 
 ```text
-tools/structure/mss_auto/
+tools/structure_transform/mss_auto/
 ```
 
 and builds on reusable structure primitives including:
