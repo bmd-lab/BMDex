@@ -51,6 +51,16 @@ Examples include:
 * structure prototype datasets
 * element abundance datasets
 
+### `examples/`
+
+Runnable reference workflows and demonstrations.
+
+Examples are intended to be:
+
+* practical
+* minimal
+* reproducible
+* easy to adapt
 ### `methods/`
 
 Scientific standards, conventions, and methodological guidance.
@@ -61,11 +71,14 @@ Examples include:
 * workflow conventions
 * repository guidance
 
+### `templates/`
+
+Reusable starting points for calculations and job submission.
+
 ### `hpc/`
 
 Cluster-specific operational knowledge, troubleshooting guidance, SLURM
 templates, VASP input starting points, and runnable cluster examples.
-
 ## Typical Tasks
 
 Generate surface slabs:
