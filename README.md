@@ -1,89 +1,138 @@
 # BMDex
 
-Curated computational methods, workflows, and standards for the BMD Lab.
+Curated computational methods, tools, workflows, and standards for the BMD Lab.
 
-BMDex serves as the lab’s shared computational knowledge base and institutional memory for reproducible computational materials science research.
+BMDex serves as the lab's shared computational knowledge base and institutional memory for reproducible computational materials science research.
 
-Primary focus areas include:
-- VASP-based density functional theory (DFT)
-- atomic structure workflows and structure manipulation
-- chemical formula and composition screening
-- HPC workflow standardization
-- reusable computational methods and templates
-- onboarding and knowledge transfer between group members
+BMDex complements the public `tutorials` repository:
 
-The repository is intended to evolve collaboratively while maintaining scientific rigor, reproducibility, and clear documentation standards.
+* `tutorials` focuses on education, onboarding, and introducing concepts
+* BMDex focuses on reusable tools, operational workflows, computational standards, and long-term institutional knowledge
 
-BMDex complements the public `tutorials` repository by serving as the private operational and methodological knowledge base of the BMD Lab.
+## Philosophy
 
-While the tutorials repository focuses on educational and onboarding material, BMDex focuses on reusable computational tools, workflow standardization, operational guidance, and long-term institutional computational knowledge.
+BMDex is designed for materials scientists first.
 
-BMDex assumes most new users are materials scientists first. Student-facing
-tools and examples should be runnable, copyable, and understandable without
-requiring prior experience with Git internals, Codex, metadata schemas, or
-software-engineering conventions.
+Most users should be able to:
 
-## Access Model
+* find a useful tool quickly
+* run or adapt it with minimal setup
+* understand examples without deep Git or software-engineering knowledge
 
-BMDex is intended to sit behind a staged student access path:
+The repository prioritizes:
 
-1. public `tutorials` repository for pedagogy and first exposure
-2. private GitHub repository or website for curated BMDex standards and examples
-3. cluster-side BMDex checkout once students can use SSH and the terminal
-4. Codex-assisted curation once users are comfortable working at the console
-
-Codex normally operates on a laptop or workstation checkout of BMDex. Cluster
-execution should happen from a normal git clone or pull of BMDex on the
-cluster. The cluster should not require Codex to run BMDex tools.
-
-See `methods/repository-access-model.md` for the full convention.
-
-For students, the first useful interaction with BMDex should usually be:
-
-```bash
-cp templates/slurm/submit_vasp.sbatch my-calc/submit.sbatch
-python3 tools/structure_transform/make_supercell.py
-```
-
-The metadata and validation layer supports maintainers underneath this
-researcher-facing workflow.
+1. scientific correctness
+2. reproducibility
+3. maintainability
+4. workflow standardization
+5. onboarding efficiency
+6. institutional knowledge preservation
 
 ## Repository Layout
 
-BMDex is organized by content type rather than lifecycle bucket.
+### `tools/`
 
-- `tools/` reusable computational primitives and utilities
-- `methods/` methodological standards, conventions, and design guidance
-- `templates/` reusable starting points for calculations and job submission
-- `examples/` minimal runnable reference workflows
-- `datasets/` curated scientific datasets used by tools and workflows
-- `hpc/` cluster-specific operational guidance
+Reusable computational utilities and transformations.
 
-Validation state, provenance, and limitations belong in each object's metadata
-sidecar, not in separate top-level status directories. Directory-backed
-objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
-Content should enter BMDex through its canonical section once it is useful
-enough to curate; scratch or exploratory work should remain outside the
-repository until then.
-Repository-level design decisions and institutional reasoning live under
-`methods/repository-governance/`.
+Examples include:
 
-Metadata sidecars are validated with:
+* structure transformations
+* composition generation and screening
+* VASP workflow utilities
+* HPC helper scripts
+
+### `datasets/`
+
+Curated scientific resources used by tools and workflows.
+
+Examples include:
+
+* oxidation-state datasets
+* structure prototype datasets
+* element abundance datasets
+
+### `examples/`
+
+Runnable reference workflows and demonstrations.
+
+Examples are intended to be:
+
+* practical
+* minimal
+* reproducible
+* easy to adapt
+
+### `methods/`
+
+Scientific standards, conventions, and methodological guidance.
+
+Examples include:
+
+* VASP input standards
+* workflow conventions
+* repository guidance
+
+### `templates/`
+
+Reusable starting points for calculations and job submission.
+
+### `hpc/`
+
+Cluster-specific operational knowledge and troubleshooting guidance.
+
+## Typical Tasks
+
+Generate surface slabs:
 
 ```bash
-python3 methods/repository-governance/metadata/validate_bmdex_metadata.py
+python3 tools/structure_transform/generate_all_slabs.py
 ```
 
-## Topic Grouping
+Build a supercell:
 
-Within those top-level sections, BMDex should group material by materials
-science topic rather than by software package name.
+```bash
+python3 tools/structure_transform/make_supercell.py
+```
 
-- atomic structure: structure generation, orientations, supercells, slabs, and prototype references
-- chemical formula and composition: oxidation-state data and electroneutral composition generation
-- DFT methods and workflows: VASP inputs, submission templates, and executable calculation examples
-- HPC operations: cluster-specific execution and troubleshooting guidance
+Create a primitive cell:
 
-Software frameworks such as `pymatgen` should appear inside method notes or
-tool documentation where relevant, but should not generally define repository
-layout on their own.
+```bash
+python3 tools/structure_transform/make_primitive.py
+```
+
+Generate electroneutral compositions:
+
+```bash
+python3 tools/composition/generate_ternaries.py
+```
+
+## Topic Areas
+
+BMDex currently focuses on:
+
+* VASP-based density functional theory (DFT)
+* atomic structure workflows and structure manipulation
+* chemical formula and composition screening
+* structure prototype analysis
+* HPC workflow standardization
+* reusable computational infrastructure
+
+## Contribution Philosophy
+
+BMDex should prioritize:
+
+* useful tools
+* reusable workflows
+* curated datasets
+* practical examples
+* operational guidance
+* scientific provenance
+
+BMDex should avoid becoming:
+
+* a dump of active project files
+* a collection of temporary notebooks
+* a storage location for large calculation outputs
+* a purely pedagogical tutorial repository
+
+The goal is to preserve and share the computational knowledge that repeatedly proves useful across the BMD Lab.
