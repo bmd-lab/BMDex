@@ -51,7 +51,7 @@ should document their own environment requirements locally.
 Use:
 
 ```text
-hpc/templates/slurm/submit_python.sbatch
+hpc/slurm/templates/submit_python.sbatch
 ```
 
 for simple Python utilities that need scheduled cluster execution.

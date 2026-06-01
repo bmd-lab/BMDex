@@ -1,0 +1,48 @@
+schema_version: 1
+id: hpc.vasp.resources
+type: hpc
+status: validated
+validation_level: documented
+title: HPC VASP Resources
+domain:
+  - hpc
+  - vasp
+  - slurm
+description: >
+  VASP execution guidance, input templates, POTCAR policy, and runnable VASP
+  examples for the BMD Lab HPC environment.
+files:
+  documentation:
+    - README.md
+    - vasp-execution.md
+    - gpu-vasp.md
+    - potcar-setup.md
+  templates:
+    - templates/INCAR.relax
+    - templates/INCAR.static
+    - templates/KPOINTS.example
+    - templates/POTCAR.spec.example
+  examples:
+    - examples/si_bulk_relax/
+related:
+  hpc:
+    - hpc.slurm.operational_standards
+    - hpc.vasp.potcar_setup
+  methods:
+    - method.vasp.input_standards
+  templates:
+    - template.vasp.incar_relax
+    - template.vasp.incar_static
+    - template.vasp.kpoints_example
+    - template.vasp.potcar_spec
+    - template.slurm.submit_vasp
+  examples:
+    - example.vasp.si_bulk_relax
+validation:
+  - VASP templates and example sidecars validate with repository metadata tooling.
+  - Documents current BMD Lab VASP execution and POTCAR conventions.
+limitations:
+  - VASP settings are starting points and require workflow-specific convergence checks.
+  - Cluster modules and POTCAR paths require periodic revalidation.
+maintainers:
+  - bmd-lab

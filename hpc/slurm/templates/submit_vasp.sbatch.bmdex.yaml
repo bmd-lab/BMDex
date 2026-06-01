@@ -16,8 +16,8 @@ files:
   documentation: submit_vasp.sbatch.md
 related:
   hpc:
-    - hpc.operational_standards
-    - hpc.potcar_setup
+    - hpc.slurm.operational_standards
+    - hpc.vasp.potcar_setup
 validation:
   - Documents standard resource-request and mpirun execution assumptions.
   - Uses cd "$SLURM_SUBMIT_DIR", ulimit, and the standard VASP output file convention.

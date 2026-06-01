@@ -22,7 +22,8 @@ files:
     - README.md
 related:
   hpc:
-    - hpc.operational_standards
+    - hpc.slurm.operational_standards
+    - hpc.vasp.resources
   templates:
     - template.slurm.submit_vasp
     - template.slurm.submit_python

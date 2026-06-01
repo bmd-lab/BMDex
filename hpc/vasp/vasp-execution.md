@@ -20,7 +20,7 @@ mpirun -n "$SLURM_NTASKS" vasp_std > output
 The canonical CPU starting template is:
 
 ```text
-hpc/templates/slurm/submit_vasp.sbatch
+hpc/slurm/templates/submit_vasp.sbatch
 ```
 
 ## Input Expectations

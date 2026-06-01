@@ -1,46 +1,43 @@
-# TAU PowerSLURM Operational Standards
+# HPC
 
 This section records BMD Lab conventions for running computational materials
-science workflows on TAU PowerSLURM systems.
+science workflows on the group HPC system.
 
 BMDex is curated from a laptop or workstation checkout, then pulled onto the
 cluster when tools or templates need to be executed. Do not assume Codex is
 installed on the cluster.
 
-BMDex keeps this section operational rather than pedagogical. It should answer:
+BMDex keeps this section operational rather than pedagogical. Content is split
+by how researchers look for it:
 
-- which cluster resources and modules are standard
-- how VASP jobs are submitted and restarted
-- how Python and pymatgen utilities are run
-- which filesystem conventions preserve reproducibility
-- which recurring failure modes have already been debugged
+- `slurm/`: cluster resources, SLURM submission conventions, Python
+  environments, batch operation, common failures, and SLURM job templates
+- `vasp/`: VASP execution guidance, GPU notes, POTCAR policy, VASP input
+  templates, and runnable VASP examples
 
-## Core Documents
+## Entry Points
 
-- `cluster-profile.md`: partitions, accounts, modules, and filesystem paths
-- `slurm-standards.md`: canonical SLURM submission conventions
-- `vasp-execution.md`: CPU VASP execution and input expectations
-- `gpu-vasp.md`: GPU VASP and MIG/full-GPU resource conventions
-- `python-environments.md`: mamba and Python environment conventions
-- `high-throughput.md`: batch submission, status checks, and restart policy
-- `potcar-setup.md`: POTCAR policy and `PMG_VASP_PSP_DIR`
-- `common_failures.md`: known operational failures and debugging checks
+- `slurm/README.md`
+- `vasp/README.md`
 
 ## Related Repository Objects
 
-Templates:
+SLURM templates:
 
-- `hpc/templates/slurm/submit_vasp.sbatch`
-- `hpc/templates/slurm/submit_vasp_gpu.sbatch`
-- `hpc/templates/slurm/submit_python.sbatch`
-- `hpc/templates/vasp/INCAR.relax`
-- `hpc/templates/vasp/INCAR.static`
-- `hpc/templates/vasp/KPOINTS.example`
-- `hpc/templates/vasp/POTCAR.spec.example`
+- `hpc/slurm/templates/submit_vasp.sbatch`
+- `hpc/slurm/templates/submit_vasp_gpu.sbatch`
+- `hpc/slurm/templates/submit_python.sbatch`
+
+VASP templates:
+
+- `hpc/vasp/templates/INCAR.relax`
+- `hpc/vasp/templates/INCAR.static`
+- `hpc/vasp/templates/KPOINTS.example`
+- `hpc/vasp/templates/POTCAR.spec.example`
 
 Examples:
 
-- `hpc/examples/si_bulk_relax`
+- `hpc/vasp/examples/si_bulk_relax`
 
 Operational tools:
 

@@ -1,5 +1,5 @@
 schema_version: 1
-id: hpc.potcar_setup
+id: hpc.vasp.potcar_setup
 type: hpc
 status: validated
 validation_level: documented

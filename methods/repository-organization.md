@@ -125,10 +125,10 @@ Examples:
 - VASP INCAR, KPOINTS, and POTCAR.spec starting points
 - runnable VASP/SLURM examples
 
-Because BMD Lab currently uses one primary HPC system, cluster guidance and
-calculation templates live together under `hpc/` rather than separate top-level
-`hpc/` and `templates/` sections. Cluster-executable examples also live under
-`hpc/examples/` rather than a top-level `examples/` section.
+Because BMD Lab currently uses one primary HPC system, cluster-facing content
+lives under `hpc/` rather than separate top-level `hpc/`, `templates/`, and
+`examples/` sections. Within `hpc/`, SLURM resources live under `hpc/slurm/`
+and VASP resources live under `hpc/vasp/`.
 
 ## Workflow Hierarchy
 
@@ -159,7 +159,7 @@ live in their canonical content directories, with validation state recorded in
 metadata rather than through a separate top-level folder.
 
 Examples:
-- Si bulk relaxation under `hpc/examples/si_bulk_relax/`
+- Si bulk relaxation under `hpc/vasp/examples/si_bulk_relax/`
 - canonical slab-generation examples
 
 ## Long-Term Goals

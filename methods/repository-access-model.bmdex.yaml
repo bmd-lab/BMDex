@@ -15,7 +15,7 @@ files:
   - repository-access-model.md
 related:
   hpc:
-    - hpc.operational_standards
+    - hpc.slurm.operational_standards
 validation:
   - Documents the intended separation between laptop/workstation curation and cluster-side execution.
   - Records the staged onboarding path from public tutorials to private operational workflows.
