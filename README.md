@@ -74,8 +74,8 @@ Examples include:
 Maintainer-facing metadata validation utilities and the lightweight sidecar
 contract used to keep curated objects consistent.
 
-Repository access and organization guidance lives in root-level documents so
-students do not need to navigate a separate governance tree before using tools.
+Repository access and curation guidance is summarized there for maintainers
+without creating a separate governance tree.
 
 ## Typical Tasks
 
