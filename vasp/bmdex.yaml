@@ -3,17 +3,18 @@ id: hpc.vasp.resources
 type: hpc
 status: validated
 validation_level: documented
-title: HPC VASP Resources
+title: VASP Resources
 domain:
   - hpc
   - vasp
   - slurm
 description: >
-  VASP execution guidance, input templates, POTCAR policy, and runnable VASP
-  examples for the BMD Lab HPC environment.
+  Lab-wide VASP standards, execution guidance, input templates, POTCAR policy,
+  and runnable VASP examples for BMD Lab workflows.
 files:
   documentation:
     - README.md
+    - input-standards.md
     - vasp-execution.md
     - gpu-vasp.md
     - potcar-setup.md

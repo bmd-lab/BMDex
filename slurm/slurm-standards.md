@@ -51,7 +51,7 @@ for a hardcoded username.
 Templates belong in:
 
 ```text
-hpc/slurm/templates/
+slurm/templates/
 ```
 
 Runnable batch utilities belong in:

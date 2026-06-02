@@ -62,8 +62,8 @@ Includes:
 
 Canonical operational standards:
 ```text
-hpc/slurm/
-hpc/vasp/
+slurm/
+vasp/
 ```
 
 ## VASP Input Utilities
@@ -80,5 +80,5 @@ Includes:
 Related standards:
 ```text
 vasp/input-standards.md
-hpc/vasp/potcar-setup.md
+vasp/potcar-setup.md
 ```

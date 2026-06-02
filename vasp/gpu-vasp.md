@@ -41,7 +41,7 @@ mpirun -n "$SLURM_NTASKS" vasp_std > output
 The canonical GPU starting template is:
 
 ```text
-hpc/slurm/templates/submit_vasp_gpu.sbatch
+slurm/templates/submit_vasp_gpu.sbatch
 ```
 
 ## Documentation Requirement

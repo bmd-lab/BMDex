@@ -51,20 +51,23 @@ Examples include:
 * structure prototype datasets
 * element abundance datasets
 
-### `hpc/`
+### `slurm/`
 
-Cluster-specific operational knowledge, troubleshooting guidance, SLURM
-templates, VASP input starting points, and runnable cluster examples.
+Cluster-specific operational knowledge, troubleshooting guidance, and SLURM
+submission templates for the group HPC system.
 
 ### `vasp/`
 
-Lab-wide VASP standards and calculation conventions.
+Lab-wide VASP standards, cluster execution guidance, input templates, and
+runnable VASP examples.
 
 Examples include:
 
 * input standards
 * pseudopotential conventions
 * convergence and documentation expectations
+* VASP execution guidance
+* input templates and runnable examples
 
 ### `metadata/`
 

@@ -30,4 +30,4 @@ By default this writes `POTCAR.spec` instead of an actual `POTCAR`.
 ## Related Standards
 
 - `vasp/input-standards.md`
-- `hpc/vasp/potcar-setup.md`
+- `vasp/potcar-setup.md`

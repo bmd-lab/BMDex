@@ -51,7 +51,7 @@ Production-ready workflows should:
 
 Do not create top-level lifecycle buckets such as `incoming/`, `experimental/`,
 `validated/`, or `deprecated/`. Place content in its canonical section
-(`tools/`, `hpc/`, `datasets/`, `vasp/`, and so on) and record status in
+(`tools/`, `slurm/`, `datasets/`, `vasp/`, and so on) and record status in
 local metadata and documentation.
 
 ## Documentation Expectations

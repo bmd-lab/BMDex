@@ -82,8 +82,9 @@ Examples:
 - convergence philosophy
 - documentation expectations
 
-Cluster-specific VASP execution guidance belongs under `hpc/vasp/`. Runnable
-VASP utilities belong under `tools/vasp/`.
+Cluster-specific VASP execution guidance, VASP input templates, and runnable
+VASP examples also live under `vasp/` so students can find calculation setup
+material in one place. Runnable VASP utilities belong under `tools/vasp/`.
 
 ### Repository Docs
 
@@ -114,21 +115,20 @@ the clearest way to describe a method, but they should not create redundant
 top-level buckets when the underlying topic already has a better scientific
 home.
 
-### `hpc/`
+### `slurm/`
 
 Cluster-specific operational guidance, troubleshooting knowledge, and reusable
-starting files for calculations and job submission.
+SLURM submission templates.
 
 Examples:
 - TAU PowerSLURM standards
 - SLURM templates
-- VASP INCAR, KPOINTS, and POTCAR.spec starting points
-- runnable VASP/SLURM examples
+- Python environment conventions
+- batch submission, status checks, and restart policy
 
-Because BMD Lab currently uses one primary HPC system, cluster-facing content
-lives under `hpc/` rather than separate top-level `hpc/`, `templates/`, and
-`examples/` sections. Within `hpc/`, SLURM resources live under `hpc/slurm/`
-and VASP resources live under `hpc/vasp/`.
+Because BMD Lab currently uses one primary HPC system, SLURM resources live
+directly under `slurm/`. VASP-specific templates and runnable examples live
+under `vasp/`.
 
 ## Workflow Hierarchy
 
@@ -159,7 +159,7 @@ live in their canonical content directories, with validation state recorded in
 metadata rather than through a separate top-level folder.
 
 Examples:
-- Si bulk relaxation under `hpc/vasp/examples/si_bulk_relax/`
+- Si bulk relaxation under `vasp/examples/si_bulk_relax/`
 - canonical slab-generation examples
 
 ## Long-Term Goals

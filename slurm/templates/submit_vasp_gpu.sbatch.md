@@ -14,7 +14,7 @@ The default requests one full H100 GPU:
 ```
 
 For a MIG slice, use the cluster-supported request documented in
-`hpc/vasp/gpu-vasp.md`.
+`vasp/gpu-vasp.md`.
 
 ## Execution Model
 
