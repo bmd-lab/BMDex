@@ -68,19 +68,15 @@ Codex may be used by maintainers to:
 
 Codex-generated contributions should remain reviewable and scientifically validated by group members.
 
-## Initial Organizational Structure
+## Historical Organizational Structure
 
-The repository is initially organized into:
-- methods
-- templates
-- examples
-- tools
-- datasets
-- repository governance records under methods
+The repository was initially organized around separate top-level buckets for
+methods, templates, examples, tools, datasets, and repository governance
+records.
 
-This structure is expected to evolve as the repository matures. Topic-oriented
-grouping inside those sections is preferred over software-specific top-level
-buckets.
+That structure has since been simplified. BMDex now favors shallow
+researcher-facing sections, with templates and examples kept near the workflows
+that use them and metadata recording object type and maturity.
 
 ## Future Development
 

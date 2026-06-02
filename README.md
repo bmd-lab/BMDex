@@ -51,34 +51,29 @@ Examples include:
 * structure prototype datasets
 * element abundance datasets
 
-### `examples/`
-
-Runnable reference workflows and demonstrations.
-
-Examples are intended to be:
-
-* practical
-* minimal
-* reproducible
-* easy to adapt
-### `methods/`
-
-Scientific standards, conventions, and methodological guidance.
-
-Examples include:
-
-* VASP input standards
-* workflow conventions
-* repository guidance
-
-### `templates/`
-
-Reusable starting points for calculations and job submission.
-
 ### `hpc/`
 
 Cluster-specific operational knowledge, troubleshooting guidance, SLURM
 templates, VASP input starting points, and runnable cluster examples.
+
+### `vasp/`
+
+Lab-wide VASP standards and calculation conventions.
+
+Examples include:
+
+* input standards
+* pseudopotential conventions
+* convergence and documentation expectations
+
+### `metadata/`
+
+Maintainer-facing metadata validation utilities and the lightweight sidecar
+contract used to keep curated objects consistent.
+
+Repository access and organization guidance lives in root-level documents so
+students do not need to navigate a separate governance tree before using tools.
+
 ## Typical Tasks
 
 Generate surface slabs:

@@ -20,7 +20,7 @@ Single-file objects may use:
 Validate object sidecars with:
 
 ```bash
-python3 methods/repository-governance/metadata/validate_bmdex_metadata.py
+python3 metadata/validate_bmdex_metadata.py
 ```
 
 ## Minimal Sidecar Contract
@@ -49,6 +49,9 @@ Allowed object types:
 - `tool`
 - `tool_data`
 - `workflow`
+
+The `method` object type remains valid for scientific standards and repository
+conventions even though BMDex no longer has a top-level `methods/` directory.
 
 Allowed status values:
 

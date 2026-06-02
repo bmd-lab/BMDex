@@ -79,6 +79,6 @@ Includes:
 
 Related standards:
 ```text
-methods/vasp/input-standards.md
+vasp/input-standards.md
 hpc/vasp/potcar-setup.md
 ```
