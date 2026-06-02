@@ -48,9 +48,10 @@ action obvious before exposing the maintainability machinery behind it.
 
 ## Organizational Structure
 
-Top-level sections describe content type. Within those sections, subdirectories
-should usually follow materials-science topics such as structure, composition,
-or DFT workflow domain rather than software package names alone.
+Top-level sections should remain shallow and researcher-discoverable. Within
+those sections, subdirectories should usually follow materials-science topics
+such as structure, composition, or DFT workflow domain rather than software
+package names alone.
 
 ### `tools/`
 
@@ -71,25 +72,25 @@ Tools should:
 - be directly runnable or easy to copy into calculation folders when practical
 - expose clear user settings before internal helper abstractions
 
-### `methods/`
+### `vasp/`
 
-Scientific conventions, methodological standards, and workflow philosophy.
+Lab-wide VASP calculation standards and conventions.
 
 Examples:
-- VASP input standards
+- input standards
+- pseudopotential conventions
 - convergence philosophy
-- structure-manipulation conventions
-- composition-screening conventions
-- repository design philosophy and governance decisions
+- documentation expectations
 
-Methods explain:
-- why workflows exist
-- what assumptions are used
-- and how standards should be interpreted.
+Cluster-specific VASP execution guidance belongs under `hpc/vasp/`. Runnable
+VASP utilities belong under `tools/vasp/`.
 
-Repository-level design records live under `methods/repository-governance/`.
-They are treated as governance methods rather than as a separate top-level
-content type.
+### Repository Docs
+
+Repository-level design records live as root-level documents such as
+`repository-access-model.md`, `repository-organization.md`, and
+`repository-initial-scope.md`. This keeps governance information available to
+maintainers without creating a deep student-facing hierarchy.
 
 ### Lifecycle Metadata
 
@@ -106,8 +107,7 @@ outside BMDex until they are useful enough to curate in a canonical section.
 Physical placement in the repository should answer "what kind of thing is
 this?" rather than "what is its current status?"
 
-Metadata sidecars should validate with
-`methods/repository-governance/metadata/validate_bmdex_metadata.py`.
+Metadata sidecars should validate with `metadata/validate_bmdex_metadata.py`.
 
 Software package names may still appear inside canonical sections when they are
 the clearest way to describe a method, but they should not create redundant

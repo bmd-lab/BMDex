@@ -51,7 +51,7 @@ Production-ready workflows should:
 
 Do not create top-level lifecycle buckets such as `incoming/`, `experimental/`,
 `validated/`, or `deprecated/`. Place content in its canonical section
-(`tools/`, `hpc/`, `datasets/`, `methods/`, and so on) and record status in
+(`tools/`, `hpc/`, `datasets/`, `vasp/`, and so on) and record status in
 local metadata and documentation.
 
 ## Documentation Expectations
@@ -70,7 +70,7 @@ Canonical repository objects should include metadata sidecars. Directory-backed
 objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
 
 Sidecars should follow the lightweight contract checked by
-`methods/repository-governance/metadata/validate_bmdex_metadata.py` and record:
+`metadata/validate_bmdex_metadata.py` and record:
 - stable object ID
 - object type
 - lifecycle status
@@ -83,7 +83,7 @@ Sidecars should follow the lightweight contract checked by
 Before review, run:
 
 ```bash
-python3 methods/repository-governance/metadata/validate_bmdex_metadata.py
+python3 metadata/validate_bmdex_metadata.py
 ```
 
 New student contributors are not expected to understand the metadata system

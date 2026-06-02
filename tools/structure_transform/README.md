@@ -121,6 +121,9 @@ Structure transform tools should remain:
 - pymatgen-native
 - clean, lightweight, and hackable
 - organized around researcher tasks rather than ontology labels
+- interoperable with VASP workflows and standard structure files
+- based on pymatgen readers and writers where practical rather than custom
+  parsers
 
 Structure prototype datasets live under:
 
