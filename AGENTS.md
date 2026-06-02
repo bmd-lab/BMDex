@@ -69,6 +69,13 @@ When integrating contributions:
 - favor interoperability and maintainability
 - preserve scientific provenance where applicable
 
+## Git Workflow
+
+- Always create new feature branches from current `main`.
+- Feature branches are temporary.
+- After a feature branch is merged, delete it locally and remotely.
+- Assume BMDex normally has only `main` and at most one active feature branch.
+
 ## Repository Boundaries
 
 BMDex should prioritize:
