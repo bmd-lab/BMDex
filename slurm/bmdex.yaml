@@ -26,8 +26,6 @@ files:
 related:
   hpc:
     - hpc.vasp.resources
-  methods:
-    - method.repository.access_model
   templates:
     - template.slurm.submit_vasp
     - template.slurm.submit_python
