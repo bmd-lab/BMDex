@@ -69,8 +69,7 @@ Contributions should aim to document:
 Canonical repository objects should include metadata sidecars. Directory-backed
 objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
 
-Sidecars should follow the lightweight contract checked by
-`metadata/validate_bmdex_metadata.py` and record:
+Sidecars should follow the lightweight BMDex metadata contract and record:
 - stable object ID
 - object type
 - lifecycle status
@@ -79,12 +78,6 @@ Sidecars should follow the lightweight contract checked by
 - validation evidence
 - known limitations
 - maintainers
-
-Before review, run:
-
-```bash
-python3 metadata/validate_bmdex_metadata.py
-```
 
 New student contributors are not expected to understand the metadata system
 immediately. A useful script, template, example, or operational note can be

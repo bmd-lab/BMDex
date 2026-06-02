@@ -59,6 +59,25 @@ Distinguish clearly between:
 - validated operational examples
 - lower-maturity but curated content recorded through metadata
 
+## Metadata Guidance
+
+Metadata should support maintainers underneath the user experience. Do not make
+metadata, schemas, or repository mechanics the first thing students encounter.
+
+Use lightweight YAML sidecars when they help preserve provenance,
+maintainability, or maturity state:
+- directory-backed objects use `bmdex.yaml`
+- single-file objects may use `<filename>.bmdex.yaml`
+
+Sidecars should record stable object IDs, object type, lifecycle status,
+validation level, validation evidence, limitations, and maintainers. Common
+object types include `dataset`, `example`, `hpc`, `method`, `template`, `tool`,
+`tool_data`, and `workflow`. Common status values include `draft`,
+`experimental`, `validated`, and `deprecated`.
+
+Do not recreate top-level `metadata/`, `methods/`, `hpc/`, `examples/`,
+`templates/`, or `repository*` governance structures unless explicitly asked.
+
 ## Contribution Guidance
 
 When integrating contributions:

@@ -69,14 +69,6 @@ Examples include:
 * VASP execution guidance
 * input templates and runnable examples
 
-### `metadata/`
-
-Maintainer-facing metadata validation utilities and the lightweight sidecar
-contract used to keep curated objects consistent.
-
-Repository access and curation guidance is summarized there for maintainers
-without creating a separate governance tree.
-
 ## Typical Tasks
 
 Generate surface slabs:
@@ -113,6 +105,39 @@ BMDex currently focuses on:
 * structure prototype analysis
 * HPC workflow standardization
 * reusable computational infrastructure
+
+## Curation And Metadata
+
+BMDex is the private operational layer behind the public tutorials repository.
+Tutorials introduce concepts; BMDex preserves reusable tools, standards,
+templates, datasets, examples, and institutional workflow knowledge.
+
+Curated content should expose the useful researcher action first. Most students
+are materials scientists, so ordinary tool usage should not require knowledge
+of metadata, Codex, schemas, or repository governance.
+
+Canonical repository objects may include lightweight YAML sidecars:
+
+* directory-backed objects use `bmdex.yaml`
+* single-file objects may use `<filename>.bmdex.yaml`
+
+Sidecars should record:
+
+* stable object ID
+* object type
+* lifecycle status
+* validation level
+* provenance or origin when relevant
+* validation evidence
+* known limitations
+* maintainers
+
+Common object types include `dataset`, `example`, `hpc`, `method`, `template`,
+`tool`, `tool_data`, and `workflow`. Common status values include `draft`,
+`experimental`, `validated`, and `deprecated`.
+
+Metadata supports maintainers; it should not dominate the student-facing
+experience.
 
 ## Contribution Philosophy
 
