@@ -54,5 +54,5 @@ Operational checks should inspect:
 - whether `CONTCAR` exists and is non-empty
 - whether the final geometry and energy trend are scientifically reasonable
 
-Use `tools/hpc/vasp_status.py` for a first-pass directory scan and
-`tools/hpc/restart_relaxations.py` for controlled `CONTCAR -> POSCAR` restarts.
+Use `slurm/vasp_status.py` for a first-pass directory scan and
+`slurm/restart_relaxations.py` for controlled `CONTCAR -> POSCAR` restarts.

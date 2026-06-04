@@ -38,7 +38,6 @@ Examples include:
 
 * structure transformations
 * composition generation and screening
-* HPC helper scripts
 
 ### `datasets/`
 
@@ -52,8 +51,8 @@ Examples include:
 
 ### `slurm/`
 
-Cluster-specific operational knowledge, troubleshooting guidance, and SLURM
-submission templates for the group HPC system.
+Cluster-specific operational knowledge, troubleshooting guidance, SLURM
+submission templates, and batch workflow utilities for the group HPC system.
 
 ### `vasp/`
 

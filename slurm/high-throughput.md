@@ -34,7 +34,7 @@ Batch submission should:
 Use:
 
 ```bash
-python3 tools/hpc/submit_many_vasp.py --root screening-root --submit
+python3 slurm/submit_many_vasp.py --root screening-root --submit
 ```
 
 after checking the dry-run output.
@@ -51,7 +51,7 @@ Before resubmitting a directory, inspect:
 Use:
 
 ```bash
-python3 tools/hpc/vasp_status.py --root screening-root
+python3 slurm/vasp_status.py --root screening-root
 ```
 
 for a first-pass scan.
@@ -68,7 +68,7 @@ Relaxation restarts should:
 Use:
 
 ```bash
-python3 tools/hpc/restart_relaxations.py --root screening-root --apply
+python3 slurm/restart_relaxations.py --root screening-root --apply
 ```
 
 and add `--resubmit` only when the submission target has been verified.
