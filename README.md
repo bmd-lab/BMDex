@@ -38,7 +38,6 @@ Examples include:
 
 * structure transformations
 * composition generation and screening
-* VASP workflow utilities
 * HPC helper scripts
 
 ### `datasets/`
@@ -59,7 +58,7 @@ submission templates for the group HPC system.
 ### `vasp/`
 
 Lab-wide VASP standards, cluster execution guidance, input templates, and
-runnable VASP examples.
+runnable VASP examples and utilities.
 
 Examples include:
 
@@ -67,6 +66,7 @@ Examples include:
 * pseudopotential conventions
 * convergence and documentation expectations
 * VASP execution guidance
+* VASP utility scripts
 * input templates and runnable examples
 
 ## Typical Tasks

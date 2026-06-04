@@ -1,10 +1,7 @@
 # VASP
 
 This section contains BMD Lab VASP calculation standards, execution guidance,
-input templates, and runnable examples.
-
-It is separate from `tools/vasp/`, which contains directly runnable VASP
-utility scripts.
+input templates, runnable examples, and practical VASP utility scripts.
 
 ## Standards
 
@@ -24,8 +21,30 @@ utility scripts.
 - `templates/KPOINTS.example`
 - `templates/POTCAR.spec.example`
 
+## Utilities
+
+### `make_potcar_from_spec.py`
+
+Generate a local `POTCAR` from a repository-safe `POTCAR.spec` file using the
+configured pymatgen POTCAR directory.
+
+```bash
+python3 vasp/make_potcar_from_spec.py
+```
+
+### `create_mp_relax_inputs.py`
+
+Fetch structures from Materials Project IDs and write pymatgen `MPRelaxSet`
+input folders.
+
+```bash
+python3 vasp/create_mp_relax_inputs.py
+```
+
+By default this writes `POTCAR.spec` instead of an actual `POTCAR`.
+
 ## Examples
 
 - `examples/si_bulk_relax/`: minimal runnable silicon bulk relaxation example
 
-SLURM submission standards and reusable batch scripts live under `../slurm/`.
+SLURM submission standards and reusable batch scripts live under `slurm/`.

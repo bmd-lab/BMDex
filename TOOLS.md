@@ -70,7 +70,7 @@ vasp/
 
 Location:
 ```text
-tools/vasp/
+vasp/
 ```
 
 Includes:

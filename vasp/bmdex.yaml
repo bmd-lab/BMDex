@@ -18,6 +18,9 @@ files:
     - vasp-execution.md
     - gpu-vasp.md
     - potcar-setup.md
+  scripts:
+    - make_potcar_from_spec.py
+    - create_mp_relax_inputs.py
   templates:
     - templates/INCAR.relax
     - templates/INCAR.static
@@ -25,6 +28,9 @@ files:
     - templates/POTCAR.spec.example
   examples:
     - examples/si_bulk_relax/
+dependencies:
+  - pymatgen
+  - mp-api
 related:
   hpc:
     - hpc.slurm.operational_standards
@@ -41,9 +47,12 @@ related:
     - example.vasp.si_bulk_relax
 validation:
   - VASP templates and example sidecars validate with repository metadata tooling.
+  - Python utility scripts compile successfully.
   - Documents current BMD Lab VASP execution and POTCAR conventions.
 limitations:
   - VASP settings are starting points and require workflow-specific convergence checks.
   - Cluster modules and POTCAR paths require periodic revalidation.
+  - Running make_potcar_from_spec.py requires licensed local POTCAR access through pymatgen.
+  - Running create_mp_relax_inputs.py requires a Materials Project API key and mp-api.
 maintainers:
   - bmd-lab
