@@ -57,7 +57,7 @@ slurm/templates/
 Runnable batch utilities belong in:
 
 ```text
-tools/hpc/
+slurm/
 ```
 
 The template should stay simple enough to copy into a calculation folder.

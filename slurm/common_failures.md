@@ -219,7 +219,7 @@ Recommended mitigation:
 - copy `CONTCAR` to `POSCAR`
 - resubmit only after confirming the structure is physically reasonable
 
-Use `tools/hpc/vasp_status.py` and `tools/hpc/restart_relaxations.py` for a
+Use `slurm/vasp_status.py` and `slurm/restart_relaxations.py` for a
 first-pass operational check.
 
 ---

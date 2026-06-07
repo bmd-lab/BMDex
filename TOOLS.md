@@ -47,11 +47,11 @@ datasets/oxidation_states/representative_84/
 Associated publication:
 - J. Phys. Chem. Lett. 2020
 
-## HPC Utilities
+## SLURM Operational Utilities
 
 Location:
 ```text
-tools/hpc/
+slurm/
 ```
 
 Includes:

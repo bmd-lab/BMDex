@@ -19,6 +19,11 @@ files:
     - python-environments.md
     - high-throughput.md
     - common_failures.md
+  scripts:
+    - submit_many_vasp.py
+    - vasp_status.py
+    - restart_relaxations.py
+    - check_power_environment.sh
   templates:
     - templates/submit_vasp.sbatch
     - templates/submit_vasp_gpu.sbatch
@@ -30,13 +35,15 @@ related:
     - template.slurm.submit_vasp
     - template.slurm.submit_python
     - template.slurm.submit_vasp_gpu
-  tools:
-    - tool.hpc.power_operations
 validation:
+  - Python operational scripts compile successfully.
+  - Shell utility syntax is checked with bash -n.
   - Distilled from existing BMD Lab tutorial workflows and cluster usage notes.
   - Documents current partition, account, module, and filesystem conventions.
 limitations:
   - Cluster policies, modules, and filesystem paths can change and require periodic revalidation.
   - Resource tiers are starting points and do not replace workflow-specific benchmarking.
+  - Scripts provide operational triage and do not replace scientific convergence review.
+  - Queue behavior and completion markers may need cluster-specific adjustment.
 maintainers:
   - bmd-lab
