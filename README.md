@@ -131,8 +131,8 @@ Sidecars should record:
 * known limitations
 * maintainers
 
-Common object types include `dataset`, `example`, `hpc`, `method`, `template`,
-`tool`, `tool_data`, and `workflow`. Common status values include `draft`,
+Common object types include `dataset`, `example`, `method`, `section`,
+`template`, `tool`, `tool_data`, and `workflow`. Common status values include `draft`,
 `experimental`, `validated`, and `deprecated`.
 
 Metadata supports maintainers; it should not dominate the student-facing

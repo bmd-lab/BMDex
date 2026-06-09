@@ -1,11 +1,10 @@
 schema_version: 1
-id: hpc.vasp.resources
-type: hpc
+id: section.vasp
+type: section
 status: validated
 validation_level: documented
 title: VASP Resources
 domain:
-  - hpc
   - vasp
   - slurm
 description: >
@@ -32,11 +31,11 @@ dependencies:
   - pymatgen
   - mp-api
 related:
-  hpc:
-    - hpc.slurm.operational_standards
-    - hpc.vasp.potcar_setup
+  sections:
+    - section.slurm
   methods:
     - method.vasp.input_standards
+    - method.vasp.potcar_setup
   templates:
     - template.vasp.incar_relax
     - template.vasp.incar_static

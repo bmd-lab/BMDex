@@ -71,8 +71,8 @@ maintainability, or maturity state:
 
 Sidecars should record stable object IDs, object type, lifecycle status,
 validation level, validation evidence, limitations, and maintainers. Common
-object types include `dataset`, `example`, `hpc`, `method`, `template`, `tool`,
-`tool_data`, and `workflow`. Common status values include `draft`,
+object types include `dataset`, `example`, `method`, `section`, `template`,
+`tool`, `tool_data`, and `workflow`. Common status values include `draft`,
 `experimental`, `validated`, and `deprecated`.
 
 Do not recreate top-level `metadata/`, `methods/`, `hpc/`, `examples/`,

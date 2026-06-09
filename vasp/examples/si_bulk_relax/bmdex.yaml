@@ -25,6 +25,7 @@ files:
     - vasprun.xml
 methods:
   - method.vasp.input_standards
+  - method.vasp.potcar_setup
 templates:
   - template.vasp.incar_relax
   - template.vasp.kpoints_example
@@ -46,10 +47,9 @@ limitations:
   - Reference onboarding calculation, not a universally optimized production workflow.
   - POTCAR must be generated locally from POTCAR.spec in a licensed VASP environment.
 related:
-  hpc:
-    - hpc.vasp.resources
-    - hpc.slurm.operational_standards
-    - hpc.vasp.potcar_setup
+  sections:
+    - section.vasp
+    - section.slurm
 maintainers:
   - bmd-lab
 notes: >

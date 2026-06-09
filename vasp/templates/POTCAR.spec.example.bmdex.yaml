@@ -17,8 +17,7 @@ files:
 related:
   methods:
     - method.vasp.input_standards
-  hpc:
-    - hpc.vasp.potcar_setup
+    - method.vasp.potcar_setup
 validation:
   - Documents the BMDex policy of storing POTCAR specifications instead of POTCAR files.
   - Uses the current group-standard PBE_64 functional convention.

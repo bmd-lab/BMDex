@@ -6,7 +6,6 @@ validation_level: documented
 title: SLURM Submission Template for VASP
 domain:
   - slurm
-  - hpc
   - vasp
 description: >
   Reference SLURM submission script for VASP calculations in the BMD Lab
@@ -15,9 +14,10 @@ files:
   template: submit_vasp.sbatch
   documentation: submit_vasp.sbatch.md
 related:
-  hpc:
-    - hpc.slurm.operational_standards
-    - hpc.vasp.potcar_setup
+  sections:
+    - section.slurm
+  methods:
+    - method.vasp.potcar_setup
 validation:
   - Documents standard resource-request and mpirun execution assumptions.
   - Uses cd "$SLURM_SUBMIT_DIR", ulimit, and the standard VASP output file convention.

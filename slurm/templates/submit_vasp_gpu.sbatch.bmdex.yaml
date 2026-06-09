@@ -6,7 +6,6 @@ validation_level: documented
 title: SLURM Submission Template for GPU VASP
 domain:
   - slurm
-  - hpc
   - vasp
   - gpu
 description: >
@@ -16,8 +15,8 @@ files:
   template: submit_vasp_gpu.sbatch
   documentation: submit_vasp_gpu.sbatch.md
 related:
-  hpc:
-    - hpc.slurm.operational_standards
+  sections:
+    - section.slurm
 validation:
   - Documents current GPU partition, account, module, and launch conventions.
   - Shell syntax is checked during repository validation.

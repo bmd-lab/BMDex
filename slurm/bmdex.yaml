@@ -1,11 +1,10 @@
 schema_version: 1
-id: hpc.slurm.operational_standards
-type: hpc
+id: section.slurm
+type: section
 status: validated
 validation_level: documented
 title: TAU PowerSLURM Operational Standards
 domain:
-  - hpc
   - slurm
   - python
 description: >
@@ -29,8 +28,8 @@ files:
     - templates/submit_vasp_gpu.sbatch
     - templates/submit_python.sbatch
 related:
-  hpc:
-    - hpc.vasp.resources
+  sections:
+    - section.vasp
   templates:
     - template.slurm.submit_vasp
     - template.slurm.submit_python

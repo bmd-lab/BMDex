@@ -14,8 +14,8 @@ description: >
 files:
   - input-standards.md
 related:
-  hpc:
-    - hpc.vasp.potcar_setup
+  methods:
+    - method.vasp.potcar_setup
   templates:
     - template.vasp.incar_relax
     - template.vasp.incar_static
@@ -26,7 +26,7 @@ validation:
   - Referenced by the canonical silicon relaxation onboarding example.
 limitations:
   - General standard, not a substitute for property-specific convergence testing.
-  - Cluster-specific execution details belong in HPC metadata and templates.
+  - Cluster-specific execution details belong in SLURM documentation and templates.
 maintainers:
   - bmd-lab
 notes: >

@@ -6,7 +6,6 @@ validation_level: documented
 title: SLURM Submission Template for Python Utilities
 domain:
   - slurm
-  - hpc
   - python
 description: >
   Reference SLURM submission script for simple Python and pymatgen utilities on
@@ -15,8 +14,8 @@ files:
   template: submit_python.sbatch
   documentation: submit_python.sbatch.md
 related:
-  hpc:
-    - hpc.slurm.operational_standards
+  sections:
+    - section.slurm
 validation:
   - Documents standard Python job resource assumptions and environment activation points.
   - Shell syntax is checked during repository validation.
