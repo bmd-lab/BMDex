@@ -1,6 +1,9 @@
 schema_version: 1
 id: example.vasp.si_bulk_relax
 type: example
+information_class: asset
+visibility: private
+stewardship: bmd-lab
 status: validated
 validation_level: reference
 title: Silicon Bulk Relaxation

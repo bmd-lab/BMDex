@@ -1,9 +1,9 @@
 # Datasets
 
-Curated scientific datasets used by BMDex tools, workflows, and examples.
+Curated private scientific assets used by BMDex tools, workflows, and examples.
 
 Each canonical dataset should include a metadata sidecar that records status,
-provenance, validation, limitations, and downstream uses.
+provenance, validation, limitations, stewardship, and downstream uses.
 
 - `oxidation_states/representative_84/`
 - `element_abundances/crust_abundance/`

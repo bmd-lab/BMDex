@@ -1,6 +1,9 @@
 schema_version: 1
 id: section.vasp
 type: section
+information_class: asset
+visibility: private
+stewardship: bmd-lab
 status: validated
 validation_level: documented
 title: VASP Resources

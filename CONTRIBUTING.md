@@ -1,8 +1,25 @@
 # Contributing to BMDex
 
-BMDex is the shared computational knowledge base of the BMD Lab.
+BMDex is the private computational operations and assets repository of the BMD
+Lab.
 
-The goal of this repository is to preserve and standardize computational knowledge across the group while maintaining scientific rigor, reproducibility, and maintainability.
+The goal of this repository is to preserve and standardize private
+infrastructure notes and lab-controlled computational assets while maintaining
+scientific rigor, reproducibility, and maintainability.
+
+## Information Classes
+
+BMD Lab computational information should be curated according to three classes:
+
+- **Knowledge**: public-facing concepts, explanations, tutorials, and onboarding
+  material. This usually belongs in the public `tutorials` repository and group
+  tutorial pages.
+- **Infrastructure**: private operational information about university-managed
+  systems, especially SLURM and HPC behavior. BMDex may document current working
+  conventions, but the lab does not control the underlying system.
+- **Assets**: private lab-controlled tools, codes, scripts, datasets, templates,
+  examples, workflows, and standards. These are the main reusable materials
+  BMDex owns and maintains.
 
 ## What Belongs in BMDex
 
@@ -10,9 +27,9 @@ Examples of useful contributions include:
 - reproducible computational workflows
 - reusable VASP input templates
 - pymatgen utilities and transformations
-- HPC workflow guidance
+- private SLURM and HPC workflow guidance
 - convergence-testing procedures
-- onboarding documentation
+- operational onboarding documentation
 - troubleshooting notes
 - reusable analysis scripts
 - examples with clear scientific purpose
@@ -72,6 +89,9 @@ objects use `bmdex.yaml`; single-file objects may use `<filename>.bmdex.yaml`.
 Sidecars should follow the lightweight BMDex metadata contract and record:
 - stable object ID
 - object type
+- information class
+- visibility
+- stewardship
 - lifecycle status
 - validation level
 - provenance or origin when relevant

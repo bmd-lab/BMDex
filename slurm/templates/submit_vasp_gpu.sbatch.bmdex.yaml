@@ -1,6 +1,9 @@
 schema_version: 1
 id: template.slurm.submit_vasp_gpu
 type: template
+information_class: infrastructure
+visibility: private
+stewardship: university-hpc
 status: experimental
 validation_level: documented
 title: SLURM Submission Template for GPU VASP

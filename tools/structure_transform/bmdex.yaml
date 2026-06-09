@@ -1,6 +1,9 @@
 schema_version: 1
 id: tool.structure_transform.utilities
 type: tool
+information_class: asset
+visibility: private
+stewardship: bmd-lab
 status: experimental
 validation_level: example_only
 title: Structure Transform Utilities

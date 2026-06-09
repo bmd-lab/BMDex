@@ -1,17 +1,21 @@
 # BMDex
 
-Curated computational methods, tools, workflows, and standards for the BMD Lab.
+Curated computational methods, tools, workflows, and operational standards for
+the BMD Lab.
 
-BMDex serves as the lab's shared computational knowledge base and institutional memory for reproducible computational materials science research.
+BMDex serves as the lab's private operational memory for reproducible
+computational materials science research.
 
 BMDex complements the public `tutorials` repository:
 
-* `tutorials` focuses on education, onboarding, and introducing concepts
-* BMDex focuses on reusable tools, operational workflows, computational standards, and long-term institutional knowledge
+* `tutorials` preserves public-facing knowledge, education, onboarding, and
+  conceptual guidance
+* BMDex preserves private infrastructure notes and lab-controlled computational
+  assets used in day-to-day research
 
 ## Philosophy
 
-BMDex is designed for materials scientists first.
+BMDex is designed for materials scientists working in a research group.
 
 Most users should be able to:
 
@@ -28,11 +32,32 @@ The repository prioritizes:
 5. onboarding efficiency
 6. institutional knowledge preservation
 
+## Information Model
+
+BMD Lab computational information falls into three practical categories:
+
+* **Knowledge**: public-facing concepts, explanations, tutorials, and onboarding
+  material. This primarily belongs in the open `tutorials` repository and group
+  tutorial pages. BMDex may point to it, but should not become the main home for
+  broadly teachable material.
+* **Infrastructure**: private operational information about university-managed
+  systems, especially SLURM and HPC conventions. BMDex records the current
+  working reality, but the lab does not control the underlying cluster policies,
+  modules, accounts, partitions, or filesystem layout.
+* **Assets**: private lab-controlled tools, codes, scripts, datasets, templates,
+  examples, and workflows. These are the parts of BMDex the group owns,
+  maintains, adapts, and reuses.
+
+This distinction should guide curation. Public knowledge should graduate toward
+`tutorials`; externally controlled infrastructure should be documented with
+clear limitations; lab assets should remain practical, runnable, and reusable.
+
 ## Repository Layout
 
 ### `tools/`
 
-Reusable computational utilities and transformations.
+Private lab-controlled computational assets: reusable utilities and
+transformations.
 
 Examples include:
 
@@ -41,7 +66,8 @@ Examples include:
 
 ### `datasets/`
 
-Curated scientific resources used by tools and workflows.
+Private lab-controlled or lab-curated scientific assets used by tools and
+workflows.
 
 Examples include:
 
@@ -51,13 +77,14 @@ Examples include:
 
 ### `slurm/`
 
-Cluster-specific operational knowledge, troubleshooting guidance, SLURM
-submission templates, and batch workflow utilities for the group HPC system.
+Private infrastructure notes for university-managed HPC: cluster-specific
+operational guidance, troubleshooting notes, SLURM submission templates, and
+batch workflow utilities for the group HPC system.
 
 ### `vasp/`
 
-Lab-wide VASP standards, cluster execution guidance, input templates, and
-runnable VASP examples and utilities.
+Private lab-controlled VASP assets and standards, plus infrastructure-facing
+execution guidance for running those assets on the group HPC system.
 
 Examples include:
 
@@ -103,7 +130,8 @@ BMDex currently focuses on:
 * chemical formula and composition screening
 * structure prototype analysis
 * HPC workflow standardization
-* reusable computational infrastructure
+* private infrastructure documentation
+* reusable computational assets
 
 ## Curation And Metadata
 
@@ -124,6 +152,9 @@ Sidecars should record:
 
 * stable object ID
 * object type
+* information class
+* visibility
+* stewardship
 * lifecycle status
 * validation level
 * provenance or origin when relevant
@@ -134,6 +165,14 @@ Sidecars should record:
 Common object types include `dataset`, `example`, `method`, `section`,
 `template`, `tool`, `tool_data`, and `workflow`. Common status values include `draft`,
 `experimental`, `validated`, and `deprecated`.
+
+Common information classes are `knowledge`, `infrastructure`, and `asset`.
+Most BMDex entries should be private `asset` or private `infrastructure`
+objects. Public `knowledge` should usually live in `tutorials` unless it is
+needed locally to explain an operational BMDex object.
+
+In sidecars, `stewardship` records who controls the underlying resource or
+system; `maintainers` records who curates the BMDex entry.
 
 Metadata supports maintainers; it should not dominate the student-facing
 experience.

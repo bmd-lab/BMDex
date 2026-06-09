@@ -1,6 +1,9 @@
 schema_version: 1
 id: dataset.element_abundances.crust_abundance
 type: dataset
+information_class: asset
+visibility: private
+stewardship: bmd-lab
 status: experimental
 validation_level: external_source_import
 title: Crust Abundance Data

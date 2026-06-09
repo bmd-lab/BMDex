@@ -1,7 +1,12 @@
 # VASP
 
-This section contains BMD Lab VASP calculation standards, execution guidance,
-input templates, runnable examples, and practical VASP utility scripts.
+This section contains private BMD Lab VASP assets: calculation standards, input
+templates, runnable examples, and practical VASP utility scripts.
+
+Some documents also describe infrastructure-facing execution details for
+TAU PowerSLURM and licensed VASP pseudopotential access. Those details depend
+on university-managed systems and should be treated as current operational
+conventions rather than lab-controlled software behavior.
 
 ## Standards
 

@@ -1,6 +1,9 @@
 schema_version: 1
 id: dataset.structure_prototypes.mp_unique_frameworks_2025
 type: dataset
+information_class: asset
+visibility: private
+stewardship: bmd-lab
 status: experimental
 validation_level: external_source_import
 title: Materials Project Unique Structure Prototypes 2025

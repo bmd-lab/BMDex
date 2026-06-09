@@ -1,8 +1,13 @@
 # SLURM
 
-This directory contains BMD Lab conventions for using TAU PowerSLURM,
-cluster-side templates researchers copy into calculation folders, and practical
-operational scripts for batch VASP workflows.
+This directory records private infrastructure knowledge for using TAU
+PowerSLURM, a university-managed HPC system that the BMD Lab depends on but
+does not control.
+
+It contains current BMD Lab conventions, cluster-side templates researchers
+copy into calculation folders, and practical operational scripts for batch VASP
+workflows. Cluster policies, modules, accounts, partitions, and filesystem
+paths can change outside this repository and should be rechecked periodically.
 
 ## Core Documents
 

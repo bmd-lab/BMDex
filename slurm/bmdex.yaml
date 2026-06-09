@@ -1,6 +1,9 @@
 schema_version: 1
 id: section.slurm
 type: section
+information_class: infrastructure
+visibility: private
+stewardship: university-hpc
 status: validated
 validation_level: documented
 title: TAU PowerSLURM Operational Standards
