@@ -132,3 +132,8 @@ datasets/structure_prototypes/
 ```
 
 Only reusable operations acting on those datasets should live under `tools/`.
+Prototype-specific utilities live under:
+
+```text
+tools/structure_prototypes/
+```

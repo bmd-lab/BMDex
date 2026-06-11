@@ -1,8 +1,24 @@
 import os
+from pathlib import Path
 from get_abundant_prototypes import compare_frameworks
 from pymatgen.core.composition import Composition
 
-def process_main_folder(main_dir: str, min_amount: int, excel_file_name: str, sheet_name=None):
+
+# ----------------------------------------------------------------------
+# User settings
+# ----------------------------------------------------------------------
+
+MAIN_FOLDER = "path/to/dir"
+MIN_AMOUNT = 2
+ABUNDANCE_FILE = (
+    Path(__file__).resolve().parents[2]
+    / "datasets"
+    / "element_abundances"
+    / "earth-abundance.yaml"
+)
+SHEET_NAME = None
+
+def process_main_folder(main_dir: str, min_amount: int, abundance_file_name: str, sheet_name=None):
     """
     Processes each subdirectory in the main folder using the process_subdirectory function.
 
@@ -16,7 +32,7 @@ def process_main_folder(main_dir: str, min_amount: int, excel_file_name: str, sh
         subdir_path = os.path.join(main_dir, subdir)
         if os.path.isdir(subdir_path):
             print(f"Processing {subdir_path}...")
-            structures = compare_frameworks(subdir_path, excel_file_name, sheet_name)
+            structures = compare_frameworks(subdir_path, abundance_file_name, sheet_name)
             # Write the unique structures information to a text file in the subdirectory
             output_file_path = os.path.join(subdir_path, "unique_structures.txt")
             with open(output_file_path, "w") as output_file:
@@ -44,12 +60,6 @@ def process_main_folder(main_dir: str, min_amount: int, excel_file_name: str, sh
                                           f"Orientation Matrix:\n{orientation_matrix_str}\nAtoms Locations:\n{atoms_coordinates_str}\n\n")
 
 
-# Define path to the main folder
-main_folder = "path/to/dir"
-min_amount = 2  # Minimal amount of times a structure needs to appear in order to be listed
-excel_file = "./element-abundances.xlsx"
-sheet_name = "crust abundance"
-
-# Execute the function over the main folder
-process_main_folder(main_folder, min_amount, excel_file)
-print(f"Done processing all folders in {main_folder}.")
+if __name__ == "__main__":
+    process_main_folder(MAIN_FOLDER, MIN_AMOUNT, ABUNDANCE_FILE, SHEET_NAME)
+    print(f"Done processing all folders in {MAIN_FOLDER}.")

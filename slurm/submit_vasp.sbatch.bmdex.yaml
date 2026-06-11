@@ -15,7 +15,7 @@ description: >
   computational environment.
 files:
   template: submit_vasp.sbatch
-  documentation: submit_vasp.sbatch.md
+  documentation: README.md
 related:
   sections:
     - section.slurm

@@ -15,17 +15,11 @@ description: >
   Materials Project-derived CIF prototype collection grouped by anonymous
   stoichiometry labels and summarized by unique framework representatives.
 files:
-  source_readme:
-    - SOURCE_README.md
   summaries:
     - all-prototypes-unfiltered.txt
     - sorted-structures/*/unique_structures.txt
   structures:
     pattern: sorted-structures/**/*.cif
-  provenance_scripts:
-    - scripts/abundance_rank.py
-    - scripts/generate-frameworks-list.py
-    - scripts/get_abundant_prototypes.py
 counts:
   source_materials_analyzed: 23160
   prototype_groups: 174
@@ -48,20 +42,20 @@ dependencies:
   - pymatgen
 uses:
   datasets:
-    - dataset.element_abundances.crust_abundance
+    - dataset.element_abundances.crustal_abundance
 validation:
   - External source repository and commit are recorded.
   - Prototype counts and source-method summary are captured in this sidecar.
   - CIF collection and generated prototype summaries are stored under datasets.
+  - Reusable prototype-processing scripts are stored under tools/structure_prototypes.
   - Broader reuse still requires license and redistribution review.
 limitations:
   - License and redistribution terms need explicit documentation before broader reuse.
   - Derived from Materials Project structures and associated database assumptions.
-  - Provenance scripts are preserved from the source repository and may require path review before reuse.
+  - Prototype-processing utilities may need workflow-specific tolerance review before reuse.
 planned_integrations:
   reusable_tools:
-    - tool.structure_transform.prototype_loader
-    - tool.structure_transform.utilities
+    - tool.structure_prototypes.utilities
   workflows:
     - workflow.structure_prototypes.identify_unique_frameworks
 maintainers:

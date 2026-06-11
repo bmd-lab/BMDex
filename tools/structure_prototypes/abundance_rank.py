@@ -1,24 +1,43 @@
-import pandas as pd
+from pathlib import Path
 import re
-import numpy as np
 from typing import Dict
+import yaml
 
 
 class CompoundAbundanceScorer:
-    def __init__(self, excel_file_path: str, sheet_name: str = None):
+    def __init__(self, abundance_file_path: str, sheet_name: str = None):
         """
-        Initialize the scorer with element abundance data from Excel file.
+        Initialize the scorer with element abundance data from YAML or Excel.
 
         Args:
-            excel_file_path: Path to Excel file containing element abundance data
+            abundance_file_path: Path to YAML or Excel element abundance data
             sheet_name: Name of sheet to read (if None, reads first sheet)
         """
-        self.abundance_data = self._load_abundance_data(excel_file_path, sheet_name)
+        self.abundance_data = self._load_abundance_data(abundance_file_path, sheet_name)
 
     def _load_abundance_data(self, file_path: str, sheet_name: str = None) -> Dict[str, float]:
-        """Load element abundance data from Excel file."""
+        """Load element abundance data from YAML or Excel."""
         try:
-            # Read Excel file
+            path = Path(file_path)
+
+            if path.suffix.lower() in {".yaml", ".yml"}:
+                with path.open() as stream:
+                    data = yaml.safe_load(stream)
+
+                return {
+                    str(element): float(abundance)
+                    for element, abundance in data.items()
+                }
+
+            # Read Excel file for compatibility with older source workflows.
+            try:
+                import pandas as pd
+            except ImportError as exc:
+                raise ImportError(
+                    "Reading Excel abundance files requires pandas. "
+                    "Use the canonical YAML abundance dataset when pandas is unavailable."
+                ) from exc
+
             if sheet_name is None:
                 excel_data = pd.read_excel(file_path, sheet_name=None)
                 if isinstance(excel_data, dict):
@@ -67,7 +86,7 @@ class CompoundAbundanceScorer:
             return abundance_dict
 
         except Exception as e:
-            raise Exception(f"Error loading Excel file: {e}")
+            raise Exception(f"Error loading abundance file: {e}")
 
     def _parse_chemical_formula(self, formula: str) -> Dict[str, int]:
         """Parse a chemical formula and return element counts."""
@@ -117,16 +136,20 @@ class CompoundAbundanceScorer:
                 if 0 in weighted_abundances:
                     return 0.0
                 else:
-                    return float(np.prod(weighted_abundances) ** (1 / len(weighted_abundances)))
+                    product = 1.0
+                    for abundance in weighted_abundances:
+                        product *= abundance
+                    return float(product ** (1 / len(weighted_abundances)))
 
             elif scoring_method == 'arithmetic_mean':
-                return float(np.mean(weighted_abundances))
+                return float(sum(weighted_abundances) / len(weighted_abundances))
 
             elif scoring_method == 'harmonic_mean':
                 if 0 in weighted_abundances:
                     return 0.0
                 else:
-                    return float(len(weighted_abundances) / np.sum(1 / np.array(weighted_abundances)))
+                    reciprocal_sum = sum(1 / abundance for abundance in weighted_abundances)
+                    return float(len(weighted_abundances) / reciprocal_sum)
 
             elif scoring_method == 'minimum':
                 return float(min(weighted_abundances))
@@ -143,12 +166,16 @@ class CompoundAbundanceScorer:
 
 # Example usage
 if __name__ == "__main__":
-    # Replace with your Excel file path
-    excel_file = "element-abundances.xlsx"
+    abundance_file = (
+        Path(__file__).resolve().parents[2]
+        / "datasets"
+        / "element_abundances"
+        / "earth-abundance.yaml"
+    )
 
     try:
         # Initialize scorer
-        scorer = CompoundAbundanceScorer(excel_file)
+        scorer = CompoundAbundanceScorer(abundance_file)
 
         # Get abundance score for a single compound
         compound = "SiO2"

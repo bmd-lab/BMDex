@@ -11,25 +11,20 @@ domain:
   - slurm
   - python
 description: >
-  Cluster-specific SLURM, Python, and high-throughput operational standards for
-  BMD Lab workflows on TAU PowerSLURM.
+  Cluster-specific SLURM templates and operational scripts for BMD Lab
+  workflows on TAU PowerSLURM.
 files:
   documentation:
     - README.md
-    - cluster-profile.md
-    - slurm-standards.md
-    - python-environments.md
-    - high-throughput.md
-    - common_failures.md
   scripts:
     - submit_many_vasp.py
     - vasp_status.py
     - restart_relaxations.py
     - check_power_environment.sh
   templates:
-    - templates/submit_vasp.sbatch
-    - templates/submit_vasp_gpu.sbatch
-    - templates/submit_python.sbatch
+    - submit_vasp.sbatch
+    - submit_vasp_gpu.sbatch
+    - submit_python.sbatch
 related:
   sections:
     - section.vasp
@@ -40,8 +35,7 @@ related:
 validation:
   - Python operational scripts compile successfully.
   - Shell utility syntax is checked with bash -n.
-  - Distilled from existing BMD Lab tutorial workflows and cluster usage notes.
-  - Documents current partition, account, module, and filesystem conventions.
+  - README records current account, partition, module, and filesystem conventions.
 limitations:
   - Cluster policies, modules, and filesystem paths can change and require periodic revalidation.
   - Resource tiers are starting points and do not replace workflow-specific benchmarking.

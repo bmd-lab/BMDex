@@ -1,13 +1,13 @@
 # Electroneutrality Matching Tools
 
-Reusable utilities and examples for generating chemically charge-balanced
-candidate compositions from oxidation-state assignments.
+Runnable utilities for generating chemically charge-balanced candidate
+compositions from oxidation-state assignments.
 
 Canonical metadata:
 - `bmdex.yaml`
 
 Canonical dataset:
-- `datasets/oxidation_states/representative_84/`
+- `datasets/element_charges/`
 
 Provenance:
 - `ORIGIN.md`
@@ -28,5 +28,13 @@ electronic validation where relevant.
 
 ## Layout
 
-- `examples/`: lightweight executable examples.
-- `oxidation_states/`: compatibility pointer to canonical datasets.
+- `generate_binary_oxides.py`: generate electroneutral binary oxide formulas.
+- `generate_ternaries.py`: generate electroneutral ternary oxide formulas.
+- `_datasets.py`: load the canonical oxidation-state dataset.
+
+Run from the repository root:
+
+```bash
+python3 tools/composition/electroneutrality/generate_binary_oxides.py
+python3 tools/composition/electroneutrality/generate_ternaries.py
+```

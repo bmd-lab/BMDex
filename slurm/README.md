@@ -1,64 +1,64 @@
 # SLURM
 
-This directory records private infrastructure knowledge for using TAU
-PowerSLURM, a university-managed HPC system that the BMD Lab depends on but
-does not control.
-
-It contains current BMD Lab conventions, cluster-side templates researchers
-copy into calculation folders, and practical operational scripts for batch VASP
-workflows. Cluster policies, modules, accounts, partitions, and filesystem
-paths can change outside this repository and should be rechecked periodically.
-
-## Core Documents
-
-- `cluster-profile.md`: partitions, accounts, modules, and filesystem paths
-- `slurm-standards.md`: canonical SLURM submission conventions
-- `python-environments.md`: mamba and Python environment conventions
-- `high-throughput.md`: batch submission, status checks, and restart policy
-- `common_failures.md`: known operational failures and debugging checks
+Private infrastructure assets for TAU PowerSLURM. The university controls the
+cluster; BMDex records the current lab working defaults and copyable files.
 
 ## Templates
 
-- `templates/submit_vasp.sbatch`
-- `templates/submit_vasp_gpu.sbatch`
-- `templates/submit_python.sbatch`
+Copy these into calculation or workflow folders and edit job names, resources,
+modules, and environment activation as needed:
 
-## Operational Utilities
+- `submit_vasp.sbatch`: CPU VASP
+- `submit_vasp_gpu.sbatch`: GPU VASP
+- `submit_python.sbatch`: scheduled Python utilities
 
-### `submit_many_vasp.py`
+Current defaults:
 
-Submit many VASP calculation directories with a configurable queue limit.
+- CPU partition/account: `leeburton-pool` / `power-leeburton-users_v2`
+- GPU partition/account: `gpu-leeburton-pool` / `power-leeburton-users_v2`
+- CPU VASP modules: `intel/rocky8-oneAPI-2023`, `vasp/rocky8-intel-6.4.1`
+- GPU VASP module: `vasp/vasp.6.5.1-hpc_sdk`
+- POTCAR root: `/bmd-db/lee/potcars`
+- Python env root: `/leeburton-data/$USER/envs/`
+
+## Utilities
+
+Submit many VASP calculation folders:
 
 ```bash
 python3 slurm/submit_many_vasp.py --root screening-root
 python3 slurm/submit_many_vasp.py --root screening-root --submit
 ```
 
-### `vasp_status.py`
-
-Scan VASP calculation directories and report operational status.
+Scan VASP calculation status:
 
 ```bash
 python3 slurm/vasp_status.py --root screening-root
 ```
 
-### `restart_relaxations.py`
-
-Prepare controlled relaxation restarts by backing up `POSCAR` and copying
-`CONTCAR` to `POSCAR`.
+Prepare controlled relaxation restarts:
 
 ```bash
 python3 slurm/restart_relaxations.py --root screening-root
 python3 slurm/restart_relaxations.py --root screening-root --apply
 ```
 
-### `check_power_environment.sh`
-
-Check common TAU PowerSLURM environment assumptions.
+Check the current cluster-side environment:
 
 ```bash
 bash slurm/check_power_environment.sh
 ```
+
+## Operating Rules
+
+- Run from `"$SLURM_SUBMIT_DIR"` inside job scripts.
+- Load required modules inside each submitted script.
+- Use `squeue -u "$USER"` for queue checks.
+- Keep `POTCAR.spec` in BMDex and generate licensed `POTCAR` files only in a
+  licensed VASP environment.
+- Treat resource requests as starting points, not convergence validation.
+- Recheck this directory when accounts, partitions, modules, filesystem paths,
+  or university cluster policy changes.
 
 VASP-specific execution notes, input templates, and examples live under
 `../vasp/`.

@@ -11,8 +11,8 @@ domain:
   - vasp
   - slurm
 description: >
-  Lab-wide VASP standards, execution guidance, input templates, POTCAR policy,
-  and runnable VASP examples for BMD Lab workflows.
+  Lab-wide VASP standards, execution guidance, reusable input examples, POTCAR
+  policy, and runnable VASP examples for BMD Lab workflows.
 files:
   documentation:
     - README.md
@@ -23,11 +23,11 @@ files:
   scripts:
     - make_potcar_from_spec.py
     - create_mp_relax_inputs.py
-  templates:
-    - templates/INCAR.relax
-    - templates/INCAR.static
-    - templates/KPOINTS.example
-    - templates/POTCAR.spec.example
+  reusable_inputs:
+    - examples/INCAR.relax
+    - examples/INCAR.static
+    - examples/KPOINTS.example
+    - examples/POTCAR.spec.example
   examples:
     - examples/si_bulk_relax/
 dependencies:
@@ -48,7 +48,7 @@ related:
   examples:
     - example.vasp.si_bulk_relax
 validation:
-  - VASP templates and example sidecars validate with repository metadata tooling.
+  - VASP reusable-input and example sidecars validate with repository metadata tooling.
   - Python utility scripts compile successfully.
   - Documents current BMD Lab VASP execution and POTCAR conventions.
 limitations:
