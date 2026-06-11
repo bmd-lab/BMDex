@@ -16,7 +16,7 @@ description: >
   PowerSLURM.
 files:
   template: submit_vasp_gpu.sbatch
-  documentation: submit_vasp_gpu.sbatch.md
+  documentation: README.md
 related:
   sections:
     - section.slurm

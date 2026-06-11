@@ -1,13 +1,22 @@
-# 84 Representative Oxidation States
+# Element-Charge Datasets
+
+Canonical element-charge datasets used by BMDex composition tools and
+workflows.
 
 Canonical metadata:
 - `bmdex.yaml`
+
+Canonical data:
+- `oxidation_states_84.yaml`
+
+Composition tools should reference datasets here rather than keep local
+element-charge copies or compatibility pointer directories.
 
 This dataset contains the 84 representative oxidation states proposed in:
 
 > Ding, Y.; Kumagai, Y.; Oba, F.; Burton, L. A.
 > *Data-Mining Element Charges in Inorganic Materials*.
-> J. Phys. Chem. Lett. 2020, 11, 8264–8267.
+> J. Phys. Chem. Lett. 2020, 11, 8264-8267.
 > DOI: 10.1021/acs.jpclett.0c02072
 
 The oxidation states were obtained by data-mining approximately:

@@ -101,7 +101,9 @@ evidence, limitations, and maintainers. Common object types include `dataset`,
 system; `maintainers` records who curates the BMDex entry.
 
 Do not recreate top-level `metadata/`, `methods/`, `hpc/`, `examples/`,
-`templates/`, or `repository*` governance structures unless explicitly asked.
+`templates/`, `CONTRIBUTING.md`, `TOOLS.md`, or `repository*` governance
+structures unless explicitly asked. Human-facing repository guidance belongs in
+`README.md`; agent-facing guidance belongs in `AGENTS.md`.
 
 ## Contribution Guidance
 

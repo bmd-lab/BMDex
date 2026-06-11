@@ -4,7 +4,7 @@ from pymatgen.analysis.structure_matcher import StructureMatcher, FrameworkCompa
 from abundance_rank import CompoundAbundanceScorer
 
 
-def compare_frameworks(dir_path, abundance_excel_path, sheet_name=None):
+def compare_frameworks(dir_path, abundance_data_path, sheet_name=None):
     """
     Processes all .cif files in a single subdirectory, keeping the representative
     file with the largest volume for each unique framework and saving them in the same subdirectory.
@@ -17,7 +17,7 @@ def compare_frameworks(dir_path, abundance_excel_path, sheet_name=None):
     # Initialize the structure matcher
     matcher = StructureMatcher(comparator=FrameworkComparator())
 
-    scorer = CompoundAbundanceScorer(abundance_excel_path, sheet_name=sheet_name)
+    scorer = CompoundAbundanceScorer(abundance_data_path, sheet_name=sheet_name)
 
     # number of files processed
     count = 0

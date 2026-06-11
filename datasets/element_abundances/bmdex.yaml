@@ -1,0 +1,38 @@
+schema_version: 1
+id: dataset.element_abundances.crustal_abundance
+type: dataset
+information_class: asset
+visibility: private
+stewardship: bmd-lab
+status: validated
+validation_level: documented
+title: Crustal Element Abundance Data
+domain:
+  - element_abundance
+  - compositional_reasoning
+  - materials_screening
+description: >
+  Representative elemental crustal abundances used for abundance-aware
+  screening, ranking, and compositional reasoning workflows.
+files:
+  canonical: earth-abundance.yaml
+format: yaml
+source:
+  citation: >
+    Haynes, W. M. (Ed.). CRC Handbook of Chemistry and Physics.
+    CRC Press, 2016.
+used_by:
+  tools:
+    - abundance_ranking
+  datasets:
+    - dataset.structure_prototypes.mp_unique_frameworks_2025
+validation:
+  - YAML parses successfully.
+  - Element symbols correspond to valid chemical elements.
+  - Abundance values are numerical.
+limitations:
+  - Values represent crustal abundance only.
+  - Not suitable as a proxy for cost, availability, or manufacturability.
+  - Alternative abundance datasets may be more appropriate for specific applications.
+maintainers:
+  - bmd-lab

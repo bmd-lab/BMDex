@@ -12,8 +12,17 @@ domain:
   - composition_generation
   - materials_discovery
 description: >
-  Utilities and examples for generating charge-balanced candidate
-  compositions from oxidation-state assignments.
+  Runnable utilities for generating charge-balanced candidate compositions from
+  oxidation-state assignments.
+files:
+  scripts:
+    - generate_binary_oxides.py
+    - generate_ternaries.py
+  helpers:
+    - _datasets.py
+  documentation:
+    - README.md
+    - ORIGIN.md
 dependencies:
   - python
   - pyyaml
@@ -23,7 +32,7 @@ outputs:
   - candidate_formulas
 uses:
   datasets:
-    - dataset.oxidation_states.representative_84
+    - dataset.element_charges.representative_84
 related:
   methods: []
   workflows: []
@@ -34,14 +43,14 @@ provenance:
     title: Data-Mining Element Charges in Inorganic Materials
     doi: 10.1021/acs.jpclett.0c02072
 validation:
-  - Example scripts generate binary and ternary oxide candidate formulas.
+  - Scripts generate binary and ternary oxide candidate formulas.
 limitations:
   - Electroneutrality is necessary but insufficient for chemical realizability.
-  - Current examples are lightweight scripts, not a full validated screening workflow.
+  - Current utilities are lightweight scripts, not a full validated screening workflow.
   - Generated formulas require downstream scientific validation.
 maintainers:
   - bmd-lab
 notes: >
   The oxidation-state data is canonical in
-  datasets/oxidation_states/representative_84/. Tool prose should reference
-  that dataset rather than duplicate dataset provenance.
+  datasets/element_charges/. Tool prose should reference that dataset rather
+  than duplicate dataset provenance.

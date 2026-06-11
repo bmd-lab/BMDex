@@ -15,7 +15,7 @@ description: >
   TAU PowerSLURM.
 files:
   template: submit_python.sbatch
-  documentation: submit_python.sbatch.md
+  documentation: README.md
 related:
   sections:
     - section.slurm

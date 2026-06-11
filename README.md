@@ -63,6 +63,7 @@ Examples include:
 
 * structure transformations
 * composition generation and screening
+* structure prototype analysis utilities
 
 ### `datasets/`
 
@@ -71,7 +72,7 @@ workflows.
 
 Examples include:
 
-* oxidation-state datasets
+* element-charge datasets
 * structure prototype datasets
 * element abundance datasets
 
@@ -118,7 +119,27 @@ python3 tools/structure_transform/make_primitive.py
 Generate electroneutral compositions:
 
 ```bash
-python3 tools/composition/generate_ternaries.py
+python3 tools/composition/electroneutrality/generate_ternaries.py
+```
+
+Score a composition by element abundance:
+
+```bash
+python3 tools/structure_prototypes/abundance_rank.py
+```
+
+Submit or inspect many VASP calculation folders:
+
+```bash
+python3 slurm/submit_many_vasp.py --root screening-root
+python3 slurm/vasp_status.py --root screening-root
+```
+
+Generate VASP input helpers:
+
+```bash
+python3 vasp/make_potcar_from_spec.py
+python3 vasp/create_mp_relax_inputs.py
 ```
 
 ## Topic Areas
@@ -195,4 +216,26 @@ BMDex should avoid becoming:
 * a storage location for large calculation outputs
 * a purely pedagogical tutorial repository
 
-The goal is to preserve and share the computational knowledge that repeatedly proves useful across the BMD Lab.
+## Adding Content
+
+Add content only when it is useful enough to curate in a canonical location.
+Scratch work, temporary notebooks, and speculative experiments should stay
+outside BMDex until they become maintained lab knowledge.
+
+Good first additions are usually practical workflow artifacts:
+
+* a working script used in a real calculation folder
+* a corrected SLURM template
+* a documented operational failure mode and fix
+* a small VASP or pymatgen example that others can rerun
+
+Do not start by designing metadata, package structure, or broad abstractions
+unless the workflow need is already clear. Metadata can be repaired during
+curation.
+
+Cluster execution should happen from a normal git checkout on the cluster after
+changes have been pushed and pulled. Do not require Codex on the cluster for
+ordinary tool usage.
+
+The goal is to preserve and share the computational knowledge that repeatedly
+proves useful across the BMD Lab.

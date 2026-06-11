@@ -1,7 +1,7 @@
 # VASP
 
-This section contains private BMD Lab VASP assets: calculation standards, input
-templates, runnable examples, and practical VASP utility scripts.
+This section contains private BMD Lab VASP assets: calculation standards,
+reusable input examples, runnable examples, and practical VASP utility scripts.
 
 Some documents also describe infrastructure-facing execution details for
 TAU PowerSLURM and licensed VASP pseudopotential access. Those details depend
@@ -19,12 +19,13 @@ conventions rather than lab-controlled software behavior.
 - `vasp-execution.md`: CPU VASP execution and input expectations
 - `gpu-vasp.md`: GPU VASP and MIG/full-GPU resource conventions
 
-## Templates
+## Examples And Reusable Inputs
 
-- `templates/INCAR.relax`
-- `templates/INCAR.static`
-- `templates/KPOINTS.example`
-- `templates/POTCAR.spec.example`
+- `examples/INCAR.relax`
+- `examples/INCAR.static`
+- `examples/KPOINTS.example`
+- `examples/POTCAR.spec.example`
+- `examples/si_bulk_relax/`: minimal runnable silicon bulk relaxation example
 
 ## Utilities
 
@@ -47,9 +48,5 @@ python3 vasp/create_mp_relax_inputs.py
 ```
 
 By default this writes `POTCAR.spec` instead of an actual `POTCAR`.
-
-## Examples
-
-- `examples/si_bulk_relax/`: minimal runnable silicon bulk relaxation example
 
 SLURM submission standards and reusable batch scripts live under `slurm/`.

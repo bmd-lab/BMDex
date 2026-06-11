@@ -1,8 +1,64 @@
 # Element Abundance Datasets
 
-Curated element-abundance datasets used for compositional reasoning, screening,
-and prototype ranking.
+Curated private scientific assets for compositional reasoning, screening, and
+prototype ranking.
 
-Current entries:
+The canonical dataset is:
 
-- `crust_abundance/` Excel workbook of crust abundance data used by the structure-prototype workflow
+```text
+earth-abundance.yaml
+```
+
+Values are stored as:
+
+```yaml
+Element: abundance
+```
+
+where abundance is reported in:
+
+```text
+mg/kg
+```
+
+## Repository Role
+
+This dataset supports:
+
+* composition screening
+* abundance-aware ranking
+* structure-prototype prioritization
+* materials discovery workflows
+* future composition-based heuristics
+
+Tools should read abundance information from this dataset rather than
+maintaining independent abundance tables.
+
+## Dataset Structure
+
+Example:
+
+```yaml
+O: 461000
+Si: 282000
+Al: 82300
+Fe: 56300
+```
+
+## Source
+
+The crustal abundance values are derived from:
+
+> Haynes, W. M. (Ed.). *CRC Handbook of Chemistry and Physics*. CRC Press, 2016.
+
+The original spreadsheet used in earlier workflows has been replaced by a
+canonical YAML representation for improved readability, version control, and
+interoperability within BMDex.
+
+## Limitations
+
+* Values represent crustal abundance and are not universal abundance measures.
+* Different scientific applications may require alternative abundance datasets,
+  such as solar, cosmic, seawater, or bulk-Earth abundances.
+* Screening results should not be interpreted as estimates of material cost,
+  availability, or manufacturability.
