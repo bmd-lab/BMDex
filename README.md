@@ -76,7 +76,7 @@ Examples include:
 * structure prototype datasets
 * element abundance datasets
 
-### `slurm/`
+### `cluster/`
 
 Private infrastructure notes for university-managed HPC: cluster-specific
 operational guidance, troubleshooting notes, SLURM submission templates, and
@@ -131,8 +131,8 @@ python3 tools/structure_prototypes/abundance_rank.py
 Submit or inspect many VASP calculation folders:
 
 ```bash
-bash slurm/submit_many_vasp.sh --root screening-root
-bash slurm/vasp_status.sh --root screening-root
+bash cluster/submit_many_vasp.sh --root screening-root
+bash cluster/vasp_status.sh --root screening-root
 ```
 
 Generate VASP input helpers:

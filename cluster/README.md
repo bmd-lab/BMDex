@@ -1,4 +1,4 @@
-# SLURM
+# Cluster
 
 Private infrastructure assets for TAU PowerSLURM. The university controls the
 cluster; BMDex records the current lab working defaults and copyable files.
@@ -33,27 +33,27 @@ Current defaults:
 Submit many VASP calculation folders:
 
 ```bash
-bash slurm/submit_many_vasp.sh --root screening-root
-bash slurm/submit_many_vasp.sh --root screening-root --submit
+bash cluster/submit_many_vasp.sh --root screening-root
+bash cluster/submit_many_vasp.sh --root screening-root --submit
 ```
 
 Scan VASP calculation status:
 
 ```bash
-bash slurm/vasp_status.sh --root screening-root
+bash cluster/vasp_status.sh --root screening-root
 ```
 
 Prepare controlled relaxation restarts:
 
 ```bash
-bash slurm/restart_relaxations.sh --root screening-root
-bash slurm/restart_relaxations.sh --root screening-root --apply
+bash cluster/restart_relaxations.sh --root screening-root
+bash cluster/restart_relaxations.sh --root screening-root --apply
 ```
 
 Check the current cluster-side environment:
 
 ```bash
-bash slurm/check_power_environment.sh
+bash cluster/check_power_environment.sh
 ```
 
 ## Operating Rules

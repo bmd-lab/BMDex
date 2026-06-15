@@ -22,7 +22,7 @@ CUSTOM_JOB_SCRIPTS=()
 
 usage() {
   cat <<'EOF'
-Usage: bash slurm/submit_many_vasp.sh [options]
+Usage: bash cluster/submit_many_vasp.sh [options]
 
 Submit many VASP calculation directories with queue throttling.
 
