@@ -34,8 +34,6 @@ dependencies:
   - pymatgen
   - mp-api
 related:
-  sections:
-    - section.slurm
   methods:
     - method.vasp.input_standards
     - method.vasp.potcar_setup
@@ -44,7 +42,6 @@ related:
     - template.vasp.incar_static
     - template.vasp.kpoints_example
     - template.vasp.potcar_spec
-    - template.slurm.submit_vasp
   examples:
     - example.vasp.si_bulk_relax
 validation:

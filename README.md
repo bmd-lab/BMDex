@@ -131,8 +131,8 @@ python3 tools/structure_prototypes/abundance_rank.py
 Submit or inspect many VASP calculation folders:
 
 ```bash
-python3 slurm/submit_many_vasp.py --root screening-root
-python3 slurm/vasp_status.py --root screening-root
+bash slurm/submit_many_vasp.sh --root screening-root
+bash slurm/vasp_status.sh --root screening-root
 ```
 
 Generate VASP input helpers:

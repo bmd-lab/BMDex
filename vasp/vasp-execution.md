@@ -20,7 +20,7 @@ mpirun -n "$SLURM_NTASKS" vasp_std > output
 The canonical CPU starting template is:
 
 ```text
-slurm/submit_vasp.sbatch
+slurm/submit_vasp.sh
 ```
 
 ## Input Expectations
@@ -54,5 +54,5 @@ Operational checks should inspect:
 - whether `CONTCAR` exists and is non-empty
 - whether the final geometry and energy trend are scientifically reasonable
 
-Use `slurm/vasp_status.py` for a first-pass directory scan and
-`slurm/restart_relaxations.py` for controlled `CONTCAR -> POSCAR` restarts.
+Use `slurm/vasp_status.sh` for a first-pass directory scan and
+`slurm/restart_relaxations.sh` for controlled `CONTCAR -> POSCAR` restarts.
