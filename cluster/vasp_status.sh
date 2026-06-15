@@ -13,7 +13,7 @@ COMPLETION_MARKER="Voluntary"
 
 usage() {
   cat <<'EOF'
-Usage: bash slurm/vasp_status.sh [options]
+Usage: bash cluster/vasp_status.sh [options]
 
 Summarize VASP calculation directory status.
 

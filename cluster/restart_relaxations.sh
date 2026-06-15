@@ -21,7 +21,7 @@ CUSTOM_JOB_SCRIPTS=()
 
 usage() {
   cat <<'EOF'
-Usage: bash slurm/restart_relaxations.sh [options]
+Usage: bash cluster/restart_relaxations.sh [options]
 
 Prepare VASP relaxation restarts from CONTCAR files.
 

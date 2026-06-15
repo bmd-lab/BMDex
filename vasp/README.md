@@ -49,4 +49,4 @@ python3 vasp/create_mp_relax_inputs.py
 
 By default this writes `POTCAR.spec` instead of an actual `POTCAR`.
 
-SLURM submission standards and reusable batch scripts live under `slurm/`.
+SLURM submission standards and reusable batch scripts live under `cluster/`.
