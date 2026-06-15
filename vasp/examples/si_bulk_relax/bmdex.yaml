@@ -21,7 +21,7 @@ files:
     - INCAR
     - KPOINTS
     - POTCAR.spec
-    - submit.sbatch
+    - submit.sh
   expected_outputs:
     - CONTCAR
     - OUTCAR
@@ -33,7 +33,6 @@ templates:
   - template.vasp.incar_relax
   - template.vasp.kpoints_example
   - template.vasp.potcar_spec
-  - template.slurm.submit_vasp
 software:
   - VASP
   - SLURM
@@ -52,7 +51,6 @@ limitations:
 related:
   sections:
     - section.vasp
-    - section.slurm
 maintainers:
   - bmd-lab
 notes: >

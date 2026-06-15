@@ -3,14 +3,21 @@
 Private infrastructure assets for TAU PowerSLURM. The university controls the
 cluster; BMDex records the current lab working defaults and copyable files.
 
-## Templates
+## Bash Scripts
 
 Copy these into calculation or workflow folders and edit job names, resources,
 modules, and environment activation as needed:
 
-- `submit_vasp.sbatch`: CPU VASP
-- `submit_vasp_gpu.sbatch`: GPU VASP
-- `submit_python.sbatch`: scheduled Python utilities
+- `submit_vasp.sh`: CPU VASP
+- `submit_vasp_gpu.sh`: GPU VASP
+- `submit_python.sh`: scheduled Python utilities
+
+These files are Bash scripts. Submit the job scripts with `sbatch`, for
+example:
+
+```bash
+sbatch submit_vasp.sh
+```
 
 Current defaults:
 
@@ -26,21 +33,21 @@ Current defaults:
 Submit many VASP calculation folders:
 
 ```bash
-python3 slurm/submit_many_vasp.py --root screening-root
-python3 slurm/submit_many_vasp.py --root screening-root --submit
+bash slurm/submit_many_vasp.sh --root screening-root
+bash slurm/submit_many_vasp.sh --root screening-root --submit
 ```
 
 Scan VASP calculation status:
 
 ```bash
-python3 slurm/vasp_status.py --root screening-root
+bash slurm/vasp_status.sh --root screening-root
 ```
 
 Prepare controlled relaxation restarts:
 
 ```bash
-python3 slurm/restart_relaxations.py --root screening-root
-python3 slurm/restart_relaxations.py --root screening-root --apply
+bash slurm/restart_relaxations.sh --root screening-root
+bash slurm/restart_relaxations.sh --root screening-root --apply
 ```
 
 Check the current cluster-side environment:
@@ -51,6 +58,7 @@ bash slurm/check_power_environment.sh
 
 ## Operating Rules
 
+- Keep SLURM files in this directory as Bash scripts with `.sh` names.
 - Run from `"$SLURM_SUBMIT_DIR"` inside job scripts.
 - Load required modules inside each submitted script.
 - Use `squeue -u "$USER"` for queue checks.
@@ -59,6 +67,16 @@ bash slurm/check_power_environment.sh
 - Treat resource requests as starting points, not convergence validation.
 - Recheck this directory when accounts, partitions, modules, filesystem paths,
   or university cluster policy changes.
+
+## Script Maturity
+
+- `submit_vasp.sh` is the standard CPU VASP starting script.
+- `submit_vasp_gpu.sh` is the current GPU VASP starting script and may need
+  revalidation when GPU modules or resource names change.
+- `submit_python.sh` is a lightweight starting point for scheduled Python or
+  pymatgen jobs and must be edited for each user's environment.
+- Operational utilities provide queue management and restart triage; they do
+  not replace scientific convergence review.
 
 VASP-specific execution notes, input templates, and examples live under
 `../vasp/`.

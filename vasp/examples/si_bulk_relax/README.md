@@ -15,7 +15,7 @@ can inspect the full example in one place.
 | `INCAR` | Relaxation settings |
 | `KPOINTS` | Brillouin-zone sampling |
 | `POTCAR.spec` | Pseudopotential specification |
-| `submit.sbatch` | Example SLURM submission script |
+| `submit.sh` | Example SLURM submission script |
 | `bmdex.yaml` | Structured metadata for curation |
 
 ## Workflow Type
