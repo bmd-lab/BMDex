@@ -3,9 +3,6 @@
 Runnable utilities for generating chemically charge-balanced candidate
 compositions from oxidation-state assignments.
 
-Canonical metadata:
-- `bmdex.yaml`
-
 Canonical dataset:
 - `datasets/element_charges/`
 
@@ -16,6 +13,10 @@ Dependencies:
 - Python
 - PyYAML
 
+Status:
+- experimental practical utilities
+- validated by example runs, not a complete scientific workflow
+
 ## Scope
 
 The tool logic matches combinations of positive and negative oxidation states
@@ -25,6 +26,9 @@ candidate formula screening, and oxidation-state constrained enumeration.
 Electroneutrality is a necessary but insufficient condition for chemical
 realizability. Generated formulas still require structural, thermodynamic, and
 electronic validation where relevant.
+
+These scripts preserve the core practical workflow from the BMD Lab
+`electroneutral_match` work without turning it into a larger software framework.
 
 ## Layout
 

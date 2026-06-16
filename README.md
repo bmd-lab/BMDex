@@ -154,7 +154,7 @@ BMDex currently focuses on:
 * private infrastructure documentation
 * reusable computational assets
 
-## Curation And Metadata
+## Curation And Documentation
 
 BMDex is the private operational layer behind the public tutorials repository.
 Tutorials introduce concepts; BMDex preserves reusable tools, standards,
@@ -164,39 +164,18 @@ Curated content should expose the useful researcher action first. Most students
 are materials scientists, so ordinary tool usage should not require knowledge
 of metadata, Codex, schemas, or repository governance.
 
-Canonical repository objects may include lightweight YAML sidecars:
+Do not create separate BMDex metadata sidecars by default. Human-facing
+provenance, validation state, usage notes, and limitations should live in the
+nearest relevant `README.md`. Agent-facing repository policy and curation
+guidance belongs in `AGENTS.md`.
 
-* directory-backed objects use `bmdex.yaml`
-* single-file objects may use `<filename>.bmdex.yaml`
+YAML files are still appropriate when they are the scientific data itself, such
+as element-abundance tables or element-charge datasets. They should not be used
+as a parallel metadata layer unless there is a clear, requested need.
 
-Sidecars should record:
-
-* stable object ID
-* object type
-* information class
-* visibility
-* stewardship
-* lifecycle status
-* validation level
-* provenance or origin when relevant
-* validation evidence
-* known limitations
-* maintainers
-
-Common object types include `dataset`, `example`, `method`, `section`,
-`template`, `tool`, `tool_data`, and `workflow`. Common status values include `draft`,
-`experimental`, `validated`, and `deprecated`.
-
-Common information classes are `knowledge`, `infrastructure`, and `asset`.
-Most BMDex entries should be private `asset` or private `infrastructure`
-objects. Public `knowledge` should usually live in `tutorials` unless it is
-needed locally to explain an operational BMDex object.
-
-In sidecars, `stewardship` records who controls the underlying resource or
-system; `maintainers` records who curates the BMDex entry.
-
-Metadata supports maintainers; it should not dominate the student-facing
-experience.
+Most BMDex entries should be private assets or private infrastructure notes.
+Public knowledge should usually live in `tutorials` unless it is needed locally
+to explain an operational BMDex object.
 
 ## Contribution Philosophy
 
@@ -230,7 +209,7 @@ Good first additions are usually practical workflow artifacts:
 * a small VASP or pymatgen example that others can rerun
 
 Do not start by designing metadata, package structure, or broad abstractions
-unless the workflow need is already clear. Metadata can be repaired during
+unless the workflow need is already clear. Documentation can be repaired during
 curation.
 
 Cluster execution should happen from a normal git checkout on the cluster after

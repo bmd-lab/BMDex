@@ -3,14 +3,15 @@
 Canonical element-charge datasets used by BMDex composition tools and
 workflows.
 
-Canonical metadata:
-- `bmdex.yaml`
-
 Canonical data:
 - `oxidation_states_84.yaml`
 
 Composition tools should reference datasets here rather than keep local
 element-charge copies or compatibility pointer directories.
+
+Status:
+- publication-backed reference dataset
+- validated for practical BMDex composition-generation workflows
 
 This dataset contains the 84 representative oxidation states proposed in:
 
@@ -62,6 +63,9 @@ for inorganic materials workflows.
 This dataset derives from the earlier:
 - `electroneutral_match`
 workflow developed within the BMD Lab.
+
+Original source:
+- `https://github.com/bmd-lab/electroneutral_match`
 
 Within BMDex, the dataset serves as:
 - a reusable compositional reasoning resource

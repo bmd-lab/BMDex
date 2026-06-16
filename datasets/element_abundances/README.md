@@ -34,6 +34,11 @@ This dataset supports:
 Tools should read abundance information from this dataset rather than
 maintaining independent abundance tables.
 
+Current downstream users include:
+
+* `tools/structure_prototypes/abundance_rank.py`
+* abundance-aware structure prototype ranking workflows
+
 ## Dataset Structure
 
 Example:
@@ -54,6 +59,12 @@ The crustal abundance values are derived from:
 The original spreadsheet used in earlier workflows has been replaced by a
 canonical YAML representation for improved readability, version control, and
 interoperability within BMDex.
+
+## Validation
+
+The current YAML file should parse cleanly, use valid element symbols, and store
+numeric abundance values. Treat edits as data changes: check parsing and inspect
+any changed element values before using them in screening workflows.
 
 ## Limitations
 

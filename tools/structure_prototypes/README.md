@@ -10,6 +10,17 @@ These scripts are researcher-facing tools, not canonical dataset contents. They
 can be run from the repository or copied and edited for a specific prototype
 screening workflow.
 
+Status:
+
+- experimental practical utilities
+- intended for researcher adaptation and review
+
+Dependencies:
+
+- pymatgen
+- PyYAML
+- pandas, for workflows that use tabular summaries
+
 ## Runnable Scripts
 
 ### `abundance_rank.py`
@@ -57,3 +68,12 @@ datasets/structure_prototypes/
 
 Keep prototype data in `datasets/`. Keep reusable operations that act on those
 data here under `tools/`.
+
+## Limitations
+
+- Framework-matching tolerances are workflow-dependent and should be checked
+  before drawing scientific conclusions.
+- `generate_frameworks_list.py` writes summary files into processed prototype
+  folders; review user settings before running it on curated data.
+- Materials Project source-data licensing and redistribution assumptions should
+  be reviewed before any external release.

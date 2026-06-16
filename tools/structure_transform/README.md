@@ -7,6 +7,22 @@ These scripts are intended to be directly useful in VASP calculation folders.
 They can be run from the repository or copied into a working directory and
 edited in place.
 
+Status:
+
+- experimental practical utilities
+- validated by example use and script import/compile checks
+- final structures still require scientific inspection
+
+Primary dependency:
+
+- pymatgen
+
+Typical inputs:
+
+- `POSCAR`
+- `CONTCAR`
+- CIF files where supported by the specific script
+
 ## Runnable Scripts
 
 ### `generate_all_slabs.py`
@@ -137,3 +153,13 @@ Prototype-specific utilities live under:
 ```text
 tools/structure_prototypes/
 ```
+
+## Limitations
+
+- Always inspect generated structures before using them in production VASP
+  workflows.
+- Symmetry, matching, and framework-comparison tolerances are workflow-specific.
+- Most scripts expose user settings near the top of the file; review those
+  settings before copying a script into a calculation folder.
+- Auto-exfoliation uses a geometric heuristic and should not be treated as a
+  substitute for scientific judgment about cleavage planes or surface stability.

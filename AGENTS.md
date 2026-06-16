@@ -71,7 +71,7 @@ Priorities:
 
 Prefer:
 - reusable primitives over workflow duplication
-- structured metadata over duplicated prose
+- concise README provenance and structured data over duplicated prose
 - validated workflows over undocumented experimentation
 - maintainable assets and infrastructure notes over excessive abstraction
 
@@ -79,26 +79,22 @@ Distinguish clearly between:
 - reusable tools and primitives
 - higher-level scientific workflows
 - validated operational examples
-- lower-maturity but curated content recorded through metadata
+- lower-maturity but curated content documented with clear limitations
 
 ## Metadata Guidance
 
 Metadata should support maintainers underneath the user experience. Do not make
 metadata, schemas, or repository mechanics the first thing students encounter.
 
-Use lightweight YAML sidecars when they help preserve provenance,
-maintainability, or maturity state:
-- directory-backed objects use `bmdex.yaml`
-- single-file objects may use `<filename>.bmdex.yaml`
-
-Sidecars should record stable object IDs, object type, information class,
-visibility, stewardship, lifecycle status, validation level, validation
-evidence, limitations, and maintainers. Common object types include `dataset`,
-`example`, `method`, `section`, `template`, `tool`, `tool_data`, and
-`workflow`. Common information classes are `knowledge`, `infrastructure`, and
-`asset`. Common status values include `draft`, `experimental`, `validated`, and
-`deprecated`. `stewardship` records who controls the underlying resource or
-system; `maintainers` records who curates the BMDex entry.
+Do not add BMDex metadata sidecars such as `bmdex.yaml` or
+`*.bmdex.yaml` unless explicitly asked. Preserve useful curation information in
+the place students and maintainers will naturally read:
+- human-facing provenance, validation state, limitations, and usage notes belong
+  in the nearest relevant `README.md`
+- agent-facing repository policy, information-model guidance, and curation
+  conventions belong in `AGENTS.md`
+- scientific YAML files are acceptable when the YAML is the dataset itself, such
+  as element abundance or element-charge tables
 
 Do not recreate top-level `metadata/`, `methods/`, `hpc/`, `examples/`,
 `templates/`, `CONTRIBUTING.md`, `TOOLS.md`, or `repository*` governance
