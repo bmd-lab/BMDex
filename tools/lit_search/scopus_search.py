@@ -35,8 +35,6 @@ from pybliometrics.scopus import ScopusSearch
 # User settings
 # ----------------------------------------------------------------------
 
-API_KEY = "YOUR_SCOPUS_API_KEY"
-
 INPUT_FILE = "formulae.txt"
 OUTPUT_FILE = "scopus_counts.csv"
 
