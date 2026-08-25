@@ -52,6 +52,12 @@ jobflow_uuids:
   stage_01: "64210872-5626-40c7-a7eb-79f7e49272ba"
   stage_02: "328290de-b493-4d39-a4c7-238eb9055720"
   stage_03: "48f52369-d3b9-40b5-9a9f-a87bae6d007f"
+stage_directory_observation:
+  observed_present:
+    - stage_01
+    - stage_02
+    - stage_03
+  inference_from_presence: no_additional_inference
 observed_final_artifacts:
   - CONTCAR
   - OUTCAR
@@ -60,6 +66,7 @@ observed_final_artifacts:
   - DOSCAR
 pymatgen_parse_observation:
   source: BMD Agent independent parse of final-stage VASP artifacts
+  bmd_agent_observer: not_recorded
   formula: Si
   final_energy_ev: -12.575253
   energy_per_atom_ev: -6.287627
@@ -103,8 +110,9 @@ This evidence supports the following limited claim:
 
 > BMD Compute's PBE Geometry Optimisation -> HSE06 Static Energy -> HSE06 Band
 > Structure pathway executed end-to-end through BMD Compute / atomate2 / VASP
-> on TAU PowerSLURM for crystalline Si, completed successfully, produced
-> converged VASP output, and produced a band structure independently parseable
+> on TAU PowerSLURM for crystalline Si, completed successfully, established
+> electronic convergence of the final-stage VASP output through independently
+> reconstructed evidence, and produced a band structure independently parseable
 > with pymatgen.
 
 For this Si benchmark, PowerSLURM validation is recorded as established.
@@ -154,6 +162,13 @@ Jobflow UUIDs:
 - stage 01: `64210872-5626-40c7-a7eb-79f7e49272ba`
 - stage 02: `328290de-b493-4d39-a4c7-238eb9055720`
 - stage 03: `48f52369-d3b9-40b5-9a9f-a87bae6d007f`
+
+Stage directory observation:
+
+- all producer-declared stage directories were observed present:
+  `stage_01`, `stage_02`, and `stage_03`.
+
+No additional inference is made from their presence.
 
 Final stage path:
 
@@ -226,9 +241,13 @@ pymatgen and recovered:
 These values establish that the final HSE06 band-structure output was
 independently parseable and internally available for downstream inspection.
 
+The BMD Agent version or commit responsible for the successful `inspect-run`
+evidence reconstruction is not recorded in the available evidence and is not
+inferred from unrelated current repository state.
+
 ## Human/UI Observation
 
-BMD Compute's Results UI independently displayed matching numerical values and
+BMD Compute's Results UI also displayed matching numerical values and
 reported Band Structure available.
 
 BMD Compute does not currently persist that parsed UI result summary as a
