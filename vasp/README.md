@@ -163,6 +163,13 @@ checks should inspect:
 Use `cluster/vasp_status.sh` for a first-pass directory scan and
 `cluster/restart_relaxations.sh` for controlled `CONTCAR -> POSCAR` restarts.
 
+## Validation Evidence
+
+Concrete validation evidence records live under `evidence/`.
+
+- `evidence/2026-08-21-si-hse06-band-structure-powerslurm.md`: crystalline-Si
+  HSE06 band-structure PowerSLURM validation evidence.
+
 ## Examples And Reusable Inputs
 
 Reusable inputs and runnable examples live under `examples/`.
