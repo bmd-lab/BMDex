@@ -1,10 +1,17 @@
 # BMDex
 
-Curated computational methods, tools, workflows, and operational standards for
-the BMD Lab.
+BMDex contains BMD-curated supporting scientific data, reference evidence, and
+non-core scientific tools outside the BMD Compute VASP data-generation
+pipeline.
 
 BMDex serves as the lab's private operational memory for reproducible
 computational materials science research.
+
+If a capability determines how BMD generates a VASP calculation, its
+authoritative implementation belongs in BMD Compute. If it provides supporting
+scientific data or tooling but is not part of the core VASP data-generation
+pipeline, it belongs in BMDex. BMD Agent consumes and coordinates these
+capabilities without duplicating their authority.
 
 BMDex complements the public `tutorials` repository:
 
@@ -28,7 +35,7 @@ The repository prioritizes:
 1. scientific correctness
 2. reproducibility
 3. maintainability
-4. workflow standardization
+4. supporting workflow evidence and reuse
 5. onboarding efficiency
 6. institutional knowledge preservation
 
@@ -45,8 +52,8 @@ BMD Lab computational information falls into three practical categories:
   working reality, but the lab does not control the underlying cluster policies,
   modules, accounts, partitions, or filesystem layout.
 * **Assets**: private lab-controlled tools, codes, scripts, datasets, templates,
-  examples, and workflows. These are the parts of BMDex the group owns,
-  maintains, adapts, and reuses.
+  examples, reference evidence, and non-core workflow aids. These are the parts
+  of BMDex the group owns, maintains, adapts, and reuses.
 
 This distinction should guide curation. Public knowledge should graduate toward
 `tutorials`; externally controlled infrastructure should be documented with
@@ -84,12 +91,13 @@ batch workflow utilities for the group HPC system.
 
 ### `vasp/`
 
-Private lab-controlled VASP assets and standards, plus infrastructure-facing
-execution guidance for running those assets on the group HPC system.
+Private lab-controlled VASP supporting assets, reference standards, evidence,
+and infrastructure-facing execution guidance for running those assets on the
+group HPC system.
 
 Examples include:
 
-* input standards
+* input reference examples
 * pseudopotential conventions
 * convergence and documentation expectations
 * VASP execution guidance
@@ -150,15 +158,16 @@ BMDex currently focuses on:
 * atomic structure workflows and structure manipulation
 * chemical formula and composition screening
 * structure prototype analysis
-* HPC workflow standardization
+* HPC workflow support and operational standardization
 * private infrastructure documentation
 * reusable computational assets
 
 ## Curation And Documentation
 
 BMDex is the private operational layer behind the public tutorials repository.
-Tutorials introduce concepts; BMDex preserves reusable tools, standards,
-templates, datasets, examples, and institutional workflow knowledge.
+Tutorials introduce concepts; BMDex preserves reusable tools, supporting
+standards, templates, datasets, examples, reference evidence, and institutional
+workflow knowledge.
 
 Curated content should expose the useful researcher action first. Most students
 are materials scientists, so ordinary tool usage should not require knowledge
@@ -182,7 +191,7 @@ to explain an operational BMDex object.
 BMDex should prioritize:
 
 * useful tools
-* reusable workflows
+* reusable non-core workflow aids
 * curated datasets
 * practical examples
 * operational guidance
