@@ -1,11 +1,17 @@
 # VASP
 
-Private BMD Lab VASP assets: calculation standards, reusable input examples,
-runnable examples, and practical VASP utility scripts.
+Private BMD Lab VASP supporting assets: reference calculation standards,
+reusable input examples, runnable examples, evidence, and practical VASP
+utility scripts.
 
 Some details describe TAU PowerSLURM execution and licensed VASP
 pseudopotential access. Those details are current operational conventions, not
 lab-controlled cluster behavior.
+
+These files support manual/reference VASP work and BMDex evidence records. They
+do not define BMD Compute runtime behavior unless BMD Compute explicitly
+consumes them. BMD Compute's backend modules and producer contracts remain the
+authority for the core BMD VASP data-generation pipeline.
 
 Status:
 

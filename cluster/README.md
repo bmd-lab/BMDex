@@ -3,6 +3,11 @@
 Private infrastructure assets for TAU PowerSLURM. The university controls the
 cluster; BMDex records the current lab working defaults and copyable files.
 
+These scripts and notes are supporting/manual operational assets. They do not
+define BMD Compute runtime behavior unless BMD Compute explicitly consumes
+them; BMD Compute owns its deployed submission and execution policy for the
+core VASP data-generation pipeline.
+
 ## Bash Scripts
 
 Copy these into calculation or workflow folders and edit job names, resources,

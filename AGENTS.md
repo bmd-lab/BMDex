@@ -3,6 +3,16 @@
 BMDex is the private computational operations and assets repository of the BMD
 Lab.
 
+BMDex's canonical ecosystem role is BMD-curated supporting scientific data,
+reference evidence, and non-core scientific tools outside the BMD Compute VASP
+data-generation pipeline.
+
+If a capability determines how BMD generates a VASP calculation, its
+authoritative implementation belongs in BMD Compute. If it provides supporting
+scientific data or tooling but is not part of the core VASP data-generation
+pipeline, it belongs in BMDex. BMD Agent consumes and coordinates these
+capabilities without duplicating their authority.
+
 BMDex complements the public `tutorials` repository:
 - `tutorials` focuses on public educational knowledge, onboarding material, and
   conceptual guidance
@@ -30,7 +40,7 @@ Primary focus areas:
 - atomic structure workflows and structure manipulation
 - chemical formula and composition screening
 - reproducible computational materials science
-- HPC workflow standardization
+- HPC workflow support and operational standardization
 - private infrastructure documentation
 - reusable computational assets
 
@@ -52,8 +62,8 @@ BMD Lab computational information has three broad classes:
   VASP execution environments. BMDex may document current practice, but the BMD
   Lab does not control the underlying infrastructure.
 - assets: private lab-controlled tools, codes, scripts, datasets, templates,
-  examples, workflows, and standards. These are the parts BMDex owns, adapts,
-  and maintains.
+  examples, reference evidence, non-core workflow aids, and supporting
+  standards. These are the parts BMDex owns, adapts, and maintains.
 
 Do not blur these boundaries. Move broadly teachable material toward public
 tutorials, record infrastructure assumptions with explicit limitations, and keep
@@ -63,7 +73,7 @@ Priorities:
 1. scientific correctness
 2. reproducibility
 3. maintainability
-4. workflow standardization
+4. supporting workflow evidence and reuse
 5. onboarding efficiency
 6. institutional knowledge preservation
 
@@ -72,12 +82,12 @@ Priorities:
 Prefer:
 - reusable primitives over workflow duplication
 - concise README provenance and structured data over duplicated prose
-- validated workflows over undocumented experimentation
+- validated reference examples over undocumented experimentation
 - maintainable assets and infrastructure notes over excessive abstraction
 
 Distinguish clearly between:
 - reusable tools and primitives
-- higher-level scientific workflows
+- higher-level supporting scientific workflows
 - validated operational examples
 - lower-maturity but curated content documented with clear limitations
 
@@ -104,7 +114,7 @@ structures unless explicitly asked. Human-facing repository guidance belongs in
 ## Contribution Guidance
 
 When integrating contributions:
-- preserve validated workflows
+- preserve validated reference evidence
 - document assumptions explicitly
 - identify conflicting conventions
 - avoid undocumented workflow changes
@@ -122,11 +132,11 @@ When integrating contributions:
 
 BMDex should prioritize:
 - reusable tools
-- validated workflows
+- reference evidence for validated workflows
 - templates
 - private operational guidance for externally managed infrastructure
 - troubleshooting knowledge
-- computational standards
+- supporting computational standards outside the core BMD Compute VASP generation pipeline
 - curated scientific datasets
 
 BMDex should avoid becoming:
