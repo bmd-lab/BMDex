@@ -176,6 +176,19 @@ Concrete validation evidence records live under `evidence/`.
 - `evidence/2026-08-21-si-hse06-band-structure-powerslurm.md`: crystalline-Si
   HSE06 band-structure PowerSLURM validation evidence.
 
+## Contextual Reference Knowledge
+
+Curated VASP contextual reference records live under `contextual_reference/`.
+These records provide sourced domain context for later evidence synthesis. They
+do not diagnose particular calculations and do not define BMD Compute runtime
+methodology.
+
+Query local contextual reference records with:
+
+```bash
+python -B -m tools.domain_context.query
+```
+
 ## Examples And Reusable Inputs
 
 Reusable inputs and runnable examples live under `examples/`.
