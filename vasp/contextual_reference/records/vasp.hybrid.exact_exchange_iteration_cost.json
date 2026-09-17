@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "id": "vasp.hybrid.exact_exchange_iteration_cost",
+  "title": "Hybrid-functional exact-exchange electronic-iteration cost transition",
+  "evidence_type": "contextual_reference_evidence",
+  "status": "active",
+  "domain": {
+    "code": "VASP",
+    "area": "electronic minimization",
+    "knowledge_type": "curated_contextual_reference"
+  },
+  "topics": [
+    "electronic_iteration_behavior",
+    "hybrid_functional",
+    "exact_exchange",
+    "NELMDL",
+    "ALGO"
+  ],
+  "applicability": {
+    "code": "VASP",
+    "calculation_families": [
+      "hybrid_functional",
+      "hartree_fock_type"
+    ],
+    "functional_examples": [
+      "HSE06",
+      "HSE03",
+      "PBE0"
+    ],
+    "electronic_algorithms": [
+      "Normal",
+      "Damped",
+      "All",
+      "Conjugate"
+    ],
+    "input_tags": [
+      {
+        "name": "LHFCALC",
+        "values": [
+          ".TRUE."
+        ],
+        "role": "Selects Hartree-Fock/DFT hybrid functional type calculations."
+      },
+      {
+        "name": "ALGO",
+        "values": [
+          "Normal",
+          "Damped",
+          "All",
+          "Conjugate"
+        ],
+        "role": "Relevant electronic minimization algorithms for HF/hybrid calculations."
+      },
+      {
+        "name": "NELMDL",
+        "values": [
+          "default -5 in common no-WAVECAR starts unless another default or explicit value applies",
+          "explicit positive or negative integer"
+        ],
+        "role": "Controls initial non-self-consistent delay steps with fixed Hamiltonian."
+      }
+    ],
+    "relevant_observed_patterns": [
+      "initial_DAV_steps_followed_by_large_walltime_increase",
+      "four_initial_DAV_iterations_then_long_next_step_when_effective_NELMDL_minus5"
+    ],
+    "not_applicable_to": [
+      "semilocal_dft_without_hf_exchange",
+      "diagnosing_a_specific_calculation_without_runtime_evidence",
+      "automatic_remediation_or_methodology_selection"
+    ]
+  },
+  "contextual_statement": "VASP hybrid-functional and HF-type calculations include nonlocal Hartree-Fock exchange, whose evaluation can be much more expensive than semilocal DFT. In starts where NELMDL applies, VASP may first perform non-self-consistent blocked-Davidson delay steps with a fixed Hamiltonian; for HF-type calculations with NELMDL >= 3, these delay steps use the corresponding semilocal local Hamiltonian. When the calculation leaves that delay and begins evaluating the hybrid/HF exact-exchange workload, the wall time per electronic step can increase dramatically.",
+  "diagnostic_relevance": "For an applicable VASP hybrid-functional calculation, a small number of quick initial DAV-labelled electronic iterations followed by a much longer next electronic step is consistent with the expected onset of expensive exact-exchange work. That pattern alone is not evidence that VASP is hung, that electronic convergence failed, or that HSE06 is incompatible with SOC. It also does not rule out a real performance or execution problem; other evidence such as scheduler termination, lack of output over the available wall time, resource limits, logs, and convergence history must still be assessed separately.",
+  "shorthand_correction": {
+    "shorthand": "HSE starts at the fifth step",
+    "correction": "This is an oversimplification. The visible transition can occur around the fifth electronic iteration in common from-scratch starts where the effective NELMDL delay is -5 and no WAVECAR is present, but the exact iteration depends on NELMDL, ISTART/WAVECAR state, INIWAV/IALGO defaults, VASP version and settings, and the selected electronic algorithm."
+  },
+  "limitations": [
+    "This record supplies contextual reference evidence only; it does not diagnose any specific VASP run.",
+    "The directly matching VASP Forum example discusses HSE06 with ALGO=Normal; applicability to ALGO=Damped is supported through VASP Wiki documentation of NELMDL delay behavior and HF/hybrid algorithm recommendations, not through that forum example alone.",
+    "The step number is not unconditional. Explicit NELMDL, a present WAVECAR, different start settings, or different algorithms can change the number and character of initial delay steps.",
+    "Large wall time in an electronic step can still reflect an execution, scaling, resource, or convergence problem. This context only prevents premature interpretation of the transition as a hang or HSE06/SOC incompatibility by itself.",
+    "Cost and scaling depend on system size, k-point sampling, number of bands, exact-exchange workload, precision settings, VASP version, and parallelization choices such as NCORE and KPAR.",
+    "This record does not recommend changing INCAR tags, k-point meshes, NCORE, KPAR, NKRED, SOC, or functional choices."
+  ],
+  "sources": [
+    {
+      "source_type": "VASP Wiki",
+      "title": "NELMDL",
+      "authority": "VASP Software GmbH / VASP Wiki",
+      "url": "https://vasp.at/wiki/NELMDL",
+      "retrieved_on": "2026-09-16",
+      "applicability_note": "Documents default NELMDL behavior, initial non-self-consistent steps with fixed Hamiltonian, direct-minimization delay behavior for ALGO=All/Damped, and HF-type delay steps using the corresponding semilocal Hamiltonian."
+    },
+    {
+      "source_type": "VASP Wiki",
+      "title": "ALGO",
+      "authority": "VASP Software GmbH / VASP Wiki",
+      "url": "https://vasp.at/wiki/ALGO",
+      "retrieved_on": "2026-09-16",
+      "applicability_note": "Documents electronic minimization algorithms, direct-optimization classes including Damped, and DAV-labelled initial delay behavior."
+    },
+    {
+      "source_type": "VASP Wiki",
+      "title": "LHFCALC",
+      "authority": "VASP Software GmbH / VASP Wiki",
+      "url": "https://vasp.at/wiki/LHFCALC",
+      "retrieved_on": "2026-09-16",
+      "applicability_note": "Documents that LHFCALC selects Hartree-Fock/DFT hybrid functional type calculations and notes recommended algorithms including Damped and All."
+    },
+    {
+      "source_type": "VASP Wiki",
+      "title": "Hybrid functionals",
+      "authority": "VASP Software GmbH / VASP Wiki",
+      "url": "https://vasp.at/wiki/Hybrid_functionals",
+      "retrieved_on": "2026-09-16",
+      "applicability_note": "Documents that evaluating Hartree-Fock exchange in hybrid functionals is computationally very demanding and can require one or several orders of magnitude more time than semilocal functionals."
+    },
+    {
+      "source_type": "VASP Wiki",
+      "title": "Hybrid functionals: formalism",
+      "authority": "VASP Software GmbH / VASP Wiki",
+      "url": "https://vasp.at/wiki/Hybrid_functionals_theory",
+      "retrieved_on": "2026-09-16",
+      "applicability_note": "Documents hybrid-functional mixing of semilocal and nonlocal Hartree-Fock exchange."
+    },
+    {
+      "source_type": "VASP Forum",
+      "title": "HSE06 calculation stuck at 5th electronic step.",
+      "authority": "VASP Forum moderator response",
+      "url": "https://vasp.at/forum/viewtopic.php?t=20157",
+      "retrieved_on": "2026-09-16",
+      "applicability_note": "A VASP forum moderator explains a directly relevant HSE06 case: initial steps were quick because they were non-self-consistent with no Hamiltonian update, followed by much higher effort when exact exchange had to be computed. The example specifically refers to ALGO=Normal."
+    }
+  ],
+  "record_provenance": {
+    "curated_by": "BMDex",
+    "record_version": 1,
+    "created_on": "2026-09-16",
+    "last_reviewed_on": "2026-09-16",
+    "review_basis": "First-party VASP Wiki documentation and VASP Forum moderator response.",
+    "machine_readable_schema": "bmdex.contextual_reference.v1"
+  }
+}
