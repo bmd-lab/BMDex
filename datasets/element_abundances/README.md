@@ -50,15 +50,23 @@ Al: 82300
 Fe: 56300
 ```
 
-## Source
+## Source and Attribution
 
-The crustal abundance values are derived from:
+The crustal-abundance values in `earth-abundance.yaml` were transcribed from:
 
 > Haynes, W. M. (Ed.). *CRC Handbook of Chemistry and Physics*. CRC Press, 2016.
 
-The original spreadsheet used in earlier workflows has been replaced by a
-canonical YAML representation for improved readability, version control, and
-interoperability within BMDex.
+The numerical values are represented here in a machine-readable YAML format
+for use in BMDex. The original CRC text, tables, formatting, and other
+copyrighted material are not reproduced.
+
+The YAML representation and associated BMDex software are distributed under
+the BMDex repository license. The underlying scientific data remain attributed
+to the source above.
+
+The original spreadsheet used in earlier BMD workflows has been replaced by
+this canonical YAML representation for improved readability, version control,
+and interoperability.
 
 ## Validation
 
