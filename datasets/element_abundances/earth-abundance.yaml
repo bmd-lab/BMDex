@@ -1,4 +1,7 @@
 # Crustal abundance [mg/kg]
+# Source: Haynes, W. M. (Ed.), CRC Handbook of Chemistry and Physics,
+# CRC Press, 2016.
+# Values transcribed into this YAML representation for BMDex.
 
 O: 461000
 Si: 282000
