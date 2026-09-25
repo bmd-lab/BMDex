@@ -1,6 +1,6 @@
 # Composition Tools
 
-Private BMD Lab computational assets for formula generation, oxidation-state
+BMD Lab computational assets for formula generation, oxidation-state
 reasoning, and chemically constrained candidate screening.
 
 Current entries include:

@@ -1,6 +1,6 @@
 # VASP
 
-Private BMD Lab VASP supporting assets: reference calculation standards,
+BMD Lab VASP supporting assets: reference calculation standards,
 reusable input examples, runnable examples, evidence, and practical VASP
 utility scripts.
 

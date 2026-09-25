@@ -1,6 +1,6 @@
 # Structure Transform Tools
 
-Private BMD Lab computational assets: practical pymatgen-native utilities for
+BMD Lab computational assets: practical pymatgen-native utilities for
 transforming, cleaning, and comparing crystal structures.
 
 These scripts are intended to be directly useful in VASP calculation folders.

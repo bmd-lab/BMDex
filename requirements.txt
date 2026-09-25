@@ -1,0 +1,8 @@
+# Agent-facing producers and tests use the standard library. These packages
+# support the existing researcher-facing scientific tools.
+mp-api
+numpy
+pandas
+pybliometrics
+pymatgen
+PyYAML

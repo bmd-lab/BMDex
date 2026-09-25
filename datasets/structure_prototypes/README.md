@@ -22,9 +22,10 @@ By analyzing **23,160 experimentally observed thermodynamic ground-state inorgan
 
 Current dataset status:
 
-* experimental external-source import under BMD Lab curation
-* useful for structure-prototype exploration, but not yet a fully audited public
-  release
+* original BMD Lab structure-prototype work approved by the repository owner
+  for publication
+* useful for structure-prototype exploration under the documented scientific
+  limitations
 
 Current dataset counts:
 
@@ -114,4 +115,5 @@ Primary dependency:
 * Structure matching depends on the geometric matching methodology used during dataset generation.
 * Structure-matching tolerances should be reviewed before using the dataset as
   evidence for a specific scientific claim.
-* Redistribution and licensing considerations should be reviewed before use outside the private BMD Lab repository.
+* The prototype collection is original BMD Lab work approved for publication;
+  Materials Project remains the attributed source of the structures analyzed.

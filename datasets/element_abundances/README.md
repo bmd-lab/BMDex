@@ -1,6 +1,6 @@
 # Element Abundance Datasets
 
-Curated private scientific assets for compositional reasoning, screening, and
+Curated scientific assets for compositional reasoning, screening, and
 prototype ranking.
 
 The canonical dataset is:

@@ -1,229 +1,170 @@
 # BMDex
 
-BMDex contains BMD-curated supporting scientific data, reference evidence, and
-non-core scientific tools outside the BMD Compute VASP data-generation
-pipeline.
+BMDex is the BMD Lab repository for curated supporting scientific data,
+reference evidence, and non-core scientific tools used in reproducible
+computational materials research.
 
-BMDex serves as the lab's private operational memory for reproducible
-computational materials science research.
+The repository is public. It contains material that is appropriate to share and
+reuse, not private research storage or deployment configuration.
 
-If a capability determines how BMD generates a VASP calculation, its
-authoritative implementation belongs in BMD Compute. If it provides supporting
-scientific data or tooling but is not part of the core VASP data-generation
-pipeline, it belongs in BMDex. BMD Agent consumes and coordinates these
-capabilities without duplicating their authority.
+## Where BMDex Fits
 
-BMDex complements the public `tutorials` repository:
+BMDex complements the public `tutorials` repository and the other BMD tools:
 
-* `tutorials` preserves public-facing knowledge, education, onboarding, and
-  conceptual guidance
-* BMDex preserves private infrastructure notes and lab-controlled computational
-  assets used in day-to-day research
+- `tutorials` teaches public concepts, onboarding, and basic workflows.
+- BMDex curates scientific datasets, contextual reference knowledge, validated
+  evidence, reusable utilities, and publicly shareable infrastructure notes.
+- BMD Compute owns methodology and implementation that determine how BMD
+  generates VASP calculations.
+- BMD Agent consumes BMDex producer interfaces and coordinates evidence without
+  duplicating the authority of BMDex or BMD Compute.
 
-## Philosophy
+BMDex is designed for graduate students and researchers in materials science.
+Useful research actions should stay visible; repository mechanics and metadata
+should remain supporting details.
 
-BMDex is designed for materials scientists working in a research group.
+## What Belongs Here
 
-Most users should be able to:
+- curated scientific reference data with provenance and limitations;
+- machine-readable domain context grounded in a concrete scientific use case;
+- validated workflow evidence and reproducible examples;
+- reusable non-core scientific tools and transformations;
+- publicly shareable HPC operational guidance; and
+- templates and supporting standards outside the BMD Compute VASP generation
+  pipeline.
 
-* find a useful tool quickly
-* run or adapt it with minimal setup
-* understand examples without deep Git or software-engineering knowledge
+The following do not belong in BMDex:
 
-The repository prioritizes:
-
-1. scientific correctness
-2. reproducibility
-3. maintainability
-4. supporting workflow evidence and reuse
-5. onboarding efficiency
-6. institutional knowledge preservation
-
-## Information Model
-
-BMD Lab computational information falls into three practical categories:
-
-* **Knowledge**: public-facing concepts, explanations, tutorials, and onboarding
-  material. This primarily belongs in the open `tutorials` repository and group
-  tutorial pages. BMDex may point to it, but should not become the main home for
-  broadly teachable material.
-* **Infrastructure**: private operational information about university-managed
-  systems, especially SLURM and HPC conventions. BMDex records the current
-  working reality, but the lab does not control the underlying cluster policies,
-  modules, accounts, partitions, or filesystem layout.
-* **Assets**: private lab-controlled tools, codes, scripts, datasets, templates,
-  examples, reference evidence, and non-core workflow aids. These are the parts
-  of BMDex the group owns, maintains, adapts, and reuses.
-
-This distinction should guide curation. Public knowledge should graduate toward
-`tutorials`; externally controlled infrastructure should be documented with
-clear limitations; lab assets should remain practical, runnable, and reusable.
+- runtime calculation state, large generated outputs, or active project dumps;
+- credentials, private keys, API tokens, or deployment-local configuration;
+- private or unpublished research and collaborator material without explicit
+  publication approval;
+- personal or student records;
+- licensed VASP `POTCAR` or PAW potential contents; and
+- proprietary or licensed datasets without redistribution permission.
 
 ## Repository Layout
 
-### `tools/`
+- `datasets/`: curated scientific datasets, including element-charge,
+  element-abundance, and structure-prototype data.
+- `tools/`: reusable composition, domain-context, structure, and literature
+  utilities.
+- `vasp/`: VASP supporting assets, examples, contextual references, and
+  validation evidence. It does not contain licensed VASP source or potentials.
+- `cluster/`: publicly shareable notes and scripts for externally managed HPC
+  systems. Local policies and module names may change.
+- `tests/`: contract and validation tests for the machine-facing producers and
+  records.
 
-Private lab-controlled computational assets: reusable utilities and
-transformations.
+## Python Setup
 
-Examples include:
-
-* structure transformations
-* composition generation and screening
-* structure prototype analysis utilities
-
-### `datasets/`
-
-Private lab-controlled or lab-curated scientific assets used by tools and
-workflows.
-
-Examples include:
-
-* element-charge datasets
-* structure prototype datasets
-* element abundance datasets
-
-### `cluster/`
-
-Private infrastructure notes for university-managed HPC: cluster-specific
-operational guidance, troubleshooting notes, SLURM submission templates, and
-batch workflow utilities for the group HPC system.
-
-### `vasp/`
-
-Private lab-controlled VASP supporting assets, reference standards, evidence,
-and infrastructure-facing execution guidance for running those assets on the
-group HPC system.
-
-Examples include:
-
-* input reference examples
-* pseudopotential conventions
-* convergence and documentation expectations
-* VASP execution guidance
-* VASP utility scripts
-* input templates and runnable examples
-
-## Typical Tasks
-
-Generate surface slabs:
+Run commands from the repository root. Python 3.10 or newer is required by the
+current producer syntax; Python 3.12 is the routinely verified development
+environment.
 
 ```bash
-python3 tools/structure_transform/generate_all_slabs.py
+git clone https://github.com/bmd-lab/BMDex.git
+cd BMDex
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-Build a supercell:
+On Windows PowerShell, create and activate the environment with:
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+`requirements.txt` declares the third-party libraries already used by the
+researcher-facing scripts. It is intentionally not a lock file. Record exact
+package versions when they are material to a scientific result.
+
+The current Agent-facing producers and their tests use only the Python standard
+library. A contributor working only on those interfaces can run the tests before
+installing the scientific stack:
 
 ```bash
-python3 tools/structure_transform/make_supercell.py
+python -B -m unittest discover -s tests
 ```
 
-Create a primitive cell:
+Compile all Python sources as a lightweight syntax check:
 
 ```bash
-python3 tools/structure_transform/make_primitive.py
+python -B -m compileall -q tools vasp tests
 ```
 
-Generate electroneutral compositions:
+Individual tools document runtime inputs, external services, and scientific
+limitations in their nearest `README.md`. For example, Materials Project access
+requires an API key configured outside the repository, and Scopus tools use the
+user's external `pybliometrics` configuration.
+
+## Producer Interfaces
+
+BMD Agent consumes fixed JSON stdin/stdout interfaces from a repository
+checkout. These commands are also useful for development and debugging. Run
+them from the repository root and keep stdout machine-readable.
+
+Composition context:
 
 ```bash
-python3 tools/composition/electroneutrality/generate_ternaries.py
+printf '{"formula":"MnCu5"}' | python -B -m tools.composition.context_producer
 ```
 
-Score a composition by element abundance:
+VASP domain context:
 
 ```bash
-python3 tools/structure_prototypes/abundance_rank.py
+printf '{"query":{"code":"VASP","calculation_family":"hybrid_functional","functional":"HSE06","electronic_algorithm":"Damped","topic":"electronic_iteration_behavior"}}' | python -B -m tools.domain_context.query
 ```
 
-Submit or inspect many VASP calculation folders:
+These producers return curated contextual evidence. They do not inspect or
+diagnose live calculations, change scientific data, or define BMD Compute
+methodology. Their existing schemas, record IDs, versions, and query behavior
+are compatibility contracts.
+
+## Researcher Tools
+
+Examples of researcher-facing commands include:
 
 ```bash
-bash cluster/submit_many_vasp.sh --root screening-root
-bash cluster/vasp_status.sh --root screening-root
+python tools/structure_transform/generate_all_slabs.py
+python tools/structure_transform/make_supercell.py
+python tools/composition/electroneutrality/generate_ternaries.py
+python tools/structure_prototypes/abundance_rank.py
 ```
 
-Generate VASP input helpers:
+Cluster scripts are intended to run from a normal BMDex checkout on the cluster;
+Codex is not required there. Review each script and the local cluster policy
+before submission.
 
-```bash
-python3 vasp/make_potcar_from_spec.py
-python3 vasp/create_mp_relax_inputs.py
-```
+## Curation
 
-## Topic Areas
+Keep provenance, validation status, usage notes, and limitations in the nearest
+relevant `README.md`. YAML, JSON, and CSV are appropriate when they are the
+scientific data or an established producer record, not as automatic metadata
+sidecars.
 
-BMDex currently focuses on:
+Do not introduce a broad metadata model, database, ontology, or vector store
+without a concrete scientific use case. Keep runtime calculation state,
+deployment configuration, and private research storage separate from curated
+knowledge and data.
 
-* VASP-based density functional theory (DFT)
-* atomic structure workflows and structure manipulation
-* chemical formula and composition screening
-* structure prototype analysis
-* HPC workflow support and operational standardization
-* private infrastructure documentation
-* reusable computational assets
+See `CONTRIBUTING.md` for the student contribution workflow and the material
+that must never be committed.
 
-## Curation And Documentation
+## License and Sources
 
-BMDex is the private operational layer behind the public tutorials repository.
-Tutorials introduce concepts; BMDex preserves reusable tools, supporting
-standards, templates, datasets, examples, reference evidence, and institutional
-workflow knowledge.
+BMDex repository-owned source code and documentation are available under the
+MIT License; see `LICENSE`. Third-party dependencies remain under their own
+licenses. Source-derived factual datasets retain the attribution documented
+beside each dataset, and the MIT License does not relicense the cited source
+publications.
 
-Curated content should expose the useful researcher action first. Most students
-are materials scientists, so ordinary tool usage should not require knowledge
-of metadata, Codex, schemas, or repository governance.
-
-Do not create separate BMDex metadata sidecars by default. Human-facing
-provenance, validation state, usage notes, and limitations should live in the
-nearest relevant `README.md`. Agent-facing repository policy and curation
-guidance belongs in `AGENTS.md`.
-
-YAML files are still appropriate when they are the scientific data itself, such
-as element-abundance tables or element-charge datasets. They should not be used
-as a parallel metadata layer unless there is a clear, requested need.
-
-Most BMDex entries should be private assets or private infrastructure notes.
-Public knowledge should usually live in `tutorials` unless it is needed locally
-to explain an operational BMDex object.
-
-## Contribution Philosophy
-
-BMDex should prioritize:
-
-* useful tools
-* reusable non-core workflow aids
-* curated datasets
-* practical examples
-* operational guidance
-* scientific provenance
-
-BMDex should avoid becoming:
-
-* a dump of active project files
-* a collection of temporary notebooks
-* a storage location for large calculation outputs
-* a purely pedagogical tutorial repository
-
-## Adding Content
-
-Add content only when it is useful enough to curate in a canonical location.
-Scratch work, temporary notebooks, and speculative experiments should stay
-outside BMDex until they become maintained lab knowledge.
-
-Good first additions are usually practical workflow artifacts:
-
-* a working script used in a real calculation folder
-* a corrected SLURM template
-* a documented operational failure mode and fix
-* a small VASP or pymatgen example that others can rerun
-
-Do not start by designing metadata, package structure, or broad abstractions
-unless the workflow need is already clear. Documentation can be repaired during
-curation.
-
-Cluster execution should happen from a normal git checkout on the cluster after
-changes have been pushed and pulled. Do not require Codex on the cluster for
-ordinary tool usage.
-
-The goal is to preserve and share the computational knowledge that repeatedly
-proves useful across the BMD Lab.
+BMDex does not distribute or license VASP executables, VASP source code,
+`POTCAR` files, or PAW potential contents. Repository examples use
+`POTCAR.spec` files so users can generate potentials only in an appropriately
+licensed environment.
