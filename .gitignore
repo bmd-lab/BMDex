@@ -1,9 +1,60 @@
+# Python caches, test output, and build artifacts
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Local Python environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+.secrets/
+credentials.*
+secrets.*
+*.pem
+*.key
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Notebook and operating-system state
 .ipynb_checkpoints/
 .DS_Store
+Thumbs.db
 
-# VASP outputs
+# Local runtime and generated output
+/output/
+/outputs/
+/results/
+/runs/
+/runtime/
+/scratch/
+slurm-*.out
+python.out
+generated_slabs/
+
+# Licensed VASP potentials (keep specification files trackable)
+POTCAR
+POTCAR.*
+!POTCAR.spec
+!POTCAR.spec.example
+
+# Common VASP outputs
 WAVECAR
 CHGCAR
 CHG
@@ -19,7 +70,7 @@ OSZICAR
 PCDAT
 REPORT
 
-# Archives
+# Archives and external working copies
 *.tar.gz
 *.zip
 external/

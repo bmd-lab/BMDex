@@ -1,7 +1,8 @@
 # Cluster
 
-Private infrastructure assets for TAU PowerSLURM. The university controls the
-cluster; BMDex records the current lab working defaults and copyable files.
+Publicly shareable operational guidance for TAU PowerSLURM. The university
+controls the cluster; BMDex records the current lab working defaults and
+copyable files.
 
 These scripts and notes are supporting/manual operational assets. They do not
 define BMD Compute runtime behavior unless BMD Compute explicitly consumes

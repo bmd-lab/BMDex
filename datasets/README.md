@@ -1,6 +1,6 @@
 # Datasets
 
-Curated private scientific assets used by BMDex tools, workflows, and examples.
+Curated scientific assets used by BMDex tools, workflows, and examples.
 
 Each canonical dataset should document its status, provenance, validation,
 limitations, and downstream uses in its own `README.md`. YAML files in this

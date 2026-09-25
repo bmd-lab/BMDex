@@ -1,7 +1,7 @@
 # BMDex Agent Instructions
 
-BMDex is the private computational operations and assets repository of the BMD
-Lab.
+BMDex is the public curated scientific-data, evidence, and supporting-tools
+repository of the BMD Lab.
 
 BMDex's canonical ecosystem role is BMD-curated supporting scientific data,
 reference evidence, and non-core scientific tools outside the BMD Compute VASP
@@ -16,12 +16,12 @@ capabilities without duplicating their authority.
 BMDex complements the public `tutorials` repository:
 - `tutorials` focuses on public educational knowledge, onboarding material, and
   conceptual guidance
-- BMDex focuses on private infrastructure notes and lab-controlled computational
-  assets
+- BMDex focuses on curated scientific reference data, publicly shareable
+  infrastructure notes, and lab-controlled computational assets
 
 Intended access model:
 - public tutorials introduce concepts and basic workflows
-- the private GitHub repository or website is the first curated BMDex entry point
+- the public GitHub repository or website is the first curated BMDex entry point
 - cluster execution uses a normal git checkout or pull of BMDex on the cluster
 - Codex is used from a laptop or workstation checkout for curation, review, and extension
 
@@ -30,7 +30,8 @@ directly runnable or copyable from a cluster-side BMDex checkout.
 
 Student audience assumption:
 - most students are materials scientists, not software engineers
-- many have little or no initial experience with Git, Codex, metadata, schemas, or package design
+- many have little or no initial experience with Git, Codex, metadata, schemas,
+  or package design
 - they are primarily learning Python, VASP, pymatgen, SLURM, and computational materials science
 - student-facing workflows should expose concrete research actions before repository mechanics
 - metadata and ontology should support maintainers underneath, not dominate the first user experience
@@ -41,13 +42,13 @@ Primary focus areas:
 - chemical formula and composition screening
 - reproducible computational materials science
 - HPC workflow support and operational standardization
-- private infrastructure documentation
+- publicly shareable infrastructure documentation
 - reusable computational assets
 
 ## Repository Philosophy
 
 BMDex is intended to function as:
-- a private infrastructure reference for externally managed HPC systems
+- a publicly shareable operational reference for externally managed HPC systems
 - a curated home for lab-controlled computational assets
 - and a long-term operational memory system for the research group
 
@@ -57,11 +58,11 @@ BMD Lab computational information has three broad classes:
 - knowledge: public-facing concepts, explanations, tutorials, and onboarding
   material. This should primarily live in the public `tutorials` repository and
   group tutorial pages.
-- infrastructure: private operational information about university-managed
+- infrastructure: publicly shareable operational information about university-managed
   systems such as SLURM, cluster accounts, modules, partitions, filesystems, and
   VASP execution environments. BMDex may document current practice, but the BMD
   Lab does not control the underlying infrastructure.
-- assets: private lab-controlled tools, codes, scripts, datasets, templates,
+- assets: lab-controlled tools, codes, scripts, datasets, templates,
   examples, reference evidence, non-core workflow aids, and supporting
   standards. These are the parts BMDex owns, adapts, and maintains.
 
@@ -107,7 +108,7 @@ the place students and maintainers will naturally read:
   as element abundance or element-charge tables
 
 Do not recreate top-level `metadata/`, `methods/`, `hpc/`, `examples/`,
-`templates/`, `CONTRIBUTING.md`, `TOOLS.md`, or `repository*` governance
+`templates/`, `TOOLS.md`, or `repository*` governance
 structures unless explicitly asked. Human-facing repository guidance belongs in
 `README.md`; agent-facing guidance belongs in `AGENTS.md`.
 
@@ -134,7 +135,7 @@ BMDex should prioritize:
 - reusable tools
 - reference evidence for validated workflows
 - templates
-- private operational guidance for externally managed infrastructure
+- publicly shareable operational guidance for externally managed infrastructure
 - troubleshooting knowledge
 - supporting computational standards outside the core BMD Compute VASP generation pipeline
 - curated scientific datasets
@@ -144,6 +145,17 @@ BMDex should avoid becoming:
 - a collection of temporary notebooks
 - a storage location for large calculation outputs
 - a purely pedagogical tutorial repository
+
+## Public Repository Safety
+
+BMDex content must be appropriate for public access. Do not commit credentials,
+deployment secrets, private keys, personal records, unpublished research or
+collaborator material without publication approval, proprietary datasets
+without redistribution permission, or licensed VASP `POTCAR`/PAW potential
+contents. Use repository-safe `POTCAR.spec` files for potential names.
+
+If a credential is committed, report it immediately for revocation and exposure
+handling; deleting it in a later commit is not sufficient.
 
 ## Newcomer Guidance
 
