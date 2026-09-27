@@ -8,10 +8,13 @@ checked for each workflow.
 
 Status:
 
-- `INCAR.relax`: validated conservative structural relaxation starting point
-- `INCAR.static`: validated fixed-geometry static-calculation starting point
+- `INCAR.relax`: conservative structural relaxation starting point
+- `INCAR.static`: fixed-geometry static-calculation starting point
 - `KPOINTS.example`: minimal automatic mesh example for adaptation
 - `POTCAR.spec.example`: repository-safe pseudopotential specification example
+
+No BMDex validation evidence record currently covers these INCAR files.
+Validation evidence records live under `../evidence/`.
 
 ## Reusable Inputs
 
@@ -48,8 +51,8 @@ settings.
 
 ## `INCAR.static`
 
-Typical use cases include final energy calculations, density of states,
-charge-density generation, and post-relaxation analysis.
+Typical use cases include final energy calculations, density of states, and
+post-relaxation analysis.
 
 Important defaults:
 
@@ -58,7 +61,13 @@ IBRION = -1
 NSW = 0
 EDIFF = 1E-6
 ISMEAR = -5
+LWAVE = .FALSE.
+LCHARG = .FALSE.
 ```
+
+With `LCHARG = .FALSE.` and `LWAVE = .FALSE.`, this template does not write
+`CHGCAR` or `WAVECAR`. Set `LCHARG = .TRUE.` when a follow-on step needs the
+charge density.
 
 Static calculations should generally be performed on properly relaxed
 geometries. Production workflows should validate k-point density, `ENCUT`, and
