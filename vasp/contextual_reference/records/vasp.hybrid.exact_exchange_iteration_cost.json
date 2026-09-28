@@ -61,8 +61,7 @@
       }
     ],
     "relevant_observed_patterns": [
-      "initial_DAV_steps_followed_by_large_walltime_increase",
-      "four_initial_DAV_iterations_then_long_next_step_when_effective_NELMDL_minus5"
+      "first_electronic_cycle_incomplete_after_only_dav_iterations"
     ],
     "not_applicable_to": [
       "semilocal_dft_without_hf_exchange",
@@ -136,7 +135,7 @@
   ],
   "record_provenance": {
     "curated_by": "BMDex",
-    "record_version": 1,
+    "record_version": 2,
     "created_on": "2026-09-16",
     "last_reviewed_on": "2026-09-16",
     "review_basis": "First-party VASP Wiki documentation and VASP Forum moderator response.",

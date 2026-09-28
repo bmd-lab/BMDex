@@ -82,9 +82,9 @@ class DomainContextQueryTests(unittest.TestCase):
         self.assertIn("hybrid_functional", applicability["calculation_families"])
         self.assertIn("HSE06", applicability["functional_examples"])
         self.assertIn("Damped", applicability["electronic_algorithms"])
-        self.assertIn(
-            "initial_DAV_steps_followed_by_large_walltime_increase",
+        self.assertEqual(
             applicability["relevant_observed_patterns"],
+            ["first_electronic_cycle_incomplete_after_only_dav_iterations"],
         )
 
     def test_matching_returns_record_for_vasp_hse06_damped_context(self):
@@ -96,7 +96,7 @@ class DomainContextQueryTests(unittest.TestCase):
                 "electronic_algorithm": "Damped",
                 "topic": "electronic_iteration_behavior",
                 "observed_patterns": [
-                    "initial_DAV_steps_followed_by_large_walltime_increase"
+                    "first_electronic_cycle_incomplete_after_only_dav_iterations"
                 ],
             }
         )

@@ -36,6 +36,15 @@ CONTRACT_COMMAND = "python -B -m tools.domain_context.query"
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 RECORD_ROOT = REPO_ROOT / "vasp" / "contextual_reference" / "records"
+# BMDex owns the observed-pattern vocabulary. Records may list only these
+# identifiers in applicability.relevant_observed_patterns, and queries may send
+# only these identifiers as observed_patterns; anything else is rejected rather
+# than silently failing to match.
+OBSERVED_PATTERN_VOCABULARY_PATH = (
+    REPO_ROOT / "vasp" / "contextual_reference" / "observed_patterns.json"
+)
+OBSERVED_PATTERN_VOCABULARY_ID = "bmdex.contextual_reference.observed_patterns"
+SUPPORTED_OBSERVED_PATTERN_VOCABULARY_VERSIONS = frozenset({1})
 
 SUPPORTED_RECORD_SCHEMA_VERSIONS = frozenset({1})
 RECORD_STATUSES = frozenset({"active", "deprecated", "retired"})
@@ -271,6 +280,17 @@ def validate_query(query: dict[str, Any]) -> None:
                 f"Query field '{key}' must be a string or a list of strings.",
             )
 
+    observed_patterns = query.get("observed_patterns")
+    if observed_patterns:
+        values = [observed_patterns] if isinstance(observed_patterns, str) else list(observed_patterns)
+        unknown = _unknown_observed_patterns(values, load_observed_pattern_vocabulary())
+        if unknown:
+            raise ContractError(
+                "invalid_query",
+                "Query field 'observed_patterns' contains identifier(s) not in the BMDex "
+                f"observed-pattern vocabulary: {', '.join(brief(value) for value in unknown)}",
+            )
+
     input_tags = query.get("input_tags")
     if input_tags is not None:
         if not isinstance(input_tags, dict):
@@ -293,6 +313,66 @@ def validate_query(query: dict[str, Any]) -> None:
             "invalid_query",
             "Query fields 'code' and 'domain' are aliases and must not disagree.",
         )
+
+
+def load_observed_pattern_vocabulary() -> frozenset[str]:
+    """Return the BMDex-defined observed-pattern identifiers.
+
+    The vocabulary is part of the producer contract, so a malformed vocabulary
+    fails the query as a store error instead of weakening validation.
+    """
+
+    path = OBSERVED_PATTERN_VOCABULARY_PATH
+    try:
+        label = repo_relative(path)
+    except ValueError:
+        label = path.name
+    try:
+        vocabulary = loads_strict_json(path.read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        raise ContractError("record_store_error", f"Observed-pattern vocabulary not found: {label}") from exc
+    except (json.JSONDecodeError, NonFiniteNumberError, UnicodeDecodeError) as exc:
+        raise ContractError("record_store_error", f"Observed-pattern vocabulary is not valid JSON: {label}") from exc
+
+    if not isinstance(vocabulary, dict):
+        raise ContractError("record_store_error", f"Observed-pattern vocabulary must be an object: {label}")
+    version = vocabulary.get("schema_version")
+    if not is_strict_int(version) or version not in SUPPORTED_OBSERVED_PATTERN_VOCABULARY_VERSIONS:
+        raise ContractError(
+            "record_store_error",
+            f"Unsupported observed-pattern vocabulary schema_version {brief(version)}: {label}",
+        )
+    if vocabulary.get("vocabulary") != OBSERVED_PATTERN_VOCABULARY_ID:
+        raise ContractError("record_store_error", f"Unexpected observed-pattern vocabulary id: {label}")
+
+    patterns = vocabulary.get("patterns")
+    if not isinstance(patterns, list) or not patterns:
+        raise ContractError("record_store_error", f"Observed-pattern vocabulary has no patterns: {label}")
+
+    identifiers: set[str] = set()
+    for index, entry in enumerate(patterns):
+        if not isinstance(entry, dict) or not is_text(entry.get("id")) or not is_text(entry.get("definition")):
+            raise ContractError(
+                "record_store_error",
+                f"Observed pattern {index} must have non-empty 'id' and 'definition' strings: {label}",
+            )
+        identifier = entry["id"]
+        if normalize(identifier) != identifier:
+            raise ContractError(
+                "record_store_error",
+                f"Observed pattern id {brief(identifier)} is not a canonical lower_snake_case identifier: {label}",
+            )
+        if identifier in identifiers:
+            raise ContractError(
+                "record_store_error",
+                f"Duplicate observed pattern id {brief(identifier)}: {label}",
+            )
+        identifiers.add(identifier)
+    return frozenset(identifiers)
+
+
+def _unknown_observed_patterns(values: list[str], vocabulary: frozenset[str]) -> list[str]:
+    return [value for value in values if value not in vocabulary]
 
 
 def load_records() -> list[dict[str, Any]]:
@@ -416,6 +496,21 @@ def validate_record(record: Any, path: Path | None = None) -> None:
     _require_text_list(record, "topics", label)
     _require_text_list(record, "limitations", label)
 
+    if "relevant_observed_patterns" in record["applicability"]:
+        patterns = record["applicability"]["relevant_observed_patterns"]
+        if not isinstance(patterns, list) or not patterns or not all(is_text(item) for item in patterns):
+            raise _record_error(
+                label,
+                "Field 'applicability.relevant_observed_patterns' must be a non-empty list of strings",
+            )
+        unknown = _unknown_observed_patterns(patterns, load_observed_pattern_vocabulary())
+        if unknown:
+            raise _record_error(
+                label,
+                "Field 'applicability.relevant_observed_patterns' uses identifier(s) not in the "
+                f"BMDex observed-pattern vocabulary: {', '.join(brief(value) for value in unknown)}",
+            )
+
     if "shorthand_correction" in record:
         shorthand = record["shorthand_correction"]
         if not isinstance(shorthand, dict) or not all(
@@ -496,9 +591,19 @@ def match_record(record: dict[str, Any], query: dict[str, Any]) -> dict[str, Any
         matched_fields.append("topic")
         substantive_match = True
 
-    query_patterns = normalize_many(query.get("observed_patterns"))
-    record_patterns = normalize_many(applicability.get("relevant_observed_patterns", []))
-    if query_patterns and query_patterns & record_patterns:
+    # Observed patterns are vocabulary identifiers compared exactly. They are
+    # additional evidence: a record can still match on its calculation and
+    # input fields, and matched_observed_patterns reports whether trajectory
+    # observations contributed to this match.
+    query_patterns = query.get("observed_patterns") or []
+    if isinstance(query_patterns, str):
+        query_patterns = [query_patterns]
+    matched_observed_patterns = [
+        pattern
+        for pattern in applicability.get("relevant_observed_patterns", [])
+        if pattern in set(query_patterns)
+    ]
+    if matched_observed_patterns:
         matched_fields.append("observed_patterns")
         substantive_match = True
 
@@ -516,6 +621,7 @@ def match_record(record: dict[str, Any], query: dict[str, Any]) -> dict[str, Any
         "record": public_record(record),
         "match": {
             "matched_fields": matched_fields,
+            "matched_observed_patterns": matched_observed_patterns,
             "match_type": "deterministic_structured_field_overlap",
         },
     }
