@@ -472,11 +472,137 @@ class ValidQueryOutputContractTests(unittest.TestCase):
                             "electronic_algorithm",
                             "topic",
                         ],
+                        "matched_observed_patterns": [],
                         "match_type": "deterministic_structured_field_overlap",
                     },
                 }
             ],
         )
+
+
+PATTERN_ID = "first_electronic_cycle_incomplete_after_only_dav_iterations"
+RETIRED_RECORD_PATTERNS = (
+    "initial_DAV_steps_followed_by_large_walltime_increase",
+    "four_initial_DAV_iterations_then_long_next_step_when_effective_NELMDL_minus5",
+)
+# Pattern strings emitted by BMD Agent before the vocabulary existed.
+LEGACY_AGENT_PATTERNS = (
+    "incomplete_first_electronic_cycle",
+    "initial_DAV_iterations_observed",
+    "4_initial_DAV_iterations_observed",
+)
+
+
+class ObservedPatternVocabularyTests(unittest.TestCase):
+    """The observed-pattern vocabulary is a BMDex-owned, enforced contract."""
+
+    def assert_query_rejected(self, query):
+        with self.assertRaises(domain_query.ContractError) as error:
+            domain_query.parse_request(json.dumps({"query": query}))
+        self.assertEqual(error.exception.code, "invalid_query")
+        return error.exception
+
+    def test_committed_vocabulary_defines_the_record_pattern(self):
+        vocabulary = domain_query.load_observed_pattern_vocabulary()
+        self.assertIn(PATTERN_ID, vocabulary)
+        record = load_valid_record()
+        for pattern in record["applicability"]["relevant_observed_patterns"]:
+            self.assertIn(pattern, vocabulary)
+
+    def test_unknown_query_patterns_are_rejected_not_silently_unmatched(self):
+        for pattern in (*LEGACY_AGENT_PATTERNS, *RETIRED_RECORD_PATTERNS, "made_up"):
+            with self.subTest(pattern=pattern):
+                error = self.assert_query_rejected({"code": "VASP", "observed_patterns": [pattern]})
+                self.assertIn("observed-pattern vocabulary", error.message)
+
+    def test_pattern_identifiers_are_exact_not_normalized(self):
+        for pattern in (PATTERN_ID.upper(), PATTERN_ID.replace("_", "-"), f" {PATTERN_ID} "):
+            with self.subTest(pattern=pattern):
+                self.assert_query_rejected({"code": "VASP", "observed_patterns": pattern})
+
+    def test_record_patterns_must_come_from_vocabulary(self):
+        for patterns in ([RETIRED_RECORD_PATTERNS[0]], [PATTERN_ID, "made_up"], [], "not-a-list", [1]):
+            with self.subTest(patterns=patterns):
+                record = load_valid_record()
+                record["applicability"]["relevant_observed_patterns"] = patterns
+                with self.assertRaises(domain_query.ContractError) as error:
+                    domain_query.validate_record(record, RECORD_PATH)
+                self.assertEqual(error.exception.code, "record_validation_error")
+
+    def test_malformed_vocabulary_is_a_store_error(self):
+        valid = json.loads(domain_query.OBSERVED_PATTERN_VOCABULARY_PATH.read_text(encoding="utf-8"))
+        duplicate = copy.deepcopy(valid)
+        duplicate["patterns"].append(copy.deepcopy(valid["patterns"][0]))
+        non_canonical = copy.deepcopy(valid)
+        non_canonical["patterns"][0]["id"] = "Not-Canonical"
+        cases = {
+            "not json": "{",
+            "wrong version": {**valid, "schema_version": 2},
+            "wrong id": {**valid, "vocabulary": "other"},
+            "no patterns": {**valid, "patterns": []},
+            "missing definition": {**valid, "patterns": [{"id": PATTERN_ID}]},
+            "duplicate": duplicate,
+            "non canonical": non_canonical,
+        }
+        for name, content in cases.items():
+            with self.subTest(case=name):
+                root = Path(tempfile.mkdtemp(prefix="bmdex-vocabulary-"))
+                try:
+                    path = root / "observed_patterns.json"
+                    path.write_text(
+                        content if isinstance(content, str) else json.dumps(content),
+                        encoding="utf-8",
+                    )
+                    with patch.object(domain_query, "OBSERVED_PATTERN_VOCABULARY_PATH", path):
+                        with self.assertRaises(domain_query.ContractError) as error:
+                            domain_query.load_observed_pattern_vocabulary()
+                    self.assertEqual(error.exception.code, "record_store_error")
+                finally:
+                    shutil.rmtree(root, ignore_errors=True)
+
+
+class ObservedPatternMatchingTests(unittest.TestCase):
+    """Trajectory patterns are additional, explicitly reported match evidence."""
+
+    # The conceptual case of BMD Agent job 22351669: an HSE06 calculation whose
+    # first electronic cycle shows four initial DAV iterations and then no
+    # further iteration while exact-exchange work begins.
+    HSE_INITIAL_DAV_QUERY = {
+        "code": "VASP",
+        "calculation_family": "hybrid_functional",
+        "functional": "hse06",
+        "electronic_algorithm": "Damped",
+        "topic": "electronic_iteration_behavior",
+        "observed_patterns": [PATTERN_ID],
+        "input_tags": {"LHFCALC": True, "HFSCREEN": 0.2, "AEXX": 0.25, "ALGO": "Damped"},
+    }
+
+    def query(self, query):
+        with patch.object(domain_query, "producer_provenance", lambda: dict(STUB_PROVENANCE)):
+            return domain_query.query_records(domain_query.parse_request(json.dumps({"query": query})))
+
+    def only_match(self, payload):
+        self.assertEqual(payload["result_count"], 1)
+        match = payload["records"][0]
+        self.assertEqual(match["record"]["id"], RECORD_ID)
+        return match["match"]
+
+    def test_hse_initial_dav_case_reports_the_trajectory_pattern_match(self):
+        match = self.only_match(self.query(self.HSE_INITIAL_DAV_QUERY))
+        self.assertIn("observed_patterns", match["matched_fields"])
+        self.assertEqual(match["matched_observed_patterns"], [PATTERN_ID])
+
+    def test_pattern_alone_is_sufficient_and_reported(self):
+        match = self.only_match(self.query({"code": "VASP", "observed_patterns": [PATTERN_ID]}))
+        self.assertEqual(match["matched_fields"], ["code", "observed_patterns"])
+        self.assertEqual(match["matched_observed_patterns"], [PATTERN_ID])
+
+    def test_without_pattern_the_record_still_matches_but_says_trajectory_did_not_contribute(self):
+        query = dict(self.HSE_INITIAL_DAV_QUERY)
+        del query["observed_patterns"]
+        match = self.only_match(self.query(query))
+        self.assertNotIn("observed_patterns", match["matched_fields"])
+        self.assertEqual(match["matched_observed_patterns"], [])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "vocabulary": "bmdex.contextual_reference.observed_patterns",
+  "description": "BMDex-owned identifiers for run observations that contextual-reference records may list in applicability.relevant_observed_patterns and that consumers may send as query observed_patterns. Each identifier names an observation, not a diagnosis.",
+  "patterns": [
+    {
+      "id": "first_electronic_cycle_incomplete_after_only_dav_iterations",
+      "definition": "No ionic step has completed, the first electronic cycle has not finished, and every electronic iteration written for that cycle so far is labelled DAV in OSZICAR. Report it only when every written iteration of that cycle was observed.",
+      "limitations": [
+        "It describes only what has been written. It does not measure how long the next electronic step took or establish why no further iteration was written.",
+        "With ALGO = Normal, VASP labels every iteration DAV, so this observation does not by itself locate a transition from initial delay steps to exact-exchange work."
+      ]
+    }
+  ]
+}

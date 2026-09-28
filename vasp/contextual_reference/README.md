@@ -12,3 +12,8 @@ pipeline.
 Records in `records/` are structured JSON documents intended for deterministic
 read-only retrieval by BMDex tools. They are not VASP calculation outputs, and
 they should not encode remediation policies or BMD Compute runtime behavior.
+
+`observed_patterns.json` is the BMDex-owned vocabulary of observation
+identifiers that records may cite in `applicability.relevant_observed_patterns`.
+See `tools/domain_context/README.md` for how the producer validates and
+matches them.
